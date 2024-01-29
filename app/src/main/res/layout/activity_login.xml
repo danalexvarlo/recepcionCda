@@ -5,8 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.activities.LoginActivity">
+    tools:context=".view.ui.activities.LoginActivity"
+    android:background="@color/color_white">
 
+    <!-- IMAGEN PRINCIPAL DEL LOGIN -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="250dp"
@@ -17,8 +19,11 @@
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="420dp"
         tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="80dp" />
+        tools:layout_editor_absoluteY="80dp"
+        android:background="@drawable/stylo_borde_imagen"
+        />
 
+    <!-- CONTENEDOR DE LOS TEXT VIEWS PARA USUARIO Y CONTRASEÑA -->
     <RelativeLayout
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -55,6 +60,7 @@
             />
     </RelativeLayout>
 
+    <!-- BOTÓN PARA INGRESAR LOS DATOS DEL RECEPCIONISTA -->
     <Button
         android:id="@+id/botonIngresar"
         android:layout_width="200dp"

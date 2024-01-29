@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".view.ui.fragments.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:background="@drawable/theme_gradients_background">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src = "@mipmap/ic_launcher_round"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/stylo_borde_imagen"
+                />
+        </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp">
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:rowCount="5"
+                android:alignmentMode="alignMargins"
+                android:columnOrderPreserved="false">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="5dp">
+                    <TextView
+                        android:id="@+id/cardIngresar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ingresar vehículo"
+                        android:textSize="30dp"
+                        android:textAlignment="center"
+                        android:background="@color/color_orange">
+                    </TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="5dp"
+                    android:background="@color/color_orange">
+                    <TextView
+                        android:id="@+id/cardBuscarconductor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Buscar conductor"
+                        android:textSize="30dp"
+                        android:textAlignment="center"
+                        android:background="@color/color_orange">
+                    </TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="5dp"
+                    android:background="@color/color_orange">
+                    <TextView
+                        android:id="@+id/cardBuscarvehiculo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Buscar vehículo"
+                        android:textSize="30dp"
+                        android:textAlignment="center"
+                        android:background="@color/color_orange">
+                    </TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="5dp"
+                    android:background="@color/color_orange">
+                    <TextView
+                        android:id="@+id/cardIngresosactivos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ingresos activos"
+                        android:textSize="30dp"
+                        android:textAlignment="center"
+                        android:background="@color/color_orange">
+                    </TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="5dp"
+                    android:background="@color/color_orange">
+                    <TextView
+                        android:id="@+id/cardIngresosdia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ingresos por día"
+                        android:textSize="30dp"
+                        android:textAlignment="center"
+                        android:background="@color/color_orange">
+                    </TextView>
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
