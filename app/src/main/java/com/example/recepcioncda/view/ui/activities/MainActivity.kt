@@ -19,7 +19,11 @@ class MainActivity : AppCompatActivity() {
         binding.animationView.setAnimation(R.raw.caranimation)
         binding.animationView.playAnimation()
         
-        handler = Handler(Looper.myLooper()!!)
+        android.os.Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 3000)
 
 
     }
