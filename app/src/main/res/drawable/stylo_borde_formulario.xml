@@ -6,4 +6,15 @@
         android:width = "2sp"
         android:color="@color/color_orange">
     </stroke>
+
+    <padding
+        android:bottom="10sp"
+        android:left="10sp"
+        android:right="10sp"
+        android:top="10sp">
+    </padding>
+
+    <corners
+        android:radius="10dp">
+    </corners>
 </shape>

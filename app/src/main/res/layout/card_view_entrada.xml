@@ -15,15 +15,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
-        <TextView
-            android:id="@+id/entradaCardView"
+        <RelativeLayout
+            android:id="@+id/entradaRelativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Entrada:"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/color_black">
-        </TextView>
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/entradaCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Entrada:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_black"></TextView>
+            <RadioButton
+                android:id="@+id/primeraVez"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Primera vez"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="0dp"/>
+            <RadioButton
+                android:id="@+id/segundaVez"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Segunda vez"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="0dp"/>
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/datosConductorCard"
             android:layout_width="match_parent"
@@ -32,32 +52,137 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/color_black"
-            android:layout_below="@+id/entradaCardView">
+            android:layout_below="@+id/entradaRelativeLayout">
         </TextView>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/datosConductorCard">
+
+<!-- SE CREA UN EDIT TEXT PARA INGRESAR EL NOMBRE DEL CONDUCTOR -->
             <TextView
                 android:id="@+id/nombreConductorCard"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="400dp"
                 android:text="Nombre"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
+            <EditText
+                android:id="@+id/editNombreConductor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="-400dp"
+                android:layout_toEndOf="@+id/nombreConductorCard"
+                android:background="@drawable/stylo_borde_login"
+                android:hint="Ingrese nombre"
+                android:textAlignment="center"></EditText>
+
+<!-- SE CREA UN EDIT TEXT PARA INGRESAR EL TIPO DE DOCUMENTO DEL CONDUCTOR -->
+            <TextView
+                android:id="@+id/tipoDocumentoConductor"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Tipo documento"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_marginStart="180dp"
-                android:layout_marginEnd="400dp">
-            </TextView>
-            <TextView
+                android:layout_marginEnd="410dp"
+                android:layout_below="@+id/nombreConductorCard"></TextView>
+            <EditText
+                android:id="@+id/editTipodoctConductor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/stylo_borde_login"
+                android:hint="Ingrese tipo documento"
+                android:textAlignment="center"></EditText>
+
+<!-- SE CREA UN EDIT TEXT PARA INGRESAR EL DOCUMENTO DEL CONDUCTOR -->
+            <TextView
+                android:id="@+id/documentoConductor"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:text="Documento"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_marginStart="180dp"
                 android:layout_marginEnd="400dp"
-                android:layout_below="@+id/nombreConductorCard">
-            </TextView>
+                android:layout_below="@+id/tipoDocumentoConductor"></TextView>
+            <EditText
+                android:id="@+id/editDocumentoConductor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/stylo_borde_login"
+                android:hint="Ingrese documento"
+                android:textAlignment="center"></EditText>
+
+<!-- SE CREA UN EDIT TEXT PARA INGRESAR LA DIRECCION DEL CONDUCTOR -->
+            <TextView
+                android:id="@+id/direccionConductor"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Dirección"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="400dp"
+                android:layout_below="@+id/documentoConductor"></TextView>
+            <EditText
+                android:id="@+id/editDireccionConductor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="180dp"
+                android:background="@drawable/stylo_borde_login"
+                android:hint="Ingrese dirección"
+                android:textAlignment="center"></EditText>
+
+<!-- SE CREA UN EDIT TEXT PARA INGRESAR EL TELÉFONO DEL CONDUCTOR -->
+            <TextView
+                android:id="@+id/telefonoConductor"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Teléfono"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="400dp"
+                android:layout_below="@+id/direccionConductor"></TextView>
+            <EditText
+                android:id="@+id/editTelefonoConductor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="240dp"
+                android:background="@drawable/stylo_borde_login"
+                android:hint="Ingrese teléfono"
+                android:textAlignment="center"></EditText>
+
+<!-- SE CREA UN EDIT TEXT PARA INGRESAR EL CORREO DEL CONDUCTOR -->
+            <TextView
+                android:id="@+id/correoConductor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correo electrónico"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="390dp"
+                android:layout_below="@+id/telefonoConductor"></TextView>
+            <EditText
+                android:id="@+id/editCorreoConductor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="300dp"
+                android:background="@drawable/stylo_borde_login"
+                android:hint="Ingrese correo"
+                android:textAlignment="center"></EditText>
         </RelativeLayout>
     </RelativeLayout>
 
