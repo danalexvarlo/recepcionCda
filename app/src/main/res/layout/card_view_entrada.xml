@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardEntrada"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardBackgroundColor="@color/color_white"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    app:contentPadding="4dp">
+    <RelativeLayout
+        android:id="@+id/entradaLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/entradaCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entrada:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_black">
+        </TextView>
+        <TextView
+            android:id="@+id/datosConductorCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos del conductor"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_black"
+            android:layout_below="@+id/entradaCardView">
+        </TextView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/datosConductorCard">
+            <TextView
+                android:id="@+id/nombreConductorCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="400dp">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Documento"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="400dp"
+                android:layout_below="@+id/nombreConductorCard">
+            </TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

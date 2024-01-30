@@ -14,7 +14,7 @@
             android:id="@+id/toolbar_formulario"
             layout="@layout/toolbar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintStart_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
         </include>
 
         <RelativeLayout
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="70dp"
-                android:layout_marginEnd="200dp"
+                android:layout_marginEnd="580dp"
                 android:layout_marginBottom="10dp"
                 android:text="Recepcionista:"
                 android:textColor="@color/color_black"
@@ -36,7 +36,8 @@
             </TextView>
 
             <TextView
-                android:layout_width="260dp"
+                android:id="@+id/nombreRecepcionista"
+                android:layout_width="630dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="70dp"
@@ -48,7 +49,7 @@
             </TextView>
         </RelativeLayout>
 
-        
+
     </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
