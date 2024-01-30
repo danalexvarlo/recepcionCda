@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.fragments.formulario">
+
+    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/toolbar_formulario"
+            layout="@layout/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toTopOf="parent">
+        </include>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stylo_borde_formulario">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginBottom="10dp"
+                android:text="Recepcionista:"
+                android:textColor="@color/color_black"
+                android:textSize="20dp"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/color_black"
+                android:textSize="20dp"
+                android:textStyle="bold">
+            </TextView>
+        </RelativeLayout>
+
+        
+    </FrameLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        app:menu="@menu/menu_navigation_bar"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true">
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

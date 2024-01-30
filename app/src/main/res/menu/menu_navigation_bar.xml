@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Menú Principal"
+        android:id="@+id/homeBar"
+        android:icon="@drawable/iconohome">
+    </item>
+
+    <item
+        android:title="Perfil de recepcionista"
+        android:id="@+id/recepcionistBar"
+        android:icon="@drawable/iconohome">
+    </item>
+
+    <item
+        android:title="Ingresos Activos"
+        android:id="@+id/activeBar"
+        android:icon="@drawable/iconohome">
+    </item>
+
+    <item
+        android:title="Ingresos del día"
+        android:id="@+id/incomeBar"
+        android:icon="@drawable/iconohome">
+    </item>
+
+</menu>
