@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.fragment.findNavController
 import com.example.recepcioncda.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -52,6 +54,16 @@ class HomeFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val cardIngresar = view.findViewById<TextView>(R.id.cardIngresar)
+        cardIngresar.setOnClickListener()
+        {
+            findNavController().navigate(R.id.action_homeFragment_to_formularioFragment)
+        }
     }
 
 

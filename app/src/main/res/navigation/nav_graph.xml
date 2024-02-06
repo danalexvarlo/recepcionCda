@@ -10,5 +10,9 @@
         android:id="@+id/homeFragment"
         android:name="com.example.recepcioncda.view.ui.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_formularioFragment"
+            app:destination="@+id/formulario_fragment"/>
+    </fragment>
 </navigation>
