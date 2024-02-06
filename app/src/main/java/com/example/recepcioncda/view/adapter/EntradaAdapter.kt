@@ -1,15 +1,16 @@
 package com.example.recepcioncda.view.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recepcioncda.R
 
-class EntradaAdapter: RecyclerView.Adapter<EntradaAdapter.ViewHolder>() {
-
+class EntradaAdapter: RecyclerView.Adapter<EntradaAdapter.ViewHolder>()
+{
+    lateinit var nombre : EditText
     override fun onCreateViewHolder(ViewGroup: ViewGroup, i: Int): ViewHolder {
-        TODO("Not yet implemented")
         val v = LayoutInflater.from(ViewGroup.context).inflate(R.layout.card_view_entrada,
             ViewGroup, false)
         return ViewHolder(v)
@@ -34,11 +35,18 @@ class EntradaAdapter: RecyclerView.Adapter<EntradaAdapter.ViewHolder>() {
         }
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(viewHolder: ViewHolder, i: Int)
+    {
+        viewHolder.itemNombre.editableText
+        viewHolder.itemTipodocumento.editableText
+        viewHolder.itemDocumento.editableText
+        viewHolder.itemDireccion.editableText
+        viewHolder.itemTelefono.editableText
+        viewHolder.itemCorreo.editableText
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+    override fun getItemCount(): Int
+    {
+        return editNombreConductor.size
     }
 }
