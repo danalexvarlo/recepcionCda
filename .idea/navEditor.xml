@@ -8,6 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="formulario">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="88" />
+                            <option name="y" value="7" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
@@ -16,6 +28,15 @@
                             <option name="x" value="-266" />
                             <option name="y" value="10" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_homeFragment_to_formularioFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

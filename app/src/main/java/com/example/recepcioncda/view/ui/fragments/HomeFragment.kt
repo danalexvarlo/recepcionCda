@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
         val cardIngresar = view.findViewById<TextView>(R.id.cardIngresar)
         cardIngresar.setOnClickListener()
         {
-            findNavController().navigate(R.id.action_homeFragment_to_formularioFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_formulario)
         }
     }
 

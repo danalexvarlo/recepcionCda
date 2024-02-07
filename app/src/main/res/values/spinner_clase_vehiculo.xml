@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="clases_vehiculo">
+        <item>Automóvil</item>
+        <item>Camioneta</item>
+        <item>Campero</item>
+        <item>Microbús</item>
+        <item>Motocarro</item>
+        <item>Motocicleta</item>
+    </string-array>
+</resources>

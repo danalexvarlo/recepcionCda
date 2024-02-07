@@ -12,7 +12,12 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_formularioFragment"
-            app:destination="@+id/formulario_fragment"/>
+            android:id="@+id/action_homeFragment_to_formulario"
+            app:destination="@id/formulario" />
     </fragment>
+    <fragment
+        android:id="@+id/formulario"
+        android:name="com.example.recepcioncda.view.ui.fragments.FormularioFragment"
+        android:label="fragment_formulario"
+        tools:layout="@layout/fragment_formulario" />
 </navigation>
