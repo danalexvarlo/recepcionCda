@@ -52,7 +52,7 @@
         </RelativeLayout>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1080dp"
             android:layout_marginTop="130dp">
             <GridLayout
                 android:layout_width="match_parent"
@@ -411,8 +411,242 @@
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
+                <!-- CardView datos de tipo de combustible -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/tipoCombustibleLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/tipoCombustibleTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo de combustible"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_black">
+                        </TextView>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tipoCombustibleTitle">
+
+                            <!-- SE CREA UN SPINNER PARA INGRESAR LA CLASE DEL VEHICULO -->
+                            <TextView
+                                android:id="@+id/tipoCombustible"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tipo de combustible"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="420dp">
+                            </TextView>
+                            <Spinner
+                                android:id="@+id/spinnerTipoCombustible"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="330dp"
+                                android:layout_row="3"
+                                android:layout_column="1" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- CardView datos de tipo de servicio -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/tipoServicioLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/tipoServicioTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo de servicio"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_black">
+                        </TextView>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tipoServicioTitle">
+
+                            <!-- SE CREA UN SPINNER PARA INGRESAR LA CLASE DEL VEHICULO -->
+                            <TextView
+                                android:id="@+id/tipoServicio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tipo de servicio"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="420dp">
+                            </TextView>
+                            <Spinner
+                                android:id="@+id/spinnerTipoServicio"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="330dp"
+                                android:layout_row="6"
+                                android:layout_column="1" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- CardView datos de otros datos -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/otrosDatosLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/otrosDatosTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Otros datos"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_black">
+                        </TextView>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/otrosDatosTitle">
+
+                            <!-- SE CREA DOS RINGBUTTON PARA SELECCIONAR BLINDAJE -->
+                            <TextView
+                                android:id="@+id/blindadoTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Blindado"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="150dp"
+                                android:layout_marginEnd="320dp"
+                                android:layout_marginTop="10dp">
+                            </TextView>
+                            <RadioButton
+                                android:id="@+id/siBlindado"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sí"
+                                android:layout_marginStart="260dp"
+                                android:layout_marginEnd="250dp"/>
+                            <RadioButton
+                                android:id="@+id/noBlindado"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:layout_marginLeft="320dp"
+                                android:layout_marginTop="0dp"/>
+                            <!-- IINGRESO DE POTENCIA DEL VEHICULO -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/potenciaTitle"
+                                android:layout_below="@+id/siBlindado"
+                                android:text="Potencia (HP)"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="150dp"
+                                android:layout_marginTop="10dp">
+                            </TextView>
+                            <EditText
+                                android:id="@+id/editPotenciaVehiculo"
+                                android:layout_width="400dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese la potencia"
+                                android:textAlignment="center"
+                                android:layout_marginStart="-400dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@+id/siBlindado"
+                                android:layout_toRightOf="@+id/potenciaTitle">
+                            </EditText>
+                            <!-- INGRESO DE NÚMERO DE PASAJEROS DEL VEHICULO -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="No. de pasajeros"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:layout_below="@+id/editPotenciaVehiculo"
+                                android:layout_marginStart="150dp"
+                                android:layout_marginTop="10dp">
+                            </TextView>
+                            <EditText
+                                android:id="@+id/editNoPasajeros"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese número de pasajeros"
+                                android:textAlignment="center"
+                                android:layout_marginStart="-400dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@+id/editPotenciaVehiculo"
+                                android:layout_toRightOf="@+id/potenciaTitle">
+                            </EditText>
+                            <!-- INGRESO DE NÚMERO DE PASAJEROS DEL VEHICULO -->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tarjeta operacional"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:layout_below="@+id/editNoPasajeros"
+                                android:layout_marginStart="150dp"
+                                android:layout_marginTop="10dp">
+                            </TextView>
+                            <Spinner
+                                android:id="@+id/spinnerTarjetaOperacional"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_below="@+id/editNoPasajeros"
+                                android:background="@drawable/stylo_borde_login"
+                                android:layout_marginStart="330dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_row="5"
+                                android:layout_column="1" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
             </GridLayout>
         </ScrollView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Siguiente"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="1220dp">
+        </Button>
     </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
