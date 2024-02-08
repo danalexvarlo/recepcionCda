@@ -10,6 +10,7 @@
     android:orientation="vertical"
     tools:context=".view.ui.fragments.HomeFragment">
 
+
     <!-- TODO: Update blank fragment layout -->
     <FrameLayout
         android:layout_width="match_parent"
@@ -27,31 +28,26 @@
             >
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="100dp"
                 android:background="@drawable/theme_gradients_background">
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:src = "@mipmap/ic_launcher_round"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="100dp"
-                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="300dp"
+                    android:layout_marginStart="300dp"
                     android:background="@drawable/stylo_borde_imagen"
                     />
             </RelativeLayout>
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="0dp">
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

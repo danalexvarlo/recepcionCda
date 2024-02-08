@@ -4,21 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/formulario_fragment"
+    android:background="@color/color_white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.fragments.FormularioFragment">
-    <include
-        android:id="@+id/toolbar_formulario"
-        layout="@layout/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </include>
-
+    <!-- Header del fragmento -->
     <RelativeLayout
         android:id="@+id/tituloRecepcionista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/stylo_borde_formulario">
+        android:layout_marginTop="0dp">
+        <include
+            android:id="@+id/toolbar_formulario"
+            layout="@layout/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </include>
         <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -51,7 +51,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp">
+            android:layout_marginTop="130dp"
+            android:layout_marginBottom="80dp">
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,9 +132,8 @@
                             <EditText
                                 android:id="@+id/editNombreConductor"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:layout_marginStart="-430dp"
-                                android:layout_toEndOf="@+id/nombreConductorCard"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="330dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese nombre"
                                 android:textAlignment="center">
@@ -153,7 +153,7 @@
                             <EditText
                                 android:id="@+id/editTipodoctConductor"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="60dp"
                                 android:background="@drawable/stylo_borde_login"
@@ -174,7 +174,7 @@
                             <EditText
                                 android:id="@+id/editDocumentoConductor"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="120dp"
                                 android:background="@drawable/stylo_borde_login"
@@ -195,7 +195,7 @@
                             <EditText
                                 android:id="@+id/editDireccionConductor"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="180dp"
                                 android:background="@drawable/stylo_borde_login"
@@ -216,7 +216,7 @@
                             <EditText
                                 android:id="@+id/editTelefonoConductor"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="240dp"
                                 android:background="@drawable/stylo_borde_login"
@@ -237,7 +237,7 @@
                             <EditText
                                 android:id="@+id/editCorreoConductor"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="300dp"
                                 android:background="@drawable/stylo_borde_login"
@@ -1513,25 +1513,22 @@
                 </androidx.cardview.widget.CardView>
             </GridLayout>
         </ScrollView>
-    </FrameLayout>
-    <!-- Botón siguien que enviará la información a la base de datos -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1210dp"
-        android:background="@color/color_white">
-        <Button
-            android:id="@+id/condicionesButton"
+        <!-- Botón siguien que enviará la información a la base de datos -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Siguiente"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="250dp"
-            android:layout_marginEnd="250dp">
-        </Button>
-    </RelativeLayout>
+            android:layout_marginTop="1120dp">
+            <Button
+                android:id="@+id/formatoSiguienteButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stylo_borde_login"
+                android:text="Siguiente"
+                android:textSize="30dp"
+                android:textStyle="bold">
+            </Button>
+        </RelativeLayout>
+    </FrameLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
