@@ -6,53 +6,51 @@
     android:id="@+id/formulario_fragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.fragments.FormularioFragment">
+    <include
+        android:id="@+id/toolbar_formulario"
+        layout="@layout/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </include>
 
-    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:id="@+id/tituloRecepcionista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/stylo_borde_formulario">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="580dp"
+            android:layout_marginBottom="10dp"
+            android:text="Recepcionista:"
+            android:textColor="@color/color_black"
+            android:textSize="20dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/nombreRecepcionista"
+            android:layout_width="630dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/color_black"
+            android:textSize="20dp"
+            android:textStyle="bold">
+        </TextView>
+    </RelativeLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <include
-            android:id="@+id/toolbar_formulario"
-            layout="@layout/toolbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </include>
-
-        <RelativeLayout
-            android:id="@+id/tituloRecepcionista"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/stylo_borde_formulario">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="580dp"
-                android:layout_marginBottom="10dp"
-                android:text="Recepcionista:"
-                android:textColor="@color/color_black"
-                android:textSize="20dp"
-                android:textStyle="bold">
-            </TextView>
-
-            <TextView
-                android:id="@+id/nombreRecepcionista"
-                android:layout_width="630dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/color_black"
-                android:textSize="20dp"
-                android:textStyle="bold">
-            </TextView>
-        </RelativeLayout>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="1080dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="130dp">
             <GridLayout
                 android:layout_width="match_parent"
@@ -637,18 +635,903 @@
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
+                <!-- CARDVIEW PARA LAS PAUTAS DE INGRESO -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/pautasLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/pautasTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pautas de ingreso del vehículo"
+                            android:textSize="30dp"
+                            android:textStyle="bold">
+                        </TextView>
+                        <!-- PRIMERA PAUTA -->
+                        <TextView
+                            android:id="@+id/pautaunoText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vehículo completamente descargado"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_below="@+id/pautasTitle"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautaunoSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginStart="550dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautaunoNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginStart="620dp">
+                        </RadioButton>
+                        <!-- SEGUNDA PAUTA -->
+                        <TextView
+                            android:id="@+id/pautadosText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sin dejar dinero, radio u otros elementos extraibles"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_below="@+id/pautaunoText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautadosSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautaunoSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautadosNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautaunoNoButton">
+                        </RadioButton>
+                        <!-- PAUTA TRES -->
+                        <TextView
+                            android:id="@+id/pautatresText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Alarma desactivada"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_below="@+id/pautadosText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautatresSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautadosSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautatresNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautadosNoButton">
+                        </RadioButton>
+                        <!-- PAUTA CUATRO -->
+                        <TextView
+                            android:id="@+id/pautacuatroText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="En buen estado de limpieza"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_below="@+id/pautatresText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautacuatroSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautatresSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautacuatroNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautatresNoButton">
+                        </RadioButton>
+                        <!-- PAUTA CINCO -->
+                        <TextView
+                            android:id="@+id/pautacincoText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sin tapacubos o copas plásticas"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_below="@+id/pautacuatroText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautacincoSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautacuatroSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautacincoNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautacuatroNoButton">
+                        </RadioButton>
+                        <!-- PAUTA SEIS -->
+                        <TextView
+                            android:id="@+id/pautaseisText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Enciende alguna luz del vehículo"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_below="@+id/pautacincoText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautaseisSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautacincoSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautaseisNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautacincoNoButton">
+                        </RadioButton>
+                        <!-- PAUTA SIETE -->
+                        <TextView
+                            android:id="@+id/pautasieteText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Confrontación de los datos con el RUNT"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_below="@+id/pautaseisText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautasieteSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautaseisSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautasieteNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautaseisNoButton">
+                        </RadioButton>
+                        <!-- PAUTA OCHO -->
+                        <TextView
+                            android:id="@+id/pautaochoText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Verificación del número de chásis(si es de fácil acceso)"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautasieteText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautaochoSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautasieteSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautaochoNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautasieteNoButton">
+                        </RadioButton>
+                        <!-- PAUTA NUEVE -->
+                        <TextView
+                            android:id="@+id/pautanueveText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Llanta de repuesto sin protector y que permita el acceso"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautaochoText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautanueveSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautaochoSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautanueveNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautaochoNoButton">
+                        </RadioButton>
+                        <!-- PAUTA DIEZ -->
+                        <TextView
+                            android:id="@+id/pautadiezText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Motocicleta automática con soporte central"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautanueveText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautadiezSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautanueveSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautadiezNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautanueveNoButton">
+                        </RadioButton>
+                        <!-- PAUTA ONCE -->
+                        <TextView
+                            android:id="@+id/pautaonceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Presencia de la tapa de combustible para motocicletas"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautadiezText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautaonceSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautadiezSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautaonceNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautadiezNoButton">
+                        </RadioButton>
+                        <!-- PAUTA DOCE -->
+                        <TextView
+                            android:id="@+id/pautadoceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Filtro de aire asequible (desatornillado)"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautaonceText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautadoceSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautaonceSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautadoceNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautaonceNoButton">
+                        </RadioButton>
+                        <!-- PAUTA TRECE -->
+                        <TextView
+                            android:id="@+id/pautatreceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Batería de fácil acceso (sin cubre batería)"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautadoceText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautatreceSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautadoceSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautatreceNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautadoceNoButton">
+                        </RadioButton>
+                        <!-- PAUTA CATORCE -->
+                        <TextView
+                            android:id="@+id/pautacatorceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sin candados o cadenas en puertas o compuertas cuando aplique"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautatreceText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautacatorceSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautatreceSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautacatorceNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautatreceNoButton">
+                        </RadioButton>
+                        <!-- PAUTA QUINCE -->
+                        <TextView
+                            android:id="@+id/pautaquinceText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sin candados o cadenas en cabinas basculantes cuando aplique"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautacatorceText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautaquinceSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautacatorceSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautaquinceNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautacatorceNoButton">
+                        </RadioButton>
+                        <!-- PAUTA DIECISEIS -->
+                        <TextView
+                            android:id="@+id/pautadieciseisText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cinturones de seguridad libres y visibles"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautaquinceText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautadieciseisSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautaquinceSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautadieciseisNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautaquinceNoButton">
+                        </RadioButton>
+                        <!-- PAUTA DIECISIETE -->
+                        <TextView
+                            android:id="@+id/pautadiecisieteText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mirilla o depósito de líquido de frenos visible"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="300dp"
+                            android:layout_below="@+id/pautadieciseisText">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pautadiecisieteSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="550dp"
+                            android:layout_below="@+id/pautadieciseisSiButton">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/pautadiecisieteNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="620dp"
+                            android:layout_below="@+id/pautadieciseisNoButton">
+                        </RadioButton>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- Cardview para los documentos necesarios del vehículo -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/docsNecesariosCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/documentosNecesariosLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/docsNecesariosTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Documentos necesarios"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="20dp">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/licenciaTransitoText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Licencia de tránsito"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="180dp"
+                            android:layout_below="@+id/docsNecesariosTitle">
+                        </TextView>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/docsNecesariosSiButton"
+                            android:text="Sí"
+                            android:layout_below="@+id/docsNecesariosTitle"
+                            android:layout_toRightOf="@+id/licenciaTransitoText"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="-350dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/docsNecesariosNoButton"
+                            android:text="No"
+                            android:layout_below="@+id/docsNecesariosTitle"
+                            android:layout_toRightOf="@+id/licenciaTransitoText"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="-250dp">
+                        </RadioButton>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- Cardview para certificado de instalación de GNCV en vehiculos convertidos -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/vehiculoConvertidoCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/vehiculoConvertidoLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/vehiculoConvertidoTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Certificado de instalación de GNCV (Vehículo convertido)"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_marginStart="20dp">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/certificadoPlataformaText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Verificado en la plataforma SICOM"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_marginTop="20dp"
+                            android:layout_below="@+id/vehiculoConvertidoTitle">
+                        </TextView>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/certificadoSiButton"
+                            android:text="Sí"
+                            android:layout_below="@+id/certificadoPlataformaText"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="250dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/certificadoNoButton"
+                            android:text="No"
+                            android:layout_below="@+id/certificadoPlataformaText"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="350dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/certificadoNoaplicaButton"
+                            android:text="No Aplica"
+                            android:layout_below="@+id/certificadoPlataformaText"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="450dp">
+                        </RadioButton>
+                        <TextView
+                            android:id="@+id/vigenciaText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/certificadoNoaplicaButton"
+                            android:text="Vigencia"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center">
+                        </TextView>
+                        <EditText
+                            android:id="@+id/añoGasEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stylo_borde_login"
+                            android:hint="Año"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/vigenciaText"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_marginEnd="450dp">
+                        </EditText>
+                        <EditText
+                            android:id="@+id/mesGasEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stylo_borde_login"
+                            android:hint="Mes"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/vigenciaText"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="330dp"
+                            android:layout_marginEnd="320dp">
+                        </EditText>
+                        <EditText
+                            android:id="@+id/diaGasEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stylo_borde_login"
+                            android:hint="Mes"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/vigenciaText"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="460dp"
+                            android:layout_marginEnd="190dp">
+                        </EditText>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- Cardview para restricciones de licencia de conduccion -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/licenciaConduccionCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/licenciaConduccionLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/restriccionAuditivaTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Licencia de conducción"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="20dp">
+                        </TextView>
+                        <!-- Posee restricciones por discapacidad auditiva -->
+                        <TextView
+                            android:id="@+id/poseeRestriccionesText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Posee restricciones por discapacidad auditiva"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_below="@+id/restriccionAuditivaTitle"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginStart="30dp">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/poseeRestriccionSiButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:layout_below="@+id/restriccionAuditivaTitle"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="500dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/poseeRestriccionNoButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:layout_below="@+id/restriccionAuditivaTitle"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="600dp">
+                        </RadioButton>
+                        <!-- Perdida auditiva leve PAL -->
+                        <TextView
+                            android:id="@+id/palText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pérdida auditiva leve PAL"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/poseeRestriccionSiButton"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="300dp">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/palButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/poseeRestriccionSiButton"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="560dp">
+                        </RadioButton>
+                        <!-- Perdida auditiva leve PAM -->
+                        <TextView
+                            android:id="@+id/pamText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pérdida auditiva moderada PAM"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/palText"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="300dp">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pamButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/palButton"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="560dp">
+                        </RadioButton>
+                        <!-- Pérdida auditiva moderada suave PAMS -->
+                        <TextView
+                            android:id="@+id/pamsText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pérdida auditiva moderada suave PAMS"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/pamText"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="300dp">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pamsButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/pamButton"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="560dp">
+                        </RadioButton>
+                        <!-- Pérdida auditiva grave -->
+                        <TextView
+                            android:id="@+id/pagText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pérdida auditiva grave PAG"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/pamsText"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="300dp">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/pagButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/pamsButton"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="560dp">
+                        </RadioButton>
+                        <!-- Pérdida auditiva profunda PAP -->
+                        <TextView
+                            android:id="@+id/papText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pérdida auditiva profunda PAP"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:layout_below="@+id/pagText"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="300dp">
+                        </TextView>
+                        <RadioButton
+                            android:id="@+id/papButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/pagButton"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginStart="560dp">
+                        </RadioButton>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
             </GridLayout>
         </ScrollView>
+    </FrameLayout>
+    <!-- Botón siguien que enviará la información a la base de datos -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1210dp"
+        android:background="@color/color_white">
         <Button
+            android:id="@+id/condicionesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Siguiente"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginTop="1220dp">
+            android:layout_gravity="center"
+            android:layout_marginStart="250dp"
+            android:layout_marginEnd="250dp">
         </Button>
-    </FrameLayout>
-
+    </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -657,5 +1540,4 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
     </com.google.android.material.navigation.NavigationView>
-
 </androidx.drawerlayout.widget.DrawerLayout>
