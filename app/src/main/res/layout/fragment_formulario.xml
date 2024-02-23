@@ -79,6 +79,30 @@
                             android:id="@+id/entradaRelativeLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+
+                            <RadioGroup
+                                android:id="@+id/radioGroupEntrada"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <RadioButton
+                                    android:id="@+id/primeraVez"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="100dp"
+                                    android:layout_marginTop="0dp"
+                                    android:text="Primera vez" />
+
+                                <RadioButton
+                                    android:id="@+id/segundaVez"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toEndOf="@+id/primeraVez"
+                                    android:layout_marginStart="30dp"
+                                    android:layout_marginTop="0dp"
+                                    android:text="Segunda vez" />
+                            </RadioGroup>
+
                             <TextView
                                 android:id="@+id/entradaCardView"
                                 android:layout_width="match_parent"
@@ -88,20 +112,6 @@
                                 android:textSize="20dp"
                                 android:textStyle="bold"
                                 android:textColor="@color/color_black"></TextView>
-                            <RadioButton
-                                android:id="@+id/primeraVez"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Primera vez"
-                                android:layout_marginLeft="100dp"
-                                android:layout_marginTop="0dp"/>
-                            <RadioButton
-                                android:id="@+id/segundaVez"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Segunda vez"
-                                android:layout_marginLeft="300dp"
-                                android:layout_marginTop="0dp"/>
                         </RelativeLayout>
 
                         <TextView

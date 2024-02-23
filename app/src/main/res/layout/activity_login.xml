@@ -11,48 +11,43 @@
     <!-- IMAGEN PRINCIPAL DEL LOGIN -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:src = "@mipmap/ic_launcher_round"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="420dp"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="80dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="900dp"
         android:background="@drawable/stylo_borde_imagen"
         />
 
     <!-- CONTENEDOR DE LOS TEXT VIEWS PARA USUARIO Y CONTRASEÑA -->
     <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="180dp">
-    <EditText
-        android:id="@+id/user"
+        android:id="@+id/dataLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="150dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Ingrese su usuario"
-        android:textAlignment="center"
-        android:background="@drawable/stylo_borde_login"
-        />
+        android:layout_marginTop="500dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="50dp">
+        <EditText
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="textPersonName"
+            android:hint="Ingrese su usuario"
+            android:textAlignment="center"
+            android:background="@drawable/stylo_borde_login"
+            />
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="100dp"
+            android:layout_below="@+id/user"
             android:hint="Ingrese su contraseña"
             android:inputType="textPassword"
             android:textAlignment="center"
@@ -63,12 +58,12 @@
     <!-- BOTÓN PARA INGRESAR LOS DATOS DEL RECEPCIONISTA -->
     <Button
         android:id="@+id/botonIngresar"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="100dp"
+        android:layout_below="@+id/dataLayout"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="200dp"
         android:text="Ingresar"
         android:textSize="20dp"
         />

@@ -19,5 +19,14 @@
         android:id="@+id/formulario"
         android:name="com.example.recepcioncda.view.ui.fragments.FormularioFragment"
         android:label="fragment_formulario"
-        tools:layout="@layout/fragment_formulario" />
+        tools:layout="@layout/fragment_formulario" >
+        <action
+            android:id="@+id/action_formulario_to_livianoFragment"
+            app:destination="@id/livianoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/livianoFragment"
+        android:name="com.example.recepcioncda.view.ui.fragments.LivianoFragment"
+        android:label="fragment_liviano"
+        tools:layout="@layout/fragment_liviano" />
 </navigation>
