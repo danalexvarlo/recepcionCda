@@ -17,6 +17,15 @@
                             <option name="y" value="7" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_formulario_to_livianoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -41,13 +50,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="livianoFragment2">
+                  <entry key="livianoFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="432" />
-                            <option name="y" value="-289" />
+                            <option name="x" value="485" />
+                            <option name="y" value="10" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -15,7 +15,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
+//import androidx.recyclerview.widget.RecyclerView
 import com.example.recepcioncda.R
 
 // RadioButton de ingreso de vehículo
@@ -87,7 +87,6 @@ var docsNecesariosNo:RadioButton? = null;
 class FormularioFragment : Fragment() {
 
     lateinit var toggle : ActionBarDrawerToggle
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
