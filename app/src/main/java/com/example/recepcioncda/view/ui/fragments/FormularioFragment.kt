@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 //import androidx.recyclerview.widget.RecyclerView
 import com.example.recepcioncda.R
-
+/**
 // RadioButton de ingreso de vehículo
 var primeraVez:RadioButton? = null;
 var segundaVez:RadioButton? = null;
@@ -83,7 +83,7 @@ var radioGroupDiecisiete:RadioGroup? = null;
 // RadioButton y RadioGroup para especificar si presenta el cliente los documentos necesarios
 var radioGroupDocsNecesarios:RadioGroup? = null;
 var docsNecesariosSi:RadioButton? = null;
-var docsNecesariosNo:RadioButton? = null;
+var docsNecesariosNo:RadioButton? = null;**/
 class FormularioFragment : Fragment() {
 
     lateinit var toggle : ActionBarDrawerToggle
@@ -94,7 +94,7 @@ class FormularioFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_formulario, container, false)
         // Se inicaliza los RadioButton y RadioGroup de entrada
-        entradaGroup = view.findViewById(R.id.radioGroupEntrada);
+        /**entradaGroup = view.findViewById(R.id.radioGroupEntrada);
         primeraVez = view.findViewById(R.id.primeraVez);
         segundaVez = view.findViewById(R.id.segundaVez);
         // Se inicaliza los RadioButton y RadioGroup de blindaje si aplica
@@ -176,7 +176,7 @@ class FormularioFragment : Fragment() {
         // Se inicializan las variables de RadioGroup y RadioButton para documentos necesarios
         radioGroupDocsNecesarios = view.findViewById(R.id.radioGroupDocsNecesarios)
         docsNecesariosSi = view.findViewById(R.id.docsNecesariosSiButton)
-        docsNecesariosNo = view.findViewById(R.id.docsNecesariosNoButton)
+        docsNecesariosNo = view.findViewById(R.id.docsNecesariosNoButton)**/
 
         // Se implementa el menú desplegable lateral
         val toolbar: Toolbar = view.findViewById(R.id.toolbar_formulario)
@@ -199,12 +199,13 @@ class FormularioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
+        /**
         super.onViewCreated(view, savedInstanceState)
         val nextFormulario = view.findViewById<Button>(R.id.formatoSiguienteButton)
         nextFormulario.setOnClickListener()
         {
             findNavController().navigate(R.id.action_formulario_to_livianoFragment)
-        }
+        }**/
     }
 
 
