@@ -1003,7 +1003,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Sin candados o cadenas en cabinas basculantes
-                                            cuando aplique"
+                                                    cuando aplique"
                             android:textSize="20dp"
                             android:textStyle="bold"
                             android:layout_marginTop="30dp"
@@ -1104,6 +1104,143 @@
                             </RadioButton>
                         </RadioGroup>
                     </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- DOCUMENTOS NECESARIOS -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <TextView
+                        android:id="@+id/documentosNecesariosTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Documentos necesarios"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:textAlignment="center">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/licenciaTransitoText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Licencia de tránsito"
+                        android:textSize="25dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="50dp">
+                    </TextView>
+                    <RadioGroup
+                        android:id="@+id/radioGroupLicencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/siLicenciaTransito"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:textSize="20dp"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginStart="300dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/noLicenciaTransito"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="20dp"
+                            android:layout_marginTop="-48dp"
+                            android:layout_marginStart="400dp">
+                        </RadioButton>
+                    </RadioGroup>
+                </androidx.cardview.widget.CardView>
+                <!-- CERTIFICADO DE INSTALACIÓN DE GAS -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <TextView
+                        android:id="@+id/certificadoGasTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Certificado de Instalación GNVC (Vehículo convertido)"
+                        android:textAlignment="center"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Verificado en la plataforma SICOM"
+                        android:textSize="25dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="60dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/vigenciaText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vigencia"
+                        android:textSize="25dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_marginStart="150dp">
+                    </TextView>
+                    <RadioGroup
+                        android:id="@+id/radioGroupCertificadoGas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/siCertificadoGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:textSize="20dp"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginStart="450dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/noCertificadoGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="20dp"
+                            android:layout_marginTop="-48dp"
+                            android:layout_marginStart="550dp">
+                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/noAplicaCertificadoGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Aplica"
+                            android:textSize="20dp"
+                            android:layout_marginTop="-50dp"
+                            android:layout_marginStart="650dp">
+                        </RadioButton>
+                    </RadioGroup>
+                </androidx.cardview.widget.CardView>
+                <!-- DISCAPACIDADES AUDITIVAS -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Licencia de Conducción"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textSize="30dp">
+                    </TextView>
                 </androidx.cardview.widget.CardView>
             </GridLayout>
         </ScrollView>
