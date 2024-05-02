@@ -523,7 +523,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_below="@id/pautasTitle">
+                            android:layout_below="@id/pautasTitle"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautaunoSiButton"
                                 android:layout_width="match_parent"
@@ -537,8 +538,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="610dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- SEGUNDA PAUTA -->
@@ -558,7 +559,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautaunoText"
-                            android:layout_alignStart="@+id/pautadosText">
+                            android:layout_alignStart="@+id/pautadosText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautadosSiButton"
                                 android:layout_width="match_parent"
@@ -572,8 +574,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA TRES -->
@@ -593,7 +595,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautadosText"
-                            android:layout_alignStart="@+id/pautatresText">
+                            android:layout_alignStart="@+id/pautatresText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautatresSiButton"
                                 android:layout_width="match_parent"
@@ -607,8 +610,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA CUATRO -->
@@ -628,7 +631,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautatresText"
-                            android:layout_alignStart="@+id/pautacuatroText">
+                            android:layout_alignStart="@+id/pautacuatroText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautacuatroSiButton"
                                 android:layout_width="match_parent"
@@ -642,8 +646,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA CINCO -->
@@ -663,7 +667,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautacuatroText"
-                            android:layout_alignStart="@+id/pautacincoText">
+                            android:layout_alignStart="@+id/pautacincoText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautacincoSiButton"
                                 android:layout_width="match_parent"
@@ -677,8 +682,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA SEIS -->
@@ -698,7 +703,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautacincoText"
-                            android:layout_alignStart="@+id/pautaseisText">
+                            android:layout_alignStart="@+id/pautaseisText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautaseisSiButton"
                                 android:layout_width="match_parent"
@@ -712,8 +718,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA SIETE -->
@@ -733,7 +739,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautaseisText"
-                            android:layout_alignStart="@+id/pautasieteText">
+                            android:layout_alignStart="@+id/pautasieteText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautasieteSiButton"
                                 android:layout_width="match_parent"
@@ -747,8 +754,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA OCHO -->
@@ -768,7 +775,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautasieteText"
-                            android:layout_alignStart="@+id/pautaochoText">
+                            android:layout_alignStart="@+id/pautaochoText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautaochoSiButton"
                                 android:layout_width="match_parent"
@@ -782,8 +790,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA NUEVE -->
@@ -803,7 +811,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautaochoText"
-                            android:layout_alignStart="@+id/pautanueveText">
+                            android:layout_alignStart="@+id/pautanueveText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautanueveSiButton"
                                 android:layout_width="match_parent"
@@ -817,8 +826,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA DIEZ -->
@@ -838,7 +847,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautanueveText"
-                            android:layout_alignStart="@+id/pautadiezText">
+                            android:layout_alignStart="@+id/pautadiezText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautadiezSiButton"
                                 android:layout_width="match_parent"
@@ -852,8 +862,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA ONCE -->
@@ -873,7 +883,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautadiezText"
-                            android:layout_alignStart="@+id/pautaonceText">
+                            android:layout_alignStart="@+id/pautaonceText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautaonceSiButton"
                                 android:layout_width="match_parent"
@@ -887,8 +898,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA DOCE -->
@@ -908,7 +919,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautaonceText"
-                            android:layout_alignStart="@+id/pautadoceText">
+                            android:layout_alignStart="@+id/pautadoceText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautadoceSiButton"
                                 android:layout_width="match_parent"
@@ -922,8 +934,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA TRECE -->
@@ -943,7 +955,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautadoceText"
-                            android:layout_alignStart="@+id/pautatreceText">
+                            android:layout_alignStart="@+id/pautatreceText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautatreceSiButton"
                                 android:layout_width="match_parent"
@@ -957,8 +970,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA CATORCE -->
@@ -979,7 +992,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautatreceText"
-                            android:layout_alignStart="@+id/pautacatorceText">
+                            android:layout_alignStart="@+id/pautacatorceText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautacatorceSiButton"
                                 android:layout_width="match_parent"
@@ -993,8 +1007,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA QUINCE -->
@@ -1015,7 +1029,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautacatorceText"
-                            android:layout_alignStart="@+id/pautaquinceText">
+                            android:layout_alignStart="@+id/pautaquinceText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautaquinceSiButton"
                                 android:layout_width="match_parent"
@@ -1029,8 +1044,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA DIECISEIS -->
@@ -1050,7 +1065,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/pautaquinceText"
-                            android:layout_alignStart="@+id/pautadieciseisText">
+                            android:layout_alignStart="@+id/pautadieciseisText"
+                            android:orientation="horizontal">
                             <RadioButton
                                 android:id="@+id/pautadieciseisSiButton"
                                 android:layout_width="match_parent"
@@ -1064,8 +1080,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                         <!-- PAUTA DIECISIETE -->
@@ -1084,6 +1100,7 @@
                             android:id="@+id/radioGroup17"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:orientation="horizontal"
                             android:layout_below="@+id/pautadieciseisText"
                             android:layout_alignStart="@+id/pautadiecisieteText">
                             <RadioButton
@@ -1099,8 +1116,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
-                                android:layout_marginTop="-48dp"
-                                android:layout_marginStart="580dp">
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="-120dp">
                             </RadioButton>
                         </RadioGroup>
                     </RelativeLayout>
@@ -1132,7 +1149,9 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="50dp">
                     </TextView>
+                    <!--Radio Group para la licencia de tránsito -->
                     <RadioGroup
+                        android:orientation="horizontal"
                         android:id="@+id/radioGroupLicencia"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -1142,7 +1161,7 @@
                             android:layout_height="wrap_content"
                             android:text="Sí"
                             android:textSize="20dp"
-                            android:layout_marginTop="50dp"
+                            android:layout_marginTop="45dp"
                             android:layout_marginStart="300dp">
                         </RadioButton>
                         <RadioButton
@@ -1151,8 +1170,8 @@
                             android:layout_height="wrap_content"
                             android:text="No"
                             android:textSize="20dp"
-                            android:layout_marginTop="-48dp"
-                            android:layout_marginStart="400dp">
+                            android:layout_marginTop="45dp"
+                            android:layout_marginStart="-350dp">
                         </RadioButton>
                     </RadioGroup>
                 </androidx.cardview.widget.CardView>
@@ -1188,10 +1207,11 @@
                         android:layout_height="wrap_content"
                         android:text="Vigencia"
                         android:textSize="25dp"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="120dp"
                         android:layout_marginStart="150dp">
                     </TextView>
                     <RadioGroup
+                        android:orientation="horizontal"
                         android:id="@+id/radioGroupCertificadoGas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -1210,8 +1230,8 @@
                             android:layout_height="wrap_content"
                             android:text="No"
                             android:textSize="20dp"
-                            android:layout_marginTop="-48dp"
-                            android:layout_marginStart="550dp">
+                            android:layout_marginTop="55dp"
+                            android:layout_marginStart="-240dp">
                         </RadioButton>
                         <RadioButton
                             android:id="@+id/noAplicaCertificadoGas"
@@ -1219,16 +1239,47 @@
                             android:layout_height="wrap_content"
                             android:text="No Aplica"
                             android:textSize="20dp"
-                            android:layout_marginTop="-50dp"
-                            android:layout_marginStart="650dp">
+                            android:layout_marginTop="55dp"
+                            android:layout_marginStart="-150dp">
                         </RadioButton>
                     </RadioGroup>
+                    <EditText
+                        android:id="@+id/editAñoGas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="450dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginEnd="230dp"
+                        android:textAlignment="center"
+                        android:hint="Año"
+                        android:background="@drawable/stylo_borde_login"></EditText>
+                    <EditText
+                        android:id="@+id/editMesGas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="550dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginEnd="130dp"
+                        android:textAlignment="center"
+                        android:hint="Mes"
+                        android:background="@drawable/stylo_borde_login"></EditText>
+                    <EditText
+                        android:id="@+id/editDiaGas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="650dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginEnd="20dp"
+                        android:textAlignment="center"
+                        android:hint="Día"
+                        android:background="@drawable/stylo_borde_login"></EditText>
                 </androidx.cardview.widget.CardView>
                 <!-- DISCAPACIDADES AUDITIVAS -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
+                    android:background="@drawable/stylo_borde_login"
                     app:cardBackgroundColor="@color/color_white"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="6dp"
@@ -1241,9 +1292,57 @@
                         android:textStyle="bold"
                         android:textSize="30dp">
                     </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Posee restricciones por discapacidad auditiva"
+                        android:textSize="25dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="50dp"></TextView>
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginStart="600dp"
+                        android:orientation="horizontal"
+                        android:checkedButton="@id/radioNoDiscapacidad">
+                        <RadioButton
+                            android:id="@+id/radioSiDiscapacidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sí"
+                            android:textSize="20dp"></RadioButton>
+                        <RadioButton
+                            android:id="@+id/radioNoDiscapacidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="-80dp"
+                            android:text="No"
+                            android:textSize="20dp"></RadioButton>
+                    </RadioGroup>
+                    <Spinner
+                        android:id="@+id/spinnerDiscapacidadAuditiva"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stylo_borde_login"
+                        android:textAlignment="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_row="6"
+                        android:layout_column="1" />
                 </androidx.cardview.widget.CardView>
             </GridLayout>
         </ScrollView>
+        <!-- BOTÓN PARA REGISTRAR LOS DATOS -->
+        <Button
+            android:id="@+id/siguienteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1130dp"
+            android:text="Siguiente"
+            android:textSize="30dp"
+            android:textStyle="bold"></Button>
     </FrameLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
