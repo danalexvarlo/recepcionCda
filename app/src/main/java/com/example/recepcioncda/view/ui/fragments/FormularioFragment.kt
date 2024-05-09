@@ -199,13 +199,13 @@ class FormularioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
-        /**
+
         super.onViewCreated(view, savedInstanceState)
-        val nextFormulario = view.findViewById<Button>(R.id.formatoSiguienteButton)
+        val nextFormulario = view.findViewById<Button>(R.id.siguienteButton)
         nextFormulario.setOnClickListener()
         {
             findNavController().navigate(R.id.action_formulario_to_livianoFragment)
-        }**/
+        }
     }
 
 
