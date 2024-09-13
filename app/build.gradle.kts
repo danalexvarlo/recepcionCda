@@ -52,6 +52,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.android.material:material:1.13.0-alpha01")
+    implementation("mysql:mysql-connector-java:8.0.31")
     //implementation("com.github.VishnuSivadasVS:Advanced-HttpURLConnection:1.2")
     implementation("com.android.volley:volley:1.2.1")
     testImplementation("junit:junit:4.13.2")
