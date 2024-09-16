@@ -17,7 +17,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 //import androidx.recyclerview.widget.RecyclerView
 import com.example.recepcioncda.R
-/**
+import java.net.URLEncoder
+
 // RadioButton de ingreso de vehículo
 var primeraVez:RadioButton? = null;
 var segundaVez:RadioButton? = null;
@@ -83,7 +84,10 @@ var radioGroupDiecisiete:RadioGroup? = null;
 // RadioButton y RadioGroup para especificar si presenta el cliente los documentos necesarios
 var radioGroupDocsNecesarios:RadioGroup? = null;
 var docsNecesariosSi:RadioButton? = null;
-var docsNecesariosNo:RadioButton? = null;**/
+var docsNecesariosNo:RadioButton? = null;
+
+private val URL1 = "http://192.168.0.113/recepcion/fetch.php"
+
 class FormularioFragment : Fragment() {
 
     lateinit var toggle : ActionBarDrawerToggle
@@ -93,6 +97,7 @@ class FormularioFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_formulario, container, false)
+        
         // Se inicaliza los RadioButton y RadioGroup de entrada
         /**entradaGroup = view.findViewById(R.id.radioGroupEntrada);
         primeraVez = view.findViewById(R.id.primeraVez);
