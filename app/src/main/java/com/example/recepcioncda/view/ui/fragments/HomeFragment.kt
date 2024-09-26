@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -14,6 +15,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.findNavController
 import com.example.recepcioncda.R
+import com.google.android.material.navigation.NavigationView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +40,7 @@ class HomeFragment : Fragment() {
 
         val toolbar: Toolbar = view.findViewById(R.id.toolbar_home)
         val drawerLayout : DrawerLayout = view.findViewById(R.id.homeFragment)
+        val navView : NavigationView = view.findViewById(R.id.nav_view)
 
         toggle = ActionBarDrawerToggle(this.requireContext() as AppCompatActivity,
             drawerLayout, toolbar, R.string.open, R.string.close)
@@ -51,6 +54,18 @@ class HomeFragment : Fragment() {
             else{
                 drawerLayout.openDrawer(GravityCompat.START)
             }
+        }
+
+        navView.setNavigationItemSelectedListener(){
+            when(it.itemId){
+                R.id.homeBar -> {
+                    findNavController().navigate(R.id.homeFragment)
+                    Toast.makeText(context, "Menú principal", Toast.LENGTH_SHORT).show()
+                }
+
+                else -> {}
+            }
+            true
         }
 
         return view

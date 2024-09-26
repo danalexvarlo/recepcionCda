@@ -25,4 +25,10 @@
         android:icon="@drawable/iconohome">
     </item>
 
+    <item
+        android:title="Cerrar sesión"
+        android:id="@+id/closeSesion"
+        android:icon="@drawable/iconooff">
+    </item>
+
 </menu>
