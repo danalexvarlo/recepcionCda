@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
+import com.example.recepcioncda.view.ui.activities.LoginActivity
 import com.example.recepcioncda.R
 
 class HomeActivity : AppCompatActivity() {
@@ -14,9 +15,5 @@ class HomeActivity : AppCompatActivity() {
         val navHostFragment= supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
                 as NavHostFragment
         val navController = navHostFragment.navController
-    }
-
-    override fun onBackPressed() {
-        return
     }
 }

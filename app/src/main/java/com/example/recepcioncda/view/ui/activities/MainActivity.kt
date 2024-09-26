@@ -6,7 +6,6 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.recepcioncda.R
 import com.example.recepcioncda.databinding.ActivityMainBinding
-import com.example.recepcioncda.view.ui.dataBaseConnection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.logging.Handler

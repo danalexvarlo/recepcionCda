@@ -1,6 +1,9 @@
 package com.example.recepcioncda.view.ui.fragments
 
+
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +11,8 @@ import android.view.WindowId
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -15,9 +20,20 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-//import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.recepcioncda.R
+import com.example.recepcioncda.view.ui.activities.LoginActivity
+import com.example.recepcioncda.view.ui.models.Usuario
+import org.json.JSONArray
+import org.json.JSONException
 import java.net.URLEncoder
+
+lateinit var nombreRecepcionista:TextView //Nombre del recepcionista
+
 
 // RadioButton de ingreso de vehículo
 var primeraVez:RadioButton? = null;
@@ -86,7 +102,8 @@ var radioGroupDocsNecesarios:RadioGroup? = null;
 var docsNecesariosSi:RadioButton? = null;
 var docsNecesariosNo:RadioButton? = null;
 
-private val URL1 = "http://192.168.0.113/recepcion/fetch.php"
+private val URL = "http://192.168.0.113/recepcion/fetch.php"
+private lateinit var requestQueue: RequestQueue
 
 class FormularioFragment : Fragment() {
 
@@ -97,9 +114,13 @@ class FormularioFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_formulario, container, false)
-        
+
+        requestQueue = Volley.newRequestQueue(requireContext())
+
+        nombreRecepcionista = view.findViewById(R.id.nombreRecepcionista)
+        nombreRecepcionista.text = Usuario.nombre ?: "Usuario desconocido"
         // Se inicaliza los RadioButton y RadioGroup de entrada
-        /**entradaGroup = view.findViewById(R.id.radioGroupEntrada);
+        entradaGroup = view.findViewById(R.id.radioGroupEntrada);
         primeraVez = view.findViewById(R.id.primeraVez);
         segundaVez = view.findViewById(R.id.segundaVez);
         // Se inicaliza los RadioButton y RadioGroup de blindaje si aplica
@@ -179,9 +200,9 @@ class FormularioFragment : Fragment() {
         pautaDiecisieteSi = view.findViewById(R.id.pautadiecisieteSiButton)
         pautaDiecisieteNo = view.findViewById(R.id.pautadiecisieteNoButton)
         // Se inicializan las variables de RadioGroup y RadioButton para documentos necesarios
-        radioGroupDocsNecesarios = view.findViewById(R.id.radioGroupDocsNecesarios)
-        docsNecesariosSi = view.findViewById(R.id.docsNecesariosSiButton)
-        docsNecesariosNo = view.findViewById(R.id.docsNecesariosNoButton)**/
+        radioGroupDocsNecesarios = view.findViewById(R.id.radioGroupLicencia)
+        docsNecesariosSi = view.findViewById(R.id.siLicenciaTransito)
+        docsNecesariosNo = view.findViewById(R.id.noLicenciaTransito)
 
         // Se implementa el menú desplegable lateral
         val toolbar: Toolbar = view.findViewById(R.id.toolbar_formulario)
@@ -202,16 +223,50 @@ class FormularioFragment : Fragment() {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
-    {
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val nextFormulario = view.findViewById<Button>(R.id.siguienteButton)
-        nextFormulario.setOnClickListener()
-        {
+        nextFormulario.setOnClickListener() {
             findNavController().navigate(R.id.action_formulario_to_livianoFragment)
         }
     }
 
+    private fun fetchData(usuarioText: String) {
+        //val usuarioText = nombreRecep.usuario.text.toString()
+        val urlWithParams = "$URL?usuario=${URLEncoder.encode(usuarioText, "UTF-8")}"
+        val stringRequest = StringRequest(
+            Request.Method.GET,
+            urlWithParams,
+            Response.Listener<String> { response ->
+                Log.d("RawResponse", response)
+                try {
+                    val cleanedResponse = response.trim()
+                    if (cleanedResponse.startsWith("[")) {
+                        val jsonResponse = JSONArray(cleanedResponse)
+                        if (jsonResponse.length() > 0) {
+                            val firstObject = jsonResponse.getJSONObject(0)
+                            val nombre = firstObject.getString("nombre")
+                            nombreRecepcionista.setOnClickListener{
+                                Toast.makeText(requireContext(), nombre, Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(requireContext(), "No hay datos disponibles", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(requireContext(), "Error en los datos", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                    Toast.makeText(requireContext(), "Error al procesar la respuesta", Toast.LENGTH_SHORT).show()
+                }
+            },
+            Response.ErrorListener { error ->
+                Log.e("VolleyError", error.toString())
+                error.printStackTrace()
+                Toast.makeText(requireContext(), "Error de red: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        )
+        requestQueue.add(stringRequest)
+    }
 
 }

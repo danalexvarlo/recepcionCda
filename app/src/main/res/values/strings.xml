@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">recepcionCda</string>
+    <string name="app_name">Recepción CDA</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="open">Open navigation drawer</string>
     <string name="close">Close navigation drawer</string>
