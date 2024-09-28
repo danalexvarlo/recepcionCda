@@ -28,82 +28,24 @@ import com.android.volley.toolbox.Volley
 import com.example.recepcioncda.R
 import com.example.recepcioncda.view.ui.activities.LoginActivity
 import com.example.recepcioncda.view.ui.models.Usuario
+import com.google.android.material.navigation.NavigationView
 import org.json.JSONArray
 import org.json.JSONException
 import java.net.URLEncoder
 
 lateinit var nombreRecepcionista:TextView //Nombre del recepcionista
 
-
-// RadioButton de ingreso de vehículo
-var primeraVez:RadioButton? = null;
-var segundaVez:RadioButton? = null;
-var entradaGroup:RadioGroup? = null;
-
-// RadioButton para especificar blindaje de vehiculo
-var siBlindado:RadioButton? = null;
-var noBlindado:RadioButton? = null;
-var blindajeGroup:RadioGroup? = null;
-
-// RadioButton para las pautas de ingreso requeridas del vehículo
-var pautaUnoSi:RadioButton? = null; var pautaUnoNo:RadioButton? = null;
-var radioGroupUno:RadioGroup? = null;
-
-var pautaDosSi:RadioButton? = null; var pautaDosNo:RadioButton? = null;
-var radioGroupDos:RadioGroup? = null;
-
-var pautaTresSi:RadioButton? = null; var pautaTresNo:RadioButton? = null;
-var radioGroupTres:RadioGroup? = null;
-
-var pautaCuatroSi:RadioButton? = null; var pautaCuatroNo:RadioButton? = null;
-var radioGroupCuatro:RadioGroup? = null;
-
-var pautaCincoSi:RadioButton? = null; var pautaCincoNo:RadioButton? = null;
-var radioGroupCinco:RadioGroup? = null;
-
-var pautaSeisSi:RadioButton? = null; var pautaSeisNo:RadioButton? = null;
-var radioGroupSeis:RadioGroup? = null;
-
-var pautaSieteSi:RadioButton? = null; var pautaSieteNo:RadioButton? = null;
-var radioGroupSiete:RadioGroup? = null;
-
-var pautaOchoSi:RadioButton? = null; var pautaOchoNo:RadioButton? = null;
-var radioGroupOcho:RadioGroup? = null;
-
-var pautaNueveSi:RadioButton? = null; var pautaNueveNo:RadioButton? = null;
-var radioGroupNueve:RadioGroup? = null;
-
-var pautaDiezSi:RadioButton? = null; var pautaDiezNo:RadioButton? = null;
-var radioGroupDiez:RadioGroup? = null;
-
-var pautaOnceSi:RadioButton? = null; var pautaOnceNo:RadioButton? = null;
-var radioGroupOnce:RadioGroup? = null;
-
-var pautaDoceSi:RadioButton? = null; var pautaDoceNo:RadioButton? = null;
-var radioGroupDoce:RadioGroup? = null;
-
-var pautaTreceSi:RadioButton? = null; var pautaTreceNo:RadioButton? = null;
-var radioGroupTrece:RadioGroup? = null;
-
-var pautaCatorceSi:RadioButton? = null; var pautaCatorceNo:RadioButton? = null;
-var radioGroupCatorce:RadioGroup? = null;
-
-var pautaQuinceSi:RadioButton? = null; var pautaQuinceNo:RadioButton? = null;
-var radioGroupQuince:RadioGroup? = null;
-
-var pautaDieciseisSi:RadioButton? = null; var pautaDieciseisNo:RadioButton? = null;
-var radioGroupDieciseis:RadioGroup? = null;
-
-var pautaDiecisieteSi:RadioButton? = null; var pautaDiecisieteNo:RadioButton? = null;
-var radioGroupDiecisiete:RadioGroup? = null;
-
-// RadioButton y RadioGroup para especificar si presenta el cliente los documentos necesarios
-var radioGroupDocsNecesarios:RadioGroup? = null;
-var docsNecesariosSi:RadioButton? = null;
-var docsNecesariosNo:RadioButton? = null;
-
 private val URL = "http://192.168.0.113/recepcion/fetch.php"
 private lateinit var requestQueue: RequestQueue
+
+private lateinit var radioGroupEntrada: RadioGroup
+private lateinit var primeraVez: RadioButton
+private lateinit var segundaVez: RadioButton
+
+// Listas para RadioButtons y RadioGroups
+private val radioButtonsSi = mutableListOf<RadioButton>()
+private val radioButtonsNo = mutableListOf<RadioButton>()
+private val radioGroups = mutableListOf<RadioGroup>()
 
 class FormularioFragment : Fragment() {
 
@@ -119,90 +61,8 @@ class FormularioFragment : Fragment() {
 
         nombreRecepcionista = view.findViewById(R.id.nombreRecepcionista)
         nombreRecepcionista.text = Usuario.nombre ?: "Usuario desconocido"
-        // Se inicaliza los RadioButton y RadioGroup de entrada
-        entradaGroup = view.findViewById(R.id.radioGroupEntrada);
-        primeraVez = view.findViewById(R.id.primeraVez);
-        segundaVez = view.findViewById(R.id.segundaVez);
-        // Se inicaliza los RadioButton y RadioGroup de blindaje si aplica
-        blindajeGroup = view.findViewById(R.id.radioGroupBlindaje)
-        siBlindado = view.findViewById(R.id.siBlindado)
-        noBlindado = view.findViewById(R.id.noBlindado)
-        // Se inicaliza los RadioButton y RadioGroup de pautas de ingreso
-        radioGroupUno = view.findViewById(R.id.radioGroup1)
-        pautaUnoSi = view.findViewById(R.id.pautaunoSiButton)
-        pautaUnoNo = view.findViewById(R.id.pautaunoNoButton)
 
-        radioGroupDos = view.findViewById(R.id.radioGroup2)
-        pautaDosSi = view.findViewById(R.id.pautadosSiButton)
-        pautaDosNo = view.findViewById(R.id.pautadosNoButton)
-
-        radioGroupTres = view.findViewById(R.id.radioGroup3)
-        pautaTresSi = view.findViewById(R.id.pautatresSiButton)
-        pautaTresNo = view.findViewById(R.id.pautatresNoButton)
-
-        radioGroupCuatro = view.findViewById(R.id.radioGroup4)
-        pautaCuatroSi = view.findViewById(R.id.pautacuatroSiButton)
-        pautaCuatroNo = view.findViewById(R.id.pautacuatroNoButton)
-
-        radioGroupCinco = view.findViewById(R.id.radioGroup5)
-        pautaCincoSi = view.findViewById(R.id.pautacincoSiButton)
-        pautaCincoNo = view.findViewById(R.id.pautacincoNoButton)
-
-        radioGroupSeis = view.findViewById(R.id.radioGroup6)
-        pautaSeisSi = view.findViewById(R.id.pautaseisSiButton)
-        pautaSeisNo = view.findViewById(R.id.pautaseisNoButton)
-
-        radioGroupSeis = view.findViewById(R.id.radioGroup6)
-        pautaSeisSi = view.findViewById(R.id.pautaseisSiButton)
-        pautaSeisNo = view.findViewById(R.id.pautaseisNoButton)
-
-        radioGroupSiete = view.findViewById(R.id.radioGroup7)
-        pautaSieteSi = view.findViewById(R.id.pautasieteSiButton)
-        pautaSieteNo = view.findViewById(R.id.pautasieteNoButton)
-
-        radioGroupOcho = view.findViewById(R.id.radioGroup8)
-        pautaOchoSi = view.findViewById(R.id.pautaochoSiButton)
-        pautaOchoNo = view.findViewById(R.id.pautaochoNoButton)
-
-        radioGroupNueve = view.findViewById(R.id.radioGroup9)
-        pautaNueveSi = view.findViewById(R.id.pautanueveSiButton)
-        pautaNueveNo = view.findViewById(R.id.pautanueveNoButton)
-
-        radioGroupDiez = view.findViewById(R.id.radioGroup10)
-        pautaDiezSi = view.findViewById(R.id.pautadiezSiButton)
-        pautaDiezNo = view.findViewById(R.id.pautadiezNoButton)
-
-        radioGroupOnce = view.findViewById(R.id.radioGroup11)
-        pautaOnceSi = view.findViewById(R.id.pautaonceSiButton)
-        pautaOnceNo = view.findViewById(R.id.pautaonceNoButton)
-
-        radioGroupDoce = view.findViewById(R.id.radioGroup12)
-        pautaDoceSi = view.findViewById(R.id.pautadoceSiButton)
-        pautaDoceNo = view.findViewById(R.id.pautadoceNoButton)
-
-        radioGroupTrece = view.findViewById(R.id.radioGroup13)
-        pautaTreceSi = view.findViewById(R.id.pautatreceSiButton)
-        pautaTreceNo = view.findViewById(R.id.pautatreceNoButton)
-
-        radioGroupCatorce = view.findViewById(R.id.radioGroup14)
-        pautaCatorceSi = view.findViewById(R.id.pautacatorceSiButton)
-        pautaCatorceNo = view.findViewById(R.id.pautacatorceNoButton)
-
-        radioGroupQuince = view.findViewById(R.id.radioGroup15)
-        pautaQuinceSi = view.findViewById(R.id.pautaquinceSiButton)
-        pautaQuinceNo = view.findViewById(R.id.pautaquinceNoButton)
-
-        radioGroupDieciseis = view.findViewById(R.id.radioGroup16)
-        pautaDieciseisSi = view.findViewById(R.id.pautadieciseisSiButton)
-        pautaDieciseisNo = view.findViewById(R.id.pautadieciseisNoButton)
-
-        radioGroupDiecisiete = view.findViewById(R.id.radioGroup17)
-        pautaDiecisieteSi = view.findViewById(R.id.pautadiecisieteSiButton)
-        pautaDiecisieteNo = view.findViewById(R.id.pautadiecisieteNoButton)
-        // Se inicializan las variables de RadioGroup y RadioButton para documentos necesarios
-        radioGroupDocsNecesarios = view.findViewById(R.id.radioGroupLicencia)
-        docsNecesariosSi = view.findViewById(R.id.siLicenciaTransito)
-        docsNecesariosNo = view.findViewById(R.id.noLicenciaTransito)
+        val navView : NavigationView = view.findViewById(R.id.nav_view)
 
         // Se implementa el menú desplegable lateral
         val toolbar: Toolbar = view.findViewById(R.id.toolbar_formulario)
@@ -218,6 +78,20 @@ class FormularioFragment : Fragment() {
             else{
                 drawerLayout.openDrawer(GravityCompat.START)
             }
+        }
+
+        navView.setNavigationItemSelectedListener(){
+            when(it.itemId){
+                R.id.homeBar -> { //Item para regresar al Home
+                    findNavController().navigate(R.id.homeFragment)
+                    Toast.makeText(context, "Menú principal", Toast.LENGTH_SHORT).show()
+                }
+                R.id.logout -> {
+                    cerrarSesion()
+                    Toast.makeText(context, "Cerrar sesión", Toast.LENGTH_SHORT).show()
+                }
+            }
+            true
         }
 
         return view
@@ -269,4 +143,70 @@ class FormularioFragment : Fragment() {
         requestQueue.add(stringRequest)
     }
 
+    private fun cerrarSesion(){ //Función para cerrar sesión y volver al login
+        Usuario.nombre = null  // Se limpia la variable global del usuario
+        //findNavController().navigate(R.id.loginActivity)
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        requireActivity().finish()
+    }
+    private fun inicializarRadioButtons(view: View) {
+        // RadioButtons de ingreso de vehículo
+        primeraVez = view.findViewById(R.id.primeraVez)
+        segundaVez = view.findViewById(R.id.segundaVez)
+
+        // Verifica si los RadioButtons fueron encontrados
+        if (primeraVez == null || segundaVez == null) {
+            Log.e("FormularioFragment", "RadioButtons no encontrados")
+            return
+        }
+
+        // RadioButton para especificar blindaje de vehículo
+        val siBlindado: RadioButton? = view.findViewById(R.id.siBlindado)
+        val noBlindado: RadioButton? = view.findViewById(R.id.noBlindado)
+
+        // Asegúrate de que estos elementos existan
+        if (siBlindado == null || noBlindado == null) {
+            Log.e("FormularioFragment", "RadioButtons de blindaje no encontrados")
+            return
+        }
+
+        // Añadir a las listas
+        radioButtonsSi.add(siBlindado)
+        radioButtonsNo.add(noBlindado)
+
+        // Pautas de ingreso
+        for (i in 1..17) {
+            val radioGroupId = resources.getIdentifier("radioGroup$i", "id", requireContext().packageName)
+            val pautaSiId = resources.getIdentifier("pauta${i}Si", "id", requireContext().packageName)
+            val pautaNoId = resources.getIdentifier("pauta${i}No", "id", requireContext().packageName)
+
+            val radioGroup: RadioGroup? = view.findViewById(radioGroupId)
+            val pautaSi: RadioButton? = view.findViewById(pautaSiId)
+            val pautaNo: RadioButton? = view.findViewById(pautaNoId)
+
+            // Asegúrate de que los elementos no sean null
+            if (radioGroup != null && pautaSi != null && pautaNo != null) {
+                radioGroups.add(radioGroup)
+                radioButtonsSi.add(pautaSi)
+                radioButtonsNo.add(pautaNo)
+            } else {
+                Log.e("FormularioFragment", "Elementos de pautas no encontrados para el índice $i")
+            }
+        }
+
+        // RadioButton para documentos necesarios
+        val radioGroupDocsNecesarios: RadioGroup? = view.findViewById(R.id.radioGroupLicencia)
+        val docsNecesariosSi: RadioButton? = view.findViewById(R.id.siLicenciaTransito)
+        val docsNecesariosNo: RadioButton? = view.findViewById(R.id.noLicenciaTransito)
+
+        if (radioGroupDocsNecesarios != null && docsNecesariosSi != null && docsNecesariosNo != null) {
+            radioGroups.add(radioGroupDocsNecesarios)
+            radioButtonsSi.add(docsNecesariosSi)
+            radioButtonsNo.add(docsNecesariosNo)
+        } else {
+            Log.e("FormularioFragment", "RadioButtons de documentos no encontrados")
+        }
+    }
 }

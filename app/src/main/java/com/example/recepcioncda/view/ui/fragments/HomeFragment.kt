@@ -1,5 +1,6 @@
 package com.example.recepcioncda.view.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -15,6 +16,8 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.findNavController
 import com.example.recepcioncda.R
+import com.example.recepcioncda.view.ui.activities.LoginActivity
+import com.example.recepcioncda.view.ui.models.Usuario
 import com.google.android.material.navigation.NavigationView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -63,7 +66,10 @@ class HomeFragment : Fragment() {
                     Toast.makeText(context, "Menú principal", Toast.LENGTH_SHORT).show()
                 }
 
-                else -> {}
+                R.id.logout -> {
+                    cerrarSesion()
+                    Toast.makeText(context, "Cierre de sesión", Toast.LENGTH_SHORT).show()
+                }
             }
             true
         }
@@ -81,5 +87,12 @@ class HomeFragment : Fragment() {
         }
     }
 
-
+    private fun cerrarSesion(){
+        Usuario.nombre = null  // Se limpia la variable global del usuario
+        //findNavController().navigate(R.id.loginActivity)
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        requireActivity().finish()
+    }
 }

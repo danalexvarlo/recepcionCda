@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
                 )
 
                 stringRequest.retryPolicy = DefaultRetryPolicy(
-                    15000, // Tiempo de espera en milisegundos (15 segundos)
+                    5000, // Tiempo de espera en milisegundos (15 segundos)
                     DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                     DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                 )

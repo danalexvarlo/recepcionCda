@@ -27,7 +27,7 @@
 
     <item
         android:title="Cerrar sesión"
-        android:id="@+id/closeSesion"
+        android:id="@+id/logout"
         android:icon="@drawable/iconooff">
     </item>
 

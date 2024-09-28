@@ -39,6 +39,7 @@
             android:inputType="textPersonName"
             android:hint="Ingrese su usuario"
             android:textAlignment="center"
+            android:textColor="@color/color_black"
             android:background="@drawable/stylo_borde_login"
             />
         <EditText
@@ -51,6 +52,7 @@
             android:hint="Ingrese su contraseña"
             android:inputType="textPassword"
             android:textAlignment="center"
+            android:textColor="@color/color_black"
             android:background="@drawable/stylo_borde_login"
             />
     </RelativeLayout>

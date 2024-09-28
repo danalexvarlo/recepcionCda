@@ -29,4 +29,10 @@
         android:name="com.example.recepcioncda.view.ui.fragments.LivianoFragment"
         android:label="fragment_liviano"
         tools:layout="@layout/fragment_liviano" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.recepcioncda.view.ui.activities.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login">
+    </activity>
 </navigation>
