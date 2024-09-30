@@ -31,7 +31,6 @@
             android:textSize="20dp"
             android:textStyle="bold">
         </TextView>
-
         <TextView
             android:id="@+id/nombreRecepcionista"
             android:layout_width="630dp"
@@ -44,6 +43,32 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:text="NOMBRE DEL RECEPCIONISTA">
+        </TextView>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="580dp"
+            android:layout_marginBottom="10dp"
+            android:text="Formulario No."
+            android:textColor="@color/color_black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/nombreRecepcionista">
+        </TextView>
+        <TextView
+            android:id="@+id/numeroFormulario"
+            android:layout_width="630dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:textColor="@color/color_orange"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="NUMERO DEL FORMULARIO"
+            android:layout_below="@+id/nombreRecepcionista">
         </TextView>
     </RelativeLayout>
     <FrameLayout
@@ -253,6 +278,79 @@
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
+                <!-- CardView datos de tipo de vehículo -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/tipoVehiculoLayoutLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/tipoVehiculoTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo de vehículo"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_black">
+                        </TextView>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tipoVehiculoTitle">
+                            <!-- SE CREA UN SPINNER PARA INGRESAR LA CLASE DEL VEHICULO -->
+                            <TextView
+                                android:id="@+id/tipoVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tipo de vehículo"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="420dp">
+                            </TextView>
+                            <Spinner
+                                android:id="@+id/spinnerTipoVehiculo"
+                                android:background="@drawable/stylo_borde_login"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="330dp"
+                                android:layout_row="3"
+                                android:layout_column="1" />
+                            <!-- SE CREA UN SPINNER PARA INGRESAR LA CLASE DEL VEHICULO -->
+                            <TextView
+                                android:id="@+id/tipoMotorMotocicleta"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tipo de motor"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="420dp"
+                                android:layout_below="@+id/tipoVehiculo"
+                                android:layout_marginTop="25dp">
+                            </TextView>
+                            <Spinner
+                                android:id="@+id/spinnerTipoMotorMotocicleta"
+                                android:background="@drawable/stylo_borde_login"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="330dp"
+                                android:layout_below="@+id/spinnerTipoVehiculo"
+                                android:layout_marginTop="30dp"
+                                android:layout_row="3"
+                                android:layout_column="1" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
                 <!-- CardView datos de tipo de combustible -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -281,7 +379,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tipoCombustibleTitle">
-                            <!-- SE CREA UN SPINNER PARA INGRESAR LA CLASE DEL VEHICULO -->
+                            <!-- SE CREA UN SPINNER PARA INGRESAR EL TIPO DE COMBUSTIBLE -->
                             <TextView
                                 android:id="@+id/tipoCombustible"
                                 android:layout_width="match_parent"
@@ -297,6 +395,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="330dp"
+                                android:background="@drawable/stylo_borde_login"
                                 android:layout_row="3"
                                 android:layout_column="1" />
                         </RelativeLayout>
@@ -346,6 +445,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="330dp"
+                                android:background="@drawable/stylo_borde_login"
                                 android:layout_row="6"
                                 android:layout_column="1" />
                         </RelativeLayout>
@@ -1132,49 +1232,54 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="6dp"
                     app:contentPadding="4dp">
-                    <TextView
-                        android:id="@+id/documentosNecesariosTitle"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Documentos necesarios"
-                        android:textSize="30dp"
-                        android:textStyle="bold"
-                        android:textAlignment="center">
-                    </TextView>
-                    <TextView
-                        android:id="@+id/licenciaTransitoText"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Licencia de tránsito"
-                        android:textSize="25dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="50dp">
-                    </TextView>
-                    <!--Radio Group para la licencia de tránsito -->
-                    <RadioGroup
-                        android:orientation="horizontal"
-                        android:id="@+id/radioGroupLicencia"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <RadioButton
-                            android:id="@+id/siLicenciaTransito"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/documentosNecesariosTitle"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Sí"
-                            android:textSize="20dp"
-                            android:layout_marginTop="45dp"
-                            android:layout_marginStart="300dp">
-                        </RadioButton>
-                        <RadioButton
-                            android:id="@+id/noLicenciaTransito"
+                            android:layout_height="match_parent"
+                            android:text="Documentos necesarios"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:textAlignment="center">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/licenciaTransitoText"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="No"
-                            android:textSize="20dp"
-                            android:layout_marginTop="45dp"
-                            android:layout_marginStart="-350dp">
-                        </RadioButton>
-                    </RadioGroup>
+                            android:layout_height="match_parent"
+                            android:text="Licencia de tránsito"
+                            android:textSize="25dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="50dp">
+                        </TextView>
+                        <!--Radio Group para la licencia de tránsito -->
+                        <RadioGroup
+                            android:orientation="horizontal"
+                            android:id="@+id/radioGroupLicencia"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/siLicenciaTransito"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Sí"
+                                android:textSize="20dp"
+                                android:layout_marginTop="45dp"
+                                android:layout_marginStart="300dp">
+                            </RadioButton>
+                            <RadioButton
+                                android:id="@+id/noLicenciaTransito"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="20dp"
+                                android:layout_marginTop="45dp"
+                                android:layout_marginStart="-350dp">
+                            </RadioButton>
+                        </RadioGroup>
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
                 <!-- CERTIFICADO DE INSTALACIÓN DE GAS -->
                 <androidx.cardview.widget.CardView
@@ -1185,95 +1290,100 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="6dp"
                     app:contentPadding="4dp">
-                    <TextView
-                        android:id="@+id/certificadoGasTitle"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Certificado de Instalación GNVC (Vehículo convertido)"
-                        android:textAlignment="center"
-                        android:textSize="30dp"
-                        android:textStyle="bold">
-                    </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Verificado en la plataforma SICOM"
-                        android:textSize="25dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="60dp">
-                    </TextView>
-                    <TextView
-                        android:id="@+id/vigenciaText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Vigencia"
-                        android:textSize="25dp"
-                        android:layout_marginTop="120dp"
-                        android:layout_marginStart="150dp">
-                    </TextView>
-                    <RadioGroup
-                        android:orientation="horizontal"
-                        android:id="@+id/radioGroupCertificadoGas"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <RadioButton
-                            android:id="@+id/siCertificadoGas"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/certificadoGasTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Sí"
-                            android:textSize="20dp"
-                            android:layout_marginTop="55dp"
-                            android:layout_marginStart="450dp">
-                        </RadioButton>
-                        <RadioButton
-                            android:id="@+id/noCertificadoGas"
+                            android:text="Certificado de Instalación GNVC (Vehículo convertido)"
+                            android:textAlignment="center"
+                            android:textSize="30dp"
+                            android:textStyle="bold">
+                        </TextView>
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="No"
-                            android:textSize="20dp"
-                            android:layout_marginTop="55dp"
-                            android:layout_marginStart="-240dp">
-                        </RadioButton>
-                        <RadioButton
-                            android:id="@+id/noAplicaCertificadoGas"
+                            android:text="Verificado en la plataforma SICOM"
+                            android:textSize="25dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="60dp">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/vigenciaText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="No Aplica"
-                            android:textSize="20dp"
-                            android:layout_marginTop="55dp"
-                            android:layout_marginStart="-150dp">
-                        </RadioButton>
-                    </RadioGroup>
-                    <EditText
-                        android:id="@+id/editAñoGas"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="450dp"
-                        android:layout_marginTop="120dp"
-                        android:layout_marginEnd="230dp"
-                        android:textAlignment="center"
-                        android:hint="Año"
-                        android:background="@drawable/stylo_borde_login"></EditText>
-                    <EditText
-                        android:id="@+id/editMesGas"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="550dp"
-                        android:layout_marginTop="120dp"
-                        android:layout_marginEnd="130dp"
-                        android:textAlignment="center"
-                        android:hint="Mes"
-                        android:background="@drawable/stylo_borde_login"></EditText>
-                    <EditText
-                        android:id="@+id/editDiaGas"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="650dp"
-                        android:layout_marginTop="120dp"
-                        android:layout_marginEnd="20dp"
-                        android:textAlignment="center"
-                        android:hint="Día"
-                        android:background="@drawable/stylo_borde_login"></EditText>
+                            android:text="Vigencia"
+                            android:textSize="25dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginStart="150dp">
+                        </TextView>
+                        <RadioGroup
+                            android:orientation="horizontal"
+                            android:id="@+id/radioGroupCertificadoGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RadioButton
+                                android:id="@+id/siCertificadoGas"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Sí"
+                                android:textSize="20dp"
+                                android:layout_marginTop="55dp"
+                                android:layout_marginStart="450dp">
+                            </RadioButton>
+                            <RadioButton
+                                android:id="@+id/noCertificadoGas"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="20dp"
+                                android:layout_marginTop="55dp"
+                                android:layout_marginStart="-240dp">
+                            </RadioButton>
+                            <RadioButton
+                                android:id="@+id/noAplicaCertificadoGas"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="No Aplica"
+                                android:textSize="20dp"
+                                android:layout_marginTop="55dp"
+                                android:layout_marginStart="-150dp">
+                            </RadioButton>
+                        </RadioGroup>
+                        <EditText
+                            android:id="@+id/editAñoGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="450dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginEnd="230dp"
+                            android:textAlignment="center"
+                            android:hint="Año"
+                            android:background="@drawable/stylo_borde_login"></EditText>
+                        <EditText
+                            android:id="@+id/editMesGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="550dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginEnd="130dp"
+                            android:textAlignment="center"
+                            android:hint="Mes"
+                            android:background="@drawable/stylo_borde_login"></EditText>
+                        <EditText
+                            android:id="@+id/editDiaGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="650dp"
+                            android:layout_marginTop="120dp"
+                            android:layout_marginEnd="20dp"
+                            android:textAlignment="center"
+                            android:hint="Día"
+                            android:background="@drawable/stylo_borde_login"></EditText>
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
                 <!-- DISCAPACIDADES AUDITIVAS -->
                 <androidx.cardview.widget.CardView
@@ -1285,53 +1395,58 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="6dp"
                     app:contentPadding="4dp">
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Licencia de Conducción"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:textSize="30dp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Posee restricciones por discapacidad auditiva"
-                        android:textSize="25dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="50dp"></TextView>
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginStart="600dp"
-                        android:orientation="horizontal"
-                        android:checkedButton="@id/radioNoDiscapacidad">
-                        <RadioButton
-                            android:id="@+id/radioSiDiscapacidad"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Sí"
-                            android:textSize="20dp"></RadioButton>
-                        <RadioButton
-                            android:id="@+id/radioNoDiscapacidad"
+                            android:text="Licencia de Conducción"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textSize="30dp">
+                        </TextView>
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="-80dp"
-                            android:text="No"
-                            android:textSize="20dp"></RadioButton>
-                    </RadioGroup>
-                    <Spinner
-                        android:id="@+id/spinnerDiscapacidadAuditiva"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/stylo_borde_login"
-                        android:textAlignment="center"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="100dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_row="6"
-                        android:layout_column="1" />
+                            android:text="Posee restricciones por discapacidad auditiva"
+                            android:textSize="25dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="50dp"></TextView>
+                        <RadioGroup
+                            android:id="@+id/radioGroupDiscapacidades"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginStart="600dp"
+                            android:orientation="horizontal">
+                            <RadioButton
+                                android:id="@+id/radioSiDiscapacidad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Sí"
+                                android:textSize="20dp"></RadioButton>
+                            <RadioButton
+                                android:id="@+id/radioNoDiscapacidad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="-80dp"
+                                android:text="No"
+                                android:textSize="20dp"></RadioButton>
+                        </RadioGroup>
+                        <Spinner
+                            android:id="@+id/spinnerDiscapacidadAuditiva"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stylo_borde_login"
+                            android:textAlignment="center"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="100dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_row="6"
+                            android:layout_column="1" />
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </GridLayout>
         </ScrollView>

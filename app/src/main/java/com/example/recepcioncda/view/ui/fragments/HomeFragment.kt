@@ -68,7 +68,7 @@ class HomeFragment : Fragment() {
 
                 R.id.logout -> {
                     cerrarSesion()
-                    Toast.makeText(context, "Cierre de sesión", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Sesión finalizada", Toast.LENGTH_SHORT).show()
                 }
             }
             true
