@@ -1,7 +1,9 @@
 package com.example.recepcioncda.view.ui.fragments
 
 
+import android.app.DatePickerDialog
 import android.content.Intent
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -35,9 +37,11 @@ import com.example.recepcioncda.view.ui.models.Usuario
 import com.google.android.material.navigation.NavigationView
 import com.example.recepcioncda.view.ui.models.Conductor
 import com.example.recepcioncda.view.ui.models.Vehiculo
+import com.example.recepcioncda.view.ui.models.Formulario
 import org.json.JSONArray
 import org.json.JSONException
 import java.net.URLEncoder
+import java.text.Normalizer.Form
 
 lateinit var nombreRecepcionista:TextView //Nombre del recepcionista
 
@@ -51,15 +55,24 @@ private lateinit var direccion: EditText
 private lateinit var telefono: EditText
 private lateinit var correo: EditText
 //DATOS DEL VEHICULO
+private lateinit var kilometraje: EditText
+private lateinit var placa: EditText
+private lateinit var modeloVehiculo: EditText
+private lateinit var marca: EditText
+private lateinit var color: EditText
+private lateinit var soat: EditText
+private lateinit var potencia: EditText
+private lateinit var numPasajeros: EditText
+//DATOS VIGENCIA GAS NATURAL VEHICULAR
+private lateinit var vigenciaGas: EditText
 
 private lateinit var radioGroupEntrada: RadioGroup
 private lateinit var primeraVez: RadioButton
 private lateinit var segundaVez: RadioButton
 
 // Listas para RadioButtons y RadioGroups
-private val radioButtonsSi = mutableListOf<RadioButton>()
-private val radioButtonsNo = mutableListOf<RadioButton>()
 private val radioGroups = mutableListOf<RadioGroup>()
+private lateinit var texto: TextView
 
 private lateinit var radioGroupDiscapacidades: RadioGroup
 private lateinit var siDiscapacidad: RadioButton
@@ -74,23 +87,38 @@ class FormularioFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_formulario, container, false)
-
         requestQueue = Volley.newRequestQueue(requireContext())
-
+        texto = view.findViewById(R.id.pautaunoText)
+        //------ Se inicializan las variables de los datos del conductor ------ //
         nombre = view.findViewById(R.id.editNombreConductor)
         tipoDocumento = view.findViewById(R.id.editTipodoctConductor)
         documento = view.findViewById(R.id.editDocumentoConductor)
         direccion = view.findViewById(R.id.editDireccionConductor)
         telefono = view.findViewById(R.id.editTelefonoConductor)
         correo = view.findViewById(R.id.editCorreoConductor)
-
+        //------ Se inicializan las variables de los datos del vehículo ------ //
+        kilometraje = view.findViewById(R.id.editKilometrajeVehiculo)
+        placa = view.findViewById(R.id.editPlacaVehiculo)
+        modeloVehiculo = view.findViewById(R.id.editModeloVehiculo)
+        marca = view.findViewById(R.id.editMarcaVehiculo)
+        color = view.findViewById(R.id.editColorVehiculo)
+        soat = view.findViewById(R.id.editSoatVehiculo)
+        potencia = view.findViewById(R.id.editPotenciaVehiculo)
+        numPasajeros = view.findViewById(R.id.editNoPasajeros)
+        //------ Edita el editText del soat al seleccionar permita ingresar el SOAT ------ //
+        soat.setOnClickListener{ mostrarFechaSoat() }
+        // ------ Edita el editText de la vigencia al seleccionar permita ingresar la fecha ------ //
+        vigenciaGas = view.findViewById(R.id.editVigenciaGas)
+        vigenciaGas.setOnClickListener{ mostrarVigenciaGas() }
+        // ------ Se inicializan los RadioButton para el ingreso ------ //
+        radioGroupEntrada = view.findViewById(R.id.radioGroupEntrada)
+        //------ Se inicializan las variables para mostrar el nombre del recepcionista ------ //
         nombreRecepcionista = view.findViewById(R.id.nombreRecepcionista)
         nombreRecepcionista.text = Usuario.nombre ?: "Usuario desconocido"
         noDiscapacidad = view.findViewById(R.id.radioNoDiscapacidad)
-
+        //------ Se implementa el navView para navegación del menú lateral ------ //
         val navView: NavigationView = view.findViewById(R.id.nav_view)
-
-        // Se implementa el menú desplegable lateral
+        //------ Se implementa el menú desplegable lateral ------ //
         val toolbar: Toolbar = view.findViewById(R.id.toolbar_formulario)
         val drawerLayout: DrawerLayout = view.findViewById(R.id.formulario_fragment)
         toggle = ActionBarDrawerToggle(
@@ -121,14 +149,19 @@ class FormularioFragment : Fragment() {
             }
             true
         }
-        inicializarRadioButtons(view)
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        for (i in 1..17) {
+            inicializarRadioGroup(view, i)
+        }
+        texto.setOnClickListener{ Toast.makeText(requireContext(),Formulario.cond1, Toast.LENGTH_SHORT).show() }
         val nextFormulario = view.findViewById<Button>(R.id.siguienteButton)
         nextFormulario.setOnClickListener() {
+            Toast.makeText(requireContext(), Formulario.entrada, Toast.LENGTH_SHORT).show()
             // Se guardan los datos del conductor en un modelo temporal
             Conductor.nombre = nombre.text.toString()
             Conductor.tipoDocumento = tipoDocumento.text.toString()
@@ -137,7 +170,24 @@ class FormularioFragment : Fragment() {
             Conductor.phone = telefono.text.toString()
             Conductor.email = correo.text.toString()
             // Se guardan los datos del vehículo en un modelo temporal
+            Vehiculo.kilometraje = kilometraje.text.toString().toFloatOrNull()
+            Vehiculo.placa = placa.text.toString()
+            Vehiculo.marca = marca.text.toString()
+            Vehiculo.modelo = modeloVehiculo.text.toString().toIntOrNull()
+            Vehiculo.soat = soat.text.toString()
+            Vehiculo.potencia = potencia.text.toString().toIntOrNull()
+            Vehiculo.numPasaj = numPasajeros.text.toString().toIntOrNull()
+            Vehiculo.fechaGas = vigenciaGas.text.toString()
             findNavController().navigate(R.id.action_formulario_to_livianoFragment)
+        }
+        // Se guarda el ingreso en una variable global
+        radioGroupEntrada.setOnCheckedChangeListener{group, checkedId ->
+            primeraVez = view.findViewById(R.id.primeraVez)
+            segundaVez = view.findViewById(R.id.segundaVez)
+            when(checkedId){ // Verifica cuál RadioButton está seleccionado
+                R.id.primeraVez -> { Formulario.entrada = primeraVez.text.toString() }
+                R.id.segundaVez -> { Formulario.entrada = segundaVez.text.toString() }
+            }
         }
 
         var spinnerDiscapacidades = view.findViewById<Spinner>(R.id.spinnerDiscapacidadAuditiva)
@@ -201,69 +251,24 @@ class FormularioFragment : Fragment() {
         startActivity(intent)
         requireActivity().finish()
     }
+    private fun inicializarRadioGroup(view: View, index: Int) {
+        val radioGroupId = resources.getIdentifier("radioGroup$index", "id", requireContext().packageName)
+        val radioGroup: RadioGroup? = view.findViewById(radioGroupId)
 
-    private fun inicializarRadioButtons(view: View) {
-        // RadioButtons de ingreso de vehículo
-        primeraVez = view.findViewById(R.id.primeraVez)
-        segundaVez = view.findViewById(R.id.segundaVez)
-
-        // Verifica si los RadioButtons fueron encontrados
-        if (primeraVez == null || segundaVez == null) {
-            Log.e("FormularioFragment", "RadioButtons no encontrados")
-            return
-        }
-
-        // RadioButton para especificar blindaje de vehículo
-        val siBlindado: RadioButton? = view.findViewById(R.id.siBlindado)
-        val noBlindado: RadioButton? = view.findViewById(R.id.noBlindado)
-
-        // Asegúrate de que estos elementos existan
-        if (siBlindado == null || noBlindado == null) {
-            Log.e("FormularioFragment", "RadioButtons de blindaje no encontrados")
-            return
-        }
-
-        // Añadir a las listas
-        radioButtonsSi.add(siBlindado)
-        radioButtonsNo.add(noBlindado)
-
-        // Pautas de ingreso
-        for (i in 1..17) {
-            val radioGroupId =
-                resources.getIdentifier("radioGroup$i", "id", requireContext().packageName)
-            val pautaSiId =
-                resources.getIdentifier("pauta${i}Si", "id", requireContext().packageName)
-            val pautaNoId =
-                resources.getIdentifier("pauta${i}No", "id", requireContext().packageName)
-
-            val radioGroup: RadioGroup? = view.findViewById(radioGroupId)
-            val pautaSi: RadioButton? = view.findViewById(pautaSiId)
-            val pautaNo: RadioButton? = view.findViewById(pautaNoId)
-
-            // Asegúrate de que los elementos no sean null
-            if (radioGroup != null && pautaSi != null && pautaNo != null) {
-                radioGroups.add(radioGroup)
-                radioButtonsSi.add(pautaSi)
-                radioButtonsNo.add(pautaNo)
-            } else {
-                Log.e("FormularioFragment", "Elementos de pautas no encontrados para el índice $i")
+        radioGroup?.setOnCheckedChangeListener { _, checkedId ->
+            val selectedText = when (checkedId) {
+                resources.getIdentifier("pauta${index}SiButton", "id", requireContext().packageName) -> "Sí"
+                resources.getIdentifier("pauta${index}NoButton", "id", requireContext().packageName) -> "No Aplica"
+                else -> null
+            }
+            when (index) {
+                // Índices para agregar las variables del modelo Formulario
+                1 -> Formulario.cond1 = selectedText
+                2 -> Formulario.cond2 = selectedText
+                3 -> Formulario.cond3 = selectedText
             }
         }
-
-        // RadioButton para documentos necesarios
-        val radioGroupDocsNecesarios: RadioGroup? = view.findViewById(R.id.radioGroupLicencia)
-        val docsNecesariosSi: RadioButton? = view.findViewById(R.id.siLicenciaTransito)
-        val docsNecesariosNo: RadioButton? = view.findViewById(R.id.noLicenciaTransito)
-
-        if (radioGroupDocsNecesarios != null && docsNecesariosSi != null && docsNecesariosNo != null) {
-            radioGroups.add(radioGroupDocsNecesarios)
-            radioButtonsSi.add(docsNecesariosSi)
-            radioButtonsNo.add(docsNecesariosNo)
-        } else {
-            Log.e("FormularioFragment", "RadioButtons de documentos no encontrados")
-        }
     }
-
     private fun setupSpinners(view: View, spinnerId: Int, options: Array<String>) {
         val spinner: Spinner = view.findViewById(spinnerId)
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
@@ -304,5 +309,33 @@ class FormularioFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         }
+    }
+
+    private fun mostrarFechaSoat(){
+        val calendario = Calendar.getInstance()
+        val year = calendario.get(Calendar.YEAR)
+        val mes = calendario.get(Calendar.MONTH)
+        val dia = calendario.get(Calendar.DAY_OF_MONTH)
+        val datePickerDialog = DatePickerDialog(requireContext(),
+            {_, selectedYear, selectedMonth, selectedDay ->
+                val fechaSeleccionada = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                soat.setText(fechaSeleccionada)
+            },
+            year, mes, dia)
+        datePickerDialog.show()
+    }
+
+    private fun mostrarVigenciaGas(){
+        val calendario = Calendar.getInstance()
+        val year = calendario.get(Calendar.YEAR)
+        val mes = calendario.get(Calendar.MONTH)
+        val dia = calendario.get(Calendar.DAY_OF_MONTH)
+        val datePickerDialog = DatePickerDialog(requireContext(),
+            {_, selectedYear, selectedMonth, selectedDay ->
+                val fechaSeleccionada = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                vigenciaGas.setText(fechaSeleccionada)
+            },
+            year, mes, dia)
+        datePickerDialog.show()
     }
 }

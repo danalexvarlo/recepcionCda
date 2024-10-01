@@ -233,7 +233,6 @@
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese dirección"
                                 android:textAlignment="center"></EditText>
-
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL TELÉFONO DEL CONDUCTOR -->
                             <TextView
                                 android:id="@+id/telefonoConductor"
@@ -254,7 +253,6 @@
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese teléfono"
                                 android:textAlignment="center"></EditText>
-
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL CORREO DEL CONDUCTOR -->
                             <TextView
                                 android:id="@+id/correoConductor"
@@ -274,6 +272,158 @@
                                 android:layout_marginTop="300dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese correo"
+                                android:textAlignment="center"></EditText>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- CardView datos del vehículo -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/color_white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="6dp"
+                    app:contentPadding="4dp">
+                    <RelativeLayout
+                        android:id="@+id/datosVehiculoLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@drawable/stylo_borde_login">
+                        <TextView
+                            android:id="@+id/datosVehiculoCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Datos del vehículo"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_black">
+                        </TextView>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/datosVehiculoCard">
+                            <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL NOMBRE DEL CONDUCTOR -->
+                            <TextView
+                                android:id="@+id/kilometrajeVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="400dp"
+                                android:text="Kilometraje"
+                                android:textSize="20dp"
+                                android:textStyle="bold">
+                            </TextView>
+                            <EditText
+                                android:id="@+id/editKilometrajeVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="330dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese kilometraje"
+                                android:textAlignment="center">
+                            </EditText>
+                            <!-- SE CREA UN EDIT TEXT PARA INGRESAR LA PLACA DEL VEHÍCULO -->
+                            <TextView
+                                android:id="@+id/placaVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:text="Placa"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="440dp"
+                                android:layout_below="@+id/kilometrajeVehiculo"></TextView>
+
+                            <EditText
+                                android:id="@+id/editPlacaVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="330dp"
+                                android:layout_marginTop="60dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese placa"
+                                android:textAlignment="center" />
+                            <!-- SE CREA UN EDIT TEXT PARA INGRESAR LA MARCA DEL VEHÍCULO -->
+                            <TextView
+                                android:id="@+id/marcaVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:text="Marca"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="400dp"
+                                android:layout_below="@+id/placaVehiculo"></TextView>
+                            <EditText
+                                android:id="@+id/editMarcaVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="330dp"
+                                android:layout_marginTop="120dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese marca"
+                                android:textAlignment="center"></EditText>
+                            <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL MODELO DEL VEHÍCULO -->
+                            <TextView
+                                android:id="@+id/modeloVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:text="Modelo"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="400dp"
+                                android:layout_below="@+id/marcaVehiculo"></TextView>
+                            <EditText
+                                android:id="@+id/editModeloVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="330dp"
+                                android:layout_marginTop="180dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese modelo"
+                                android:textAlignment="center"></EditText>
+                            <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL COLOR DEL VEHÍCULO -->
+                            <TextView
+                                android:id="@+id/colorVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:text="Color"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="400dp"
+                                android:layout_below="@+id/modeloVehiculo"></TextView>
+                            <EditText
+                                android:id="@+id/editColorVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="330dp"
+                                android:layout_marginTop="240dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese color"
+                                android:textAlignment="center"></EditText>
+                            <!-- SE CREA UN EDIT TEXT PARA INGRESA FECHA SOAT -->
+                            <TextView
+                                android:id="@+id/soatVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:text="SOAT"
+                                android:textStyle="bold"
+                                android:textSize="20dp"
+                                android:layout_marginStart="180dp"
+                                android:layout_marginEnd="400dp"
+                                android:layout_below="@+id/colorVehiculo"></TextView>
+                            <EditText
+                                android:id="@+id/editSoatVehiculo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="330dp"
+                                android:layout_marginTop="300dp"
+                                android:background="@drawable/stylo_borde_login"
+                                android:hint="Ingrese SOAT"
                                 android:textAlignment="center"></EditText>
                         </RelativeLayout>
                     </RelativeLayout>
@@ -1320,6 +1470,15 @@
                             android:layout_marginTop="120dp"
                             android:layout_marginStart="150dp">
                         </TextView>
+                        <EditText
+                            android:id="@+id/editVigenciaGas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="330dp"
+                            android:layout_marginTop="110dp"
+                            android:background="@drawable/stylo_borde_login"
+                            android:hint="Ingrese fecha vigencia"
+                            android:textAlignment="center"></EditText>
                         <RadioGroup
                             android:orientation="horizontal"
                             android:id="@+id/radioGroupCertificadoGas"
@@ -1353,36 +1512,6 @@
                                 android:layout_marginStart="-150dp">
                             </RadioButton>
                         </RadioGroup>
-                        <EditText
-                            android:id="@+id/editAñoGas"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="450dp"
-                            android:layout_marginTop="120dp"
-                            android:layout_marginEnd="230dp"
-                            android:textAlignment="center"
-                            android:hint="Año"
-                            android:background="@drawable/stylo_borde_login"></EditText>
-                        <EditText
-                            android:id="@+id/editMesGas"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="550dp"
-                            android:layout_marginTop="120dp"
-                            android:layout_marginEnd="130dp"
-                            android:textAlignment="center"
-                            android:hint="Mes"
-                            android:background="@drawable/stylo_borde_login"></EditText>
-                        <EditText
-                            android:id="@+id/editDiaGas"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="650dp"
-                            android:layout_marginTop="120dp"
-                            android:layout_marginEnd="20dp"
-                            android:textAlignment="center"
-                            android:hint="Día"
-                            android:background="@drawable/stylo_borde_login"></EditText>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
                 <!-- DISCAPACIDADES AUDITIVAS -->
