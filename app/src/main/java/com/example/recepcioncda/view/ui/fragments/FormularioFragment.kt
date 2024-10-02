@@ -214,9 +214,10 @@ class FormularioFragment : Fragment() {
             else if(Vehiculo.clasVeh == "Motocicleta"){
                 findNavController().navigate(R.id.action_formulario_to_motosFragment)
             }
-            else{
+            else if(Vehiculo.clasVeh == "Motocarro"){
                 findNavController().navigate(R.id.action_formulario_to_motocarroFragment)
             }
+            Log.d("Formulario", "Datos Vehiculo: ${Vehiculo.clasVeh}")
         }
         // Se guarda el porte de la licencia en una variable global
         licenciaTransito.setOnCheckedChangeListener{group, checkedId ->
