@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/motosFragment"
+    android:id="@+id/motocarroFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.ui.fragments.MotosFragment">
+    tools:context=".view.ui.fragments.MotocarroFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,31 +20,37 @@
     </RelativeLayout>
     <!-- _____________________________________ -->
     <RelativeLayout
-        android:id="@+id/nombreRecepcionistaLayoutLiviano"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="1150dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/stylo_borde_formulario">
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/toolbar_motocarro"
+            layout="@layout/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </include>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Recepcionista: "
             android:textSize="30dp"
             android:textStyle="bold"
-            android:layout_marginEnd="580dp">
+            android:layout_marginEnd="580dp"
+            android:layout_below="@+id/toolbar_motocarro">
         </TextView>
         <TextView
-            android:id="@+id/nombreRecepcionistaLiviano"
+            android:id="@+id/nombreRecepcionistaMotocarro"
+            android:text="NOMBRE DEL RECEPCIONISTA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:textStyle="bold"
             android:layout_marginStart="210dp"
-            android:layout_marginEnd="300dp">
+            android:layout_marginEnd="100dp"
+            android:layout_below="@+id/toolbar_motocarro">
         </TextView>
     </RelativeLayout>
-    <!-- Layout para ingresar las presiones de la moto -->
+    <!-- _____________________________________ -->
+    <!-- Layout para ingresar las presiones del vehículo liviano -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,8 +63,7 @@
             android:textSize="30dp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/color_black"
-            android:layout_marginTop="0dp">
+            android:layout_marginTop="10dp">
         </TextView>
         <!-- Eje delantero -->
         <TextView
@@ -69,35 +74,31 @@
             android:text="EJE 1 DELANTERO PSI"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/color_black"
             android:textAlignment="center"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="10dp">
         </TextView>
         <TextView
-            android:id="@+id/delanteraText"
+            android:id="@+id/izquierdaDelanteraText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Llanta Delantera"
+            android:text="Delantero"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/color_black"
             android:textAlignment="center"
             android:background="@drawable/stylo_borde_presiones"
             android:layout_below="@+id/ejeDelanteroText"
             android:layout_marginTop="100dp"
             android:layout_marginStart="300dp"
-            android:layout_marginEnd="300dp">
-        </TextView>
+            android:layout_marginEnd="300dp"></TextView>
         <EditText
-            android:id="@+id/delanteraEdit"
+            android:id="@+id/ejeDelanteroMotocarroEdit"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Psi"
             android:textSize="50dp"
             android:textAlignment="center"
-            android:textColor="@color/color_black"
-            android:layout_below="@+id/delanteraText"
+            android:layout_below="@+id/izquierdaDelanteraText"
             android:layout_marginStart="300dp"
             android:layout_marginEnd="300dp"
             android:background="@drawable/stylo_borde_presiones">
@@ -105,57 +106,118 @@
         <!-- Eje trasero -->
         <TextView
             android:id="@+id/ejeTraseroText"
-            android:layout_below="@+id/delanteraEdit"
+            android:layout_below="@+id/ejeDelanteroMotocarroEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="EJE 2 TRASERO PSI"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/color_black"
             android:textAlignment="center"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="50dp">
         </TextView>
         <TextView
-            android:id="@+id/traseraText"
+            android:id="@+id/izquierdaTraseraText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Llanta trasera"
+            android:text="Izquierda"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="@color/color_black"
             android:textAlignment="center"
             android:background="@drawable/stylo_borde_presiones"
             android:layout_below="@+id/ejeTraseroText"
             android:layout_marginTop="100dp"
-            android:layout_marginStart="300dp"
-            android:layout_marginEnd="300dp">
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="450dp">
+        </TextView>
+        <TextView
+            android:id="@+id/derechaTraseraText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Derecha"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:background="@drawable/stylo_borde_presiones"
+            android:layout_below="@+id/ejeTraseroText"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="450dp"
+            android:layout_marginEnd="150dp">
         </TextView>
         <EditText
-            android:id="@+id/traseraEdit"
+            android:id="@+id/traseraIzquierdaMotocarroEdit"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Psi"
             android:textSize="50dp"
             android:textAlignment="center"
-            android:textColor="@color/color_black"
-            android:layout_below="@+id/traseraText"
+            android:layout_below="@+id/izquierdaTraseraText"
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="450dp"
+            android:background="@drawable/stylo_borde_presiones">
+        </EditText>
+        <EditText
+            android:id="@+id/traseraDerechaMotocarroEdit"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Psi"
+            android:textSize="50dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/derechaTraseraText"
+            android:layout_marginStart="450dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/stylo_borde_presiones">
+        </EditText>
+        <!-- Repuesto -->
+        <TextView
+            android:id="@+id/repuestoText"
+            android:layout_below="@+id/traseraIzquierdaMotocarroEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REPUESTO"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginTop="50dp">
+        </TextView>
+        <TextView
+            android:id="@+id/repuestoPresionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Repuesto"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:background="@drawable/stylo_borde_presiones"
+            android:layout_below="@+id/repuestoText"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginEnd="300dp">
+        </TextView>
+        <EditText
+            android:id="@+id/repuestoMotocarroEdit"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Psi"
+            android:textSize="50dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/repuestoPresionText"
             android:layout_marginStart="300dp"
             android:layout_marginEnd="300dp"
             android:background="@drawable/stylo_borde_presiones">
         </EditText>
-
         <Button
-            android:id="@+id/siguientePresionesMotoButton"
+            android:id="@+id/siguientePresionesMotocarroButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/repuestoMotocarroEdit"
             android:text="Siguiente"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/color_black"
             android:textAlignment="center"
-            android:layout_below="@+id/traseraEdit"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             android:layout_marginStart="200dp"
             android:layout_marginEnd="200dp">
         </Button>
@@ -169,4 +231,5 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
     </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>

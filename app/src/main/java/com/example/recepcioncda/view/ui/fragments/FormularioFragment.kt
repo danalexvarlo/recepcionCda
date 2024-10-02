@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
+import android.provider.MediaStore.Audio.Radio
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.transition.Visibility
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -40,6 +42,7 @@ import com.example.recepcioncda.view.ui.models.Vehiculo
 import com.example.recepcioncda.view.ui.models.Formulario
 import org.json.JSONArray
 import org.json.JSONException
+import org.w3c.dom.Text
 import java.net.URLEncoder
 import java.text.Normalizer.Form
 
@@ -47,6 +50,10 @@ lateinit var nombreRecepcionista:TextView //Nombre del recepcionista
 
 private val URL = "http://192.168.0.113/recepcion/fetch.php"
 private lateinit var requestQueue: RequestQueue
+// RadioGroups para los RadioButton de entrada por primera o segunda vez
+private lateinit var radioGroupEntrada: RadioGroup
+private lateinit var primeraVez: RadioButton
+private lateinit var segundaVez: RadioButton
 //DATOS DEL CONDUCTOR
 private lateinit var nombre: EditText
 private lateinit var tipoDocumento: EditText
@@ -63,15 +70,22 @@ private lateinit var color: EditText
 private lateinit var soat: EditText
 private lateinit var potencia: EditText
 private lateinit var numPasajeros: EditText
-//DATOS VIGENCIA GAS NATURAL VEHICULAR
+// RadioGroup para blindaje del vehiulo
+private lateinit var blindado: RadioGroup
+private lateinit var blindadoSi: RadioButton
+private lateinit var blindadoNo: RadioButton
+//RadioGroup para verifica si el vehículo viene convertido a Gas
+private lateinit var radioGroupGas: RadioGroup
 private lateinit var vigenciaGas: EditText
+private lateinit var radioButtonSi: RadioButton
+private lateinit var radioButtonNo: RadioButton
+private lateinit var radioButtonNoAplica: RadioButton
+private lateinit var vigencia: TextView
+// RadioGroup para verificar si el conductor tiene su licencia de tránsito
+private lateinit var licenciaTransito: RadioGroup
+private lateinit var licenciaSi: RadioButton
+private lateinit var licenciaNo: RadioButton
 
-private lateinit var radioGroupEntrada: RadioGroup
-private lateinit var primeraVez: RadioButton
-private lateinit var segundaVez: RadioButton
-
-// Listas para RadioButtons y RadioGroups
-private val radioGroups = mutableListOf<RadioGroup>()
 private lateinit var texto: TextView
 
 private lateinit var radioGroupDiscapacidades: RadioGroup
@@ -89,29 +103,42 @@ class FormularioFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_formulario, container, false)
         requestQueue = Volley.newRequestQueue(requireContext())
         texto = view.findViewById(R.id.pautaunoText)
+        vigencia = view.findViewById(R.id.vigenciaText)
         //------ Se inicializan las variables de los datos del conductor ------ //
         nombre = view.findViewById(R.id.editNombreConductor)
         tipoDocumento = view.findViewById(R.id.editTipodoctConductor)
         documento = view.findViewById(R.id.editDocumentoConductor)
+        documento.transformationMethod = null
         direccion = view.findViewById(R.id.editDireccionConductor)
         telefono = view.findViewById(R.id.editTelefonoConductor)
+        telefono.transformationMethod = null
         correo = view.findViewById(R.id.editCorreoConductor)
         //------ Se inicializan las variables de los datos del vehículo ------ //
         kilometraje = view.findViewById(R.id.editKilometrajeVehiculo)
+        kilometraje.transformationMethod = null
         placa = view.findViewById(R.id.editPlacaVehiculo)
         modeloVehiculo = view.findViewById(R.id.editModeloVehiculo)
+        modeloVehiculo.transformationMethod = null
         marca = view.findViewById(R.id.editMarcaVehiculo)
         color = view.findViewById(R.id.editColorVehiculo)
         soat = view.findViewById(R.id.editSoatVehiculo)
         potencia = view.findViewById(R.id.editPotenciaVehiculo)
+        potencia.transformationMethod = null
         numPasajeros = view.findViewById(R.id.editNoPasajeros)
+        numPasajeros.transformationMethod = null
+        blindado = view.findViewById(R.id.radioGroupBlindaje)
         //------ Edita el editText del soat al seleccionar permita ingresar el SOAT ------ //
         soat.setOnClickListener{ mostrarFechaSoat() }
         // ------ Edita el editText de la vigencia al seleccionar permita ingresar la fecha ------ //
         vigenciaGas = view.findViewById(R.id.editVigenciaGas)
-        vigenciaGas.setOnClickListener{ mostrarVigenciaGas() }
+        vigenciaGas.setOnClickListener{ mostrarVigenciaGas()
+                                        Vehiculo.fechaGas = vigenciaGas.text.toString()}
+        // ------ Se inicializan los RadioButton para vehiculos convertido a gas ------ //
+        radioGroupGas = view.findViewById(R.id.radioGroupCertificadoGas)
         // ------ Se inicializan los RadioButton para el ingreso ------ //
         radioGroupEntrada = view.findViewById(R.id.radioGroupEntrada)
+        // ------ Se inicializan los RadioButton para licencia de transito ------ //
+        licenciaTransito = view.findViewById(R.id.radioGroupLicencia)
         //------ Se inicializan las variables para mostrar el nombre del recepcionista ------ //
         nombreRecepcionista = view.findViewById(R.id.nombreRecepcionista)
         nombreRecepcionista.text = Usuario.nombre ?: "Usuario desconocido"
@@ -159,6 +186,7 @@ class FormularioFragment : Fragment() {
             inicializarRadioGroup(view, i)
         }
         texto.setOnClickListener{ Toast.makeText(requireContext(),Formulario.cond1, Toast.LENGTH_SHORT).show() }
+        vigencia.setOnClickListener{ Toast.makeText(requireContext(),Vehiculo.fechaGas, Toast.LENGTH_SHORT).show() }
         val nextFormulario = view.findViewById<Button>(R.id.siguienteButton)
         nextFormulario.setOnClickListener() {
             Toast.makeText(requireContext(), Formulario.entrada, Toast.LENGTH_SHORT).show()
@@ -178,7 +206,35 @@ class FormularioFragment : Fragment() {
             Vehiculo.potencia = potencia.text.toString().toIntOrNull()
             Vehiculo.numPasaj = numPasajeros.text.toString().toIntOrNull()
             Vehiculo.fechaGas = vigenciaGas.text.toString()
-            findNavController().navigate(R.id.action_formulario_to_livianoFragment)
+            Toast.makeText(requireContext(), Vehiculo.fechaGas, Toast.LENGTH_SHORT).show()
+            Log.d("Formulario", "Datos Vehiculo: ${Vehiculo.fechaGas}")
+            if(Vehiculo.clasVeh in listOf("Automovil", "Camioneta", "Campero", "Microbus", "Otro")){
+                findNavController().navigate(R.id.action_formulario_to_livianoFragment)
+            }
+            else if(Vehiculo.clasVeh == "Motocicleta"){
+                findNavController().navigate(R.id.action_formulario_to_motosFragment)
+            }
+            else{
+                findNavController().navigate(R.id.action_formulario_to_motocarroFragment)
+            }
+        }
+        // Se guarda el porte de la licencia en una variable global
+        licenciaTransito.setOnCheckedChangeListener{group, checkedId ->
+            licenciaSi = view.findViewById(R.id.siLicenciaTransito)
+            licenciaNo = view.findViewById(R.id.noLicenciaTransito)
+            when(checkedId){
+                R.id.siLicenciaTransito -> { Vehiculo.licTrans = licenciaSi.text.toString() }
+                R.id.noLicenciaTransito -> { Vehiculo.licTrans = licenciaNo.text.toString() }
+            }
+        }
+        // Se guarda el blindaje en una variable global
+        blindado.setOnCheckedChangeListener{group, checkedId ->
+            blindadoSi = view.findViewById(R.id.siBlindado)
+            blindadoNo = view.findViewById(R.id.noBlindado)
+            when(checkedId){
+                R.id.siBlindado -> { Vehiculo.blindado = blindadoSi.text.toString()}
+                R.id.noBlindado -> { Vehiculo.blindado = blindadoNo.text.toString()}
+            }
         }
         // Se guarda el ingreso en una variable global
         radioGroupEntrada.setOnCheckedChangeListener{group, checkedId ->
@@ -189,7 +245,27 @@ class FormularioFragment : Fragment() {
                 R.id.segundaVez -> { Formulario.entrada = segundaVez.text.toString() }
             }
         }
-
+        // Se guarda si el vehículo es convertido a gas
+        radioGroupGas.setOnCheckedChangeListener{group, checkedId ->
+            radioButtonSi = view.findViewById(R.id.siCertificadoGas)
+            radioButtonNo = view.findViewById(R.id.noCertificadoGas)
+            radioButtonNoAplica = view.findViewById(R.id.noAplicaCertificadoGas)
+            when(checkedId){
+                R.id.siCertificadoGas -> { Vehiculo.vehGas = radioButtonSi.text.toString()
+                    vigenciaGas.visibility = View.VISIBLE
+                    vigenciaGas.isEnabled = true
+                    Vehiculo.fechaGas = vigenciaGas.text.toString()}
+                R.id.noCertificadoGas -> { Vehiculo.vehGas = radioButtonNo.text.toString()
+                    vigenciaGas.visibility = View.VISIBLE
+                    vigenciaGas.isEnabled = true
+                    Vehiculo.fechaGas = vigenciaGas.text.toString()}
+                R.id.noAplicaCertificadoGas -> { Vehiculo.vehGas = radioButtonNoAplica.text.toString()
+                    vigenciaGas.visibility = View.GONE
+                    vigenciaGas.isEnabled = false
+                    Vehiculo.fechaGas = null}
+            }
+            Log.d("Formulario", "Datos Vehiculo: ${Vehiculo.fechaGas}")
+        }
         var spinnerDiscapacidades = view.findViewById<Spinner>(R.id.spinnerDiscapacidadAuditiva)
         noDiscapacidad.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -261,11 +337,26 @@ class FormularioFragment : Fragment() {
                 resources.getIdentifier("pauta${index}NoButton", "id", requireContext().packageName) -> "No Aplica"
                 else -> null
             }
+            Log.d("RadioGroup", "Selected: $selectedText for index: $index")
             when (index) {
                 // Índices para agregar las variables del modelo Formulario
                 1 -> Formulario.cond1 = selectedText
                 2 -> Formulario.cond2 = selectedText
                 3 -> Formulario.cond3 = selectedText
+                4 -> Formulario.cond4 = selectedText
+                5 -> Formulario.cond5 = selectedText
+                6 -> Formulario.cond6 = selectedText
+                7 -> Formulario.cond7 = selectedText
+                8 -> Formulario.cond8 = selectedText
+                9 -> Formulario.cond9 = selectedText
+                10 -> Formulario.cond10 = selectedText
+                11 -> Formulario.cond11 = selectedText
+                12 -> Formulario.cond12 = selectedText
+                13 -> Formulario.cond13 = selectedText
+                14 -> Formulario.cond14 = selectedText
+                15 -> Formulario.cond15 = selectedText
+                16 -> Formulario.cond16 = selectedText
+                17 -> Formulario.cond17 = selectedText
             }
         }
     }

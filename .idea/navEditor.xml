@@ -13,13 +13,23 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="88" />
-                            <option name="y" value="7" />
+                            <option name="x" value="111" />
+                            <option name="y" value="5" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_formulario_to_livianoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_formulario_to_motocarroFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_formulario_to_motosFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -69,6 +79,30 @@
                           <Point>
                             <option name="x" value="-286" />
                             <option name="y" value="-348" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="motocarroFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="393" />
+                            <option name="y" value="-352" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="motosFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="129" />
+                            <option name="y" value="-340" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -23,12 +23,28 @@
         <action
             android:id="@+id/action_formulario_to_livianoFragment"
             app:destination="@id/livianoFragment" />
+        <action
+            android:id="@+id/action_formulario_to_motosFragment"
+            app:destination="@id/motosFragment" />
+        <action
+            android:id="@+id/action_formulario_to_motocarroFragment"
+            app:destination="@+id/motocarroFragment"/>
     </fragment>
     <fragment
         android:id="@+id/livianoFragment"
         android:name="com.example.recepcioncda.view.ui.fragments.LivianoFragment"
         android:label="fragment_liviano"
         tools:layout="@layout/fragment_liviano" />
+    <fragment
+        android:id="@+id/motosFragment"
+        android:name="com.example.recepcioncda.view.ui.fragments.MotosFragment"
+        android:label="fragment_motos"
+        tools:layout="@layout/fragment_motos"/>
+    <fragment
+        android:id="@+id/motocarroFragment"
+        android:name="com.example.recepcioncda.view.ui.fragments.MotocarroFragment"
+        android:label="fragment_motocarro"
+        tools:layout="@layout/fragment_motocarro"/>
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.recepcioncda.view.ui.activities.LoginActivity"

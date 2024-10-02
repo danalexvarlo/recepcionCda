@@ -117,7 +117,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="100dp"
                                     android:layout_marginTop="0dp"
-                                    android:text="Primera vez" />
+                                    android:text="Primera vez"
+                                    android:textColor="@color/color_black"/>
                                 <RadioButton
                                     android:id="@+id/segundaVez"
                                     android:layout_width="match_parent"
@@ -125,7 +126,8 @@
                                     android:layout_marginStart="30dp"
                                     android:layout_marginTop="0dp"
                                     android:layout_toEndOf="@+id/primeraVez"
-                                    android:text="Segunda vez" />
+                                    android:text="Segunda vez"
+                                    android:textColor="@color/color_black"/>
                             </RadioGroup>
                             <TextView
                                 android:id="@+id/entradaCardView"
@@ -161,7 +163,8 @@
                                 android:layout_marginEnd="400dp"
                                 android:text="Nombre"
                                 android:textSize="20dp"
-                                android:textStyle="bold">
+                                android:textStyle="bold"
+                                android:textColor="@color/color_black">
                             </TextView>
                             <EditText
                                 android:id="@+id/editNombreConductor"
@@ -170,7 +173,8 @@
                                 android:layout_marginStart="330dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese nombre"
-                                android:textAlignment="center">
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black">
                             </EditText>
 
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL TIPO DE DOCUMENTO DEL CONDUCTOR -->
@@ -183,6 +187,7 @@
                                 android:textSize="20dp"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="440dp"
+                                android:textColor="@color/color_black"
                                 android:layout_below="@+id/nombreConductorCard"></TextView>
                             <EditText
                                 android:id="@+id/editTipodoctConductor"
@@ -192,7 +197,8 @@
                                 android:layout_marginTop="60dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese tipo documento"
-                                android:textAlignment="center"></EditText>
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black"></EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL DOCUMENTO DEL CONDUCTOR -->
                             <TextView
                                 android:id="@+id/documentoConductor"
@@ -203,14 +209,17 @@
                                 android:textSize="20dp"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="400dp"
+                                android:textColor="@color/color_black"
                                 android:layout_below="@+id/tipoDocumentoConductor"></TextView>
                             <EditText
                                 android:id="@+id/editDocumentoConductor"
+                                android:inputType="number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="120dp"
                                 android:background="@drawable/stylo_borde_login"
+                                android:textColor="@color/color_black"
                                 android:hint="Ingrese documento"
                                 android:textAlignment="center"></EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR LA DIRECCION DEL CONDUCTOR -->
@@ -221,6 +230,7 @@
                                 android:text="Dirección"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="400dp"
                                 android:layout_below="@+id/documentoConductor"></TextView>
@@ -232,7 +242,8 @@
                                 android:layout_marginTop="180dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese dirección"
-                                android:textAlignment="center"></EditText>
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black"></EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL TELÉFONO DEL CONDUCTOR -->
                             <TextView
                                 android:id="@+id/telefonoConductor"
@@ -241,16 +252,19 @@
                                 android:text="Teléfono"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="400dp"
                                 android:layout_below="@+id/direccionConductor"></TextView>
                             <EditText
                                 android:id="@+id/editTelefonoConductor"
+                                android:inputType="number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="240dp"
                                 android:background="@drawable/stylo_borde_login"
+                                android:textColor="@color/color_black"
                                 android:hint="Ingrese teléfono"
                                 android:textAlignment="center"></EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL CORREO DEL CONDUCTOR -->
@@ -261,6 +275,7 @@
                                 android:text="Correo electrónico"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="420dp"
                                 android:layout_below="@+id/telefonoConductor"></TextView>
@@ -271,6 +286,7 @@
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="300dp"
                                 android:background="@drawable/stylo_borde_login"
+                                android:textColor="@color/color_black"
                                 android:hint="Ingrese correo"
                                 android:textAlignment="center"></EditText>
                         </RelativeLayout>
@@ -313,16 +329,19 @@
                                 android:layout_marginEnd="400dp"
                                 android:text="Kilometraje"
                                 android:textSize="20dp"
-                                android:textStyle="bold">
+                                android:textStyle="bold"
+                                android:textColor="@color/color_black">
                             </TextView>
                             <EditText
                                 android:id="@+id/editKilometrajeVehiculo"
+                                android:inputType="number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese kilometraje"
-                                android:textAlignment="center">
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black">
                             </EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR LA PLACA DEL VEHÍCULO -->
                             <TextView
@@ -332,10 +351,10 @@
                                 android:text="Placa"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="440dp"
                                 android:layout_below="@+id/kilometrajeVehiculo"></TextView>
-
                             <EditText
                                 android:id="@+id/editPlacaVehiculo"
                                 android:layout_width="match_parent"
@@ -344,7 +363,8 @@
                                 android:layout_marginTop="60dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese placa"
-                                android:textAlignment="center" />
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black"/>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR LA MARCA DEL VEHÍCULO -->
                             <TextView
                                 android:id="@+id/marcaVehiculo"
@@ -353,6 +373,7 @@
                                 android:text="Marca"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="400dp"
                                 android:layout_below="@+id/placaVehiculo"></TextView>
@@ -364,7 +385,8 @@
                                 android:layout_marginTop="120dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese marca"
-                                android:textAlignment="center"></EditText>
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black"></EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL MODELO DEL VEHÍCULO -->
                             <TextView
                                 android:id="@+id/modeloVehiculo"
@@ -373,18 +395,21 @@
                                 android:text="Modelo"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="400dp"
                                 android:layout_below="@+id/marcaVehiculo"></TextView>
                             <EditText
                                 android:id="@+id/editModeloVehiculo"
+                                android:inputType="number"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="180dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese modelo"
-                                android:textAlignment="center"></EditText>
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black"></EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL COLOR DEL VEHÍCULO -->
                             <TextView
                                 android:id="@+id/colorVehiculo"
@@ -393,6 +418,7 @@
                                 android:text="Color"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="400dp"
                                 android:layout_below="@+id/modeloVehiculo"></TextView>
@@ -404,7 +430,8 @@
                                 android:layout_marginTop="240dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese color"
-                                android:textAlignment="center"></EditText>
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black"></EditText>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESA FECHA SOAT -->
                             <TextView
                                 android:id="@+id/soatVehiculo"
@@ -413,6 +440,7 @@
                                 android:text="SOAT"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="400dp"
                                 android:layout_below="@+id/colorVehiculo"></TextView>
@@ -424,7 +452,8 @@
                                 android:layout_marginTop="300dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese SOAT"
-                                android:textAlignment="center"></EditText>
+                                android:textAlignment="center"
+                                android:textColor="@color/color_black"></EditText>
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -464,12 +493,14 @@
                                 android:text="Tipo de vehículo"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="420dp">
                             </TextView>
                             <Spinner
                                 android:id="@+id/spinnerTipoVehiculo"
                                 android:background="@drawable/stylo_borde_login"
+                                android:textColor="@color/color_black"
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="330dp"
@@ -483,6 +514,7 @@
                                 android:text="Tipo de motor"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="420dp"
                                 android:layout_below="@+id/tipoVehiculo"
@@ -491,6 +523,7 @@
                             <Spinner
                                 android:id="@+id/spinnerTipoMotorMotocicleta"
                                 android:background="@drawable/stylo_borde_login"
+                                android:textColor="@color/color_black"
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="330dp"
@@ -537,6 +570,7 @@
                                 android:text="Tipo de combustible"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="420dp">
                             </TextView>
@@ -547,7 +581,8 @@
                                 android:layout_marginStart="330dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:layout_row="3"
-                                android:layout_column="1" />
+                                android:layout_column="1"
+                                android:textColor="@color/color_black"/>
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -587,6 +622,7 @@
                                 android:text="Tipo de servicio"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="180dp"
                                 android:layout_marginEnd="420dp">
                             </TextView>
@@ -597,7 +633,8 @@
                                 android:layout_marginStart="330dp"
                                 android:background="@drawable/stylo_borde_login"
                                 android:layout_row="6"
-                                android:layout_column="1" />
+                                android:layout_column="1"
+                                android:textColor="@color/color_black"/>
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -637,6 +674,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Blindado"
                                 android:textStyle="bold"
+                                android:textColor="@color/color_black"
                                 android:textSize="20dp"
                                 android:layout_marginStart="150dp"
                                 android:layout_marginEnd="320dp"
@@ -654,6 +692,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Sí"
+                                    android:textColor="@color/color_black"
                                     android:layout_marginStart="260dp"
                                     android:layout_marginEnd="250dp"/>
                                 <RadioButton
@@ -661,6 +700,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="No"
+                                    android:textColor="@color/color_black"
                                     android:layout_marginStart="-200dp"
                                     android:layout_marginTop="0dp"/>
                             </RadioGroup>
@@ -673,6 +713,7 @@
                                 android:text="Potencia (HP)"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="150dp"
                                 android:layout_marginTop="10dp">
                             </TextView>
@@ -681,8 +722,10 @@
                                 android:layout_width="400dp"
                                 android:layout_height="40dp"
                                 android:background="@drawable/stylo_borde_login"
+                                android:inputType="number"
                                 android:hint="Ingrese la potencia"
                                 android:textAlignment="center"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="-400dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_below="@+id/radioGroupBlindaje"
@@ -695,6 +738,7 @@
                                 android:text="No. de pasajeros"
                                 android:textSize="20dp"
                                 android:textStyle="bold"
+                                android:textColor="@color/color_black"
                                 android:layout_below="@+id/editPotenciaVehiculo"
                                 android:layout_marginStart="150dp"
                                 android:layout_marginTop="10dp">
@@ -704,8 +748,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:background="@drawable/stylo_borde_login"
+                                android:inputType="number"
                                 android:hint="Ingrese número de pasajeros"
                                 android:textAlignment="center"
+                                android:textColor="@color/color_black"
                                 android:layout_marginStart="-400dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_below="@+id/editPotenciaVehiculo"
@@ -718,6 +764,7 @@
                                 android:text="Tarjeta operacional"
                                 android:textSize="20dp"
                                 android:textStyle="bold"
+                                android:textColor="@color/color_black"
                                 android:layout_below="@+id/editNoPasajeros"
                                 android:layout_marginStart="150dp"
                                 android:layout_marginTop="10dp">
@@ -731,7 +778,8 @@
                                 android:layout_marginStart="330dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_row="5"
-                                android:layout_column="1" />
+                                android:layout_column="1"
+                                android:textColor="@color/color_black"/>
                         </RelativeLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -755,8 +803,8 @@
                             android:layout_height="wrap_content"
                             android:text="Pautas de ingreso del vehículo"
                             android:textSize="30dp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"
+                            android:textColor="@color/color_black"></TextView>
                         <!-- PRIMERA PAUTA -->
                         <TextView
                             android:id="@+id/pautaunoText"
@@ -765,10 +813,10 @@
                             android:text="Vehículo completamente descargado"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_below="@+id/pautasTitle"
                             android:layout_marginTop="20dp"
-                            android:layout_marginStart="40dp">
-                        </TextView>
+                            android:layout_marginStart="40dp"></TextView>
                         <RadioGroup
                             android:id="@+id/radioGroup1"
                             android:layout_width="match_parent"
@@ -777,18 +825,20 @@
                             android:layout_below="@id/pautasTitle"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautaunoSiButton"
+                                android:id="@+id/pauta1SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="540dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautaunoNoButton"
+                                android:id="@+id/pauta1NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -801,6 +851,7 @@
                             android:text="Sin dejar dinero, radio u otros elementos extraibles"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautaunoText">
@@ -813,18 +864,20 @@
                             android:layout_alignStart="@+id/pautadosText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautadosSiButton"
+                                android:id="@+id/pauta2SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautadosNoButton"
+                                android:id="@+id/pauta2NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -837,6 +890,7 @@
                             android:text="Alarma desactivada"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautadosText">
@@ -849,18 +903,20 @@
                             android:layout_alignStart="@+id/pautatresText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautatresSiButton"
+                                android:id="@+id/pauta3SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautatresNoButton"
+                                android:id="@+id/pauta3NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -873,6 +929,7 @@
                             android:text="En buen estado de limpieza"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautatresText">
@@ -885,18 +942,20 @@
                             android:layout_alignStart="@+id/pautacuatroText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautacuatroSiButton"
+                                android:id="@+id/pauta4SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautacuatroNoButton"
+                                android:id="@+id/pauta4NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -909,6 +968,7 @@
                             android:text="Sin tapacubos o copas plásticas"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautacuatroText">
@@ -921,18 +981,20 @@
                             android:layout_alignStart="@+id/pautacincoText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautacincoSiButton"
+                                android:id="@+id/pauta5SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautacincoNoButton"
+                                android:id="@+id/pauta5NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -945,6 +1007,7 @@
                             android:text="Enciende alguna luz del vehículo"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautacincoText">
@@ -957,18 +1020,20 @@
                             android:layout_alignStart="@+id/pautaseisText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautaseisSiButton"
+                                android:id="@+id/pauta6SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautaseisNoButton"
+                                android:id="@+id/pauta6NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -981,6 +1046,7 @@
                             android:text="Confrontación de los datos con el RUNT"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautaseisText">
@@ -993,18 +1059,20 @@
                             android:layout_alignStart="@+id/pautasieteText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautasieteSiButton"
+                                android:id="@+id/pauta7SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautasieteNoButton"
+                                android:id="@+id/pauta7NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1017,6 +1085,7 @@
                             android:text="Verificación del número de chasis (si es de fácil acceso)"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautasieteText">
@@ -1029,18 +1098,20 @@
                             android:layout_alignStart="@+id/pautaochoText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautaochoSiButton"
+                                android:id="@+id/pauta8SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautaochoNoButton"
+                                android:id="@+id/pauta8NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1053,6 +1124,7 @@
                             android:text="Llanta de repuesto sin protector y que permita el acceso"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautaochoText">
@@ -1065,18 +1137,20 @@
                             android:layout_alignStart="@+id/pautanueveText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautanueveSiButton"
+                                android:id="@+id/pauta9SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautanueveNoButton"
+                                android:id="@+id/pauta9NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1089,6 +1163,7 @@
                             android:text="Motocicleta automática con soporte central"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautanueveText">
@@ -1101,18 +1176,20 @@
                             android:layout_alignStart="@+id/pautadiezText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautadiezSiButton"
+                                android:id="@+id/pauta10SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautadiezNoButton"
+                                android:id="@+id/pauta10NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1125,6 +1202,7 @@
                             android:text="Presencia de la tapa de combustible para motocicletas"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautadiezText">
@@ -1137,18 +1215,20 @@
                             android:layout_alignStart="@+id/pautaonceText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautaonceSiButton"
+                                android:id="@+id/pauta11SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautaonceNoButton"
+                                android:id="@+id/pauta11NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1161,6 +1241,7 @@
                             android:text="Filtro de aire asequible (desatornillado)"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautaonceText">
@@ -1173,18 +1254,20 @@
                             android:layout_alignStart="@+id/pautadoceText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautadoceSiButton"
+                                android:id="@+id/pauta12SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautadoceNoButton"
+                                android:id="@+id/pauta12NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1197,6 +1280,7 @@
                             android:text="Batería de fácil acceso (sin cubre batería)"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautadoceText">
@@ -1209,18 +1293,20 @@
                             android:layout_alignStart="@+id/pautatreceText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautatreceSiButton"
+                                android:id="@+id/pauta13SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautatreceNoButton"
+                                android:id="@+id/pauta13NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1234,6 +1320,7 @@
                                             cuando aplique"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautatreceText">
@@ -1246,18 +1333,20 @@
                             android:layout_alignStart="@+id/pautacatorceText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautacatorceSiButton"
+                                android:id="@+id/pauta14SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautacatorceNoButton"
+                                android:id="@+id/pauta14NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1271,6 +1360,7 @@
                                                     cuando aplique"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautacatorceText">
@@ -1283,18 +1373,20 @@
                             android:layout_alignStart="@+id/pautaquinceText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautaquinceSiButton"
+                                android:id="@+id/pauta15SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautaquinceNoButton"
+                                android:id="@+id/pauta15NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1307,6 +1399,7 @@
                             android:text="Cinturones de seguridad libres y visibles"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautaquinceText">
@@ -1319,18 +1412,20 @@
                             android:layout_alignStart="@+id/pautadieciseisText"
                             android:orientation="horizontal">
                             <RadioButton
-                                android:id="@+id/pautadieciseisSiButton"
+                                android:id="@+id/pauta16SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautadieciseisNoButton"
+                                android:id="@+id/pauta16NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1343,6 +1438,7 @@
                             android:text="Mirilla o depósito de líquido de frenos visible"
                             android:textSize="20dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="30dp"
                             android:layout_marginStart="40dp"
                             android:layout_below="@+id/pautadieciseisText">
@@ -1355,18 +1451,20 @@
                             android:layout_below="@+id/pautadieciseisText"
                             android:layout_alignStart="@+id/pautadiecisieteText">
                             <RadioButton
-                                android:id="@+id/pautadiecisieteSiButton"
+                                android:id="@+id/pauta17SiButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="510dp">
                             </RadioButton>
                             <RadioButton
-                                android:id="@+id/pautadiecisieteNoButton"
+                                android:id="@+id/pauta17NoButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginStart="-120dp">
                             </RadioButton>
@@ -1393,6 +1491,7 @@
                             android:text="Documentos necesarios"
                             android:textSize="30dp"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:textAlignment="center">
                         </TextView>
                         <TextView
@@ -1401,6 +1500,7 @@
                             android:layout_height="match_parent"
                             android:text="Licencia de tránsito"
                             android:textSize="25dp"
+                            android:textColor="@color/color_black"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="50dp">
                         </TextView>
@@ -1415,6 +1515,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:textSize="20dp"
                                 android:layout_marginTop="45dp"
                                 android:layout_marginStart="300dp">
@@ -1424,6 +1525,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No"
+                                android:textColor="@color/color_black"
                                 android:textSize="20dp"
                                 android:layout_marginTop="45dp"
                                 android:layout_marginStart="-350dp">
@@ -1450,6 +1552,7 @@
                             android:layout_height="wrap_content"
                             android:text="Certificado de Instalación GNVC (Vehículo convertido)"
                             android:textAlignment="center"
+                            android:textColor="@color/color_black"
                             android:textSize="30dp"
                             android:textStyle="bold">
                         </TextView>
@@ -1458,6 +1561,7 @@
                             android:layout_height="wrap_content"
                             android:text="Verificado en la plataforma SICOM"
                             android:textSize="25dp"
+                            android:textColor="@color/color_black"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="60dp">
                         </TextView>
@@ -1467,6 +1571,7 @@
                             android:layout_height="wrap_content"
                             android:text="Vigencia"
                             android:textSize="25dp"
+                            android:textColor="@color/color_black"
                             android:layout_marginTop="120dp"
                             android:layout_marginStart="150dp">
                         </TextView>
@@ -1478,7 +1583,8 @@
                             android:layout_marginTop="110dp"
                             android:background="@drawable/stylo_borde_login"
                             android:hint="Ingrese fecha vigencia"
-                            android:textAlignment="center"></EditText>
+                            android:textAlignment="center"
+                            android:textColor="@color/color_black"></EditText>
                         <RadioGroup
                             android:orientation="horizontal"
                             android:id="@+id/radioGroupCertificadoGas"
@@ -1489,6 +1595,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:textSize="20dp"
                                 android:layout_marginTop="55dp"
                                 android:layout_marginStart="450dp">
@@ -1498,6 +1605,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="No"
+                                android:textColor="@color/color_black"
                                 android:textSize="20dp"
                                 android:layout_marginTop="55dp"
                                 android:layout_marginStart="-240dp">
@@ -1508,6 +1616,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="No Aplica"
                                 android:textSize="20dp"
+                                android:textColor="@color/color_black"
                                 android:layout_marginTop="55dp"
                                 android:layout_marginStart="-150dp">
                             </RadioButton>
@@ -1534,6 +1643,7 @@
                             android:text="Licencia de Conducción"
                             android:textAlignment="center"
                             android:textStyle="bold"
+                            android:textColor="@color/color_black"
                             android:textSize="30dp">
                         </TextView>
                         <TextView
@@ -1541,6 +1651,7 @@
                             android:layout_height="wrap_content"
                             android:text="Posee restricciones por discapacidad auditiva"
                             android:textSize="25dp"
+                            android:textColor="@color/color_black"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="50dp"></TextView>
                         <RadioGroup
@@ -1555,6 +1666,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sí"
+                                android:textColor="@color/color_black"
                                 android:textSize="20dp"></RadioButton>
                             <RadioButton
                                 android:id="@+id/radioNoDiscapacidad"
@@ -1562,6 +1674,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="-80dp"
                                 android:text="No"
+                                android:textColor="@color/color_black"
                                 android:textSize="20dp"></RadioButton>
                         </RadioGroup>
                         <Spinner
@@ -1574,7 +1687,8 @@
                             android:layout_marginTop="100dp"
                             android:layout_marginEnd="20dp"
                             android:layout_row="6"
-                            android:layout_column="1" />
+                            android:layout_column="1"
+                            android:textColor="@color/color_black"/>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </GridLayout>
@@ -1587,7 +1701,8 @@
             android:layout_marginTop="1130dp"
             android:text="Siguiente"
             android:textSize="30dp"
-            android:textStyle="bold"></Button>
+            android:textStyle="bold"
+            android:textColor="@color/color_black"></Button>
     </FrameLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
