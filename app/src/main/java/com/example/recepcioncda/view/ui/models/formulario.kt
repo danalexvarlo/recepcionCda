@@ -1,5 +1,7 @@
 package com.example.recepcioncda.view.ui.models
 
+import android.graphics.Bitmap
+
 object Formulario{
     var num_formato: Float? = null
     var entrada: String? = null
@@ -26,4 +28,6 @@ object Formulario{
     var presiontDe: Int? = null
     var presionRep: Int? = null
     var observ: String? = null
+    var firmaUno: Bitmap? = null
+    var firmaDos: Bitmap? = null
 }

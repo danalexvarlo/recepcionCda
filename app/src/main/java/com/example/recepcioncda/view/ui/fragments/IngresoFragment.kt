@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,7 @@ import com.example.recepcioncda.view.ui.activities.LoginActivity
 import com.example.recepcioncda.view.ui.models.Usuario
 import com.google.android.material.navigation.NavigationView
 
-
+private lateinit var siguienteIngresoButton: Button
 class IngresoFragment : Fragment() {
     lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,10 @@ class IngresoFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_ingreso, container, false)
+        siguienteIngresoButton = view.findViewById(R.id.siguienteCondicionesButton)
+        siguienteIngresoButton.setOnClickListener{
+            findNavController().navigate(R.id.action_fragment_ingreso_to_fragment_firma)
+        }
         //------ Se implementa el navView para navegación del menú lateral ------ //
         nombreRecepcionista = view.findViewById(R.id.nombreRecepcionistaIngreso)
         nombreRecepcionista.text = Usuario.nombre?: "Usuario desconocido"

@@ -62,6 +62,15 @@
         android:name="com.example.recepcioncda.view.ui.fragments.IngresoFragment"
         android:label="fragment_ingreso"
         tools:layout="@layout/fragment_ingreso">
+        <action
+            android:id="@+id/action_fragment_ingreso_to_fragment_firma"
+            app:destination="@id/fragment_firma" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_firma"
+        android:name="com.example.recepcioncda.view.ui.fragments.FirmaFragment"
+        android:label="fragment_firma"
+        tools:layout="@layout/fragment_firma">
     </fragment>
     <activity
         android:id="@+id/loginActivity"
