@@ -189,7 +189,6 @@ class FormularioFragment : Fragment() {
         vigencia.setOnClickListener{ Toast.makeText(requireContext(),Vehiculo.fechaGas, Toast.LENGTH_SHORT).show() }
         val nextFormulario = view.findViewById<Button>(R.id.siguienteButton)
         nextFormulario.setOnClickListener() {
-            Toast.makeText(requireContext(), Formulario.entrada, Toast.LENGTH_SHORT).show()
             // Se guardan los datos del conductor en un modelo temporal
             Conductor.nombre = nombre.text.toString()
             Conductor.tipoDocumento = tipoDocumento.text.toString()
@@ -207,15 +206,16 @@ class FormularioFragment : Fragment() {
             Vehiculo.numPasaj = numPasajeros.text.toString().toIntOrNull()
             Vehiculo.fechaGas = vigenciaGas.text.toString()
             Toast.makeText(requireContext(), Vehiculo.fechaGas, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), Formulario.entrada, Toast.LENGTH_SHORT).show()
             Log.d("Formulario", "Datos Vehiculo: ${Vehiculo.fechaGas}")
-            if(Vehiculo.clasVeh in listOf("Automovil", "Camioneta", "Campero", "Microbus", "Otro")){
-                findNavController().navigate(R.id.action_formulario_to_livianoFragment)
+            if(Vehiculo.clasVeh == "Motocarro"){
+                findNavController().navigate(R.id.action_formulario_to_motocarroFragment)
             }
             else if(Vehiculo.clasVeh == "Motocicleta"){
                 findNavController().navigate(R.id.action_formulario_to_motosFragment)
             }
-            else if(Vehiculo.clasVeh == "Motocarro"){
-                findNavController().navigate(R.id.action_formulario_to_motocarroFragment)
+            else if(Vehiculo.clasVeh in listOf("Automóvil", "Camioneta", "Campero", "Microbus", "Otro")){
+                findNavController().navigate(R.id.action_formulario_to_livianoFragment)
             }
             Log.d("Formulario", "Datos Vehiculo: ${Vehiculo.clasVeh}")
         }
@@ -315,11 +315,6 @@ class FormularioFragment : Fragment() {
             )
         )
     }
-
-    private fun agregarDatos() {
-
-    }
-
     private fun cerrarSesion() { //Función para cerrar sesión y volver al login
         Usuario.nombre = null  // Se limpia la variable global del usuario
         //findNavController().navigate(R.id.loginActivity)
@@ -369,7 +364,7 @@ class FormularioFragment : Fragment() {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
-                view: View,
+                view: View?,
                 position: Int,
                 id: Long
             ) {

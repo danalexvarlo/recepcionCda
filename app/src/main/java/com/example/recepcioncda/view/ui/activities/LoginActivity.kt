@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var usuario: EditText
     lateinit var contrasena: EditText
 
-    private val URL1 = "http://192.168.0.108/recepcion/fetch.php"
+    private val URL1 = "http://192.168.0.115/recepcion/fetch.php"
     private lateinit var requestQueue: RequestQueue
 
     @SuppressLint("MissingInflatedId")

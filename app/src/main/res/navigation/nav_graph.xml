@@ -34,17 +34,35 @@
         android:id="@+id/livianoFragment"
         android:name="com.example.recepcioncda.view.ui.fragments.LivianoFragment"
         android:label="fragment_liviano"
-        tools:layout="@layout/fragment_liviano" />
+        tools:layout="@layout/fragment_liviano" >
+        <action
+            android:id="@+id/action_livianoFragment_to_fragment_ingreso"
+            app:destination="@id/fragment_ingreso" />
+    </fragment>
     <fragment
         android:id="@+id/motosFragment"
         android:name="com.example.recepcioncda.view.ui.fragments.MotosFragment"
         android:label="fragment_motos"
-        tools:layout="@layout/fragment_motos"/>
+        tools:layout="@layout/fragment_motos">
+        <action
+            android:id="@+id/action_motosFragment_to_ingresoFragment"
+            app:destination="@+id/fragment_ingreso"/>
+    </fragment>
     <fragment
         android:id="@+id/motocarroFragment"
         android:name="com.example.recepcioncda.view.ui.fragments.MotocarroFragment"
         android:label="fragment_motocarro"
-        tools:layout="@layout/fragment_motocarro"/>
+        tools:layout="@layout/fragment_motocarro">
+        <action
+            android:id="@+id/action_motocarroFragment_to_fragment_ingreso"
+            app:destination="@id/fragment_ingreso" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_ingreso"
+        android:name="com.example.recepcioncda.view.ui.fragments.IngresoFragment"
+        android:label="fragment_ingreso"
+        tools:layout="@layout/fragment_ingreso">
+    </fragment>
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.recepcioncda.view.ui.activities.LoginActivity"

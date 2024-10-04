@@ -5,4 +5,59 @@
     <string name="close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="condiciones_de_ingreso">
+        1. El servicio de revisión tecnicomecánica y de emisiones contaminantes que se presta en el Centro de Diagnóstico Automotor, es el contemplado en los artículos 28, 50 y 51 de la ley 769 de 2002 y sus modificaciones, reglamentada por la Resolución 3768 de 2013, y Resolución 20203040011355:2020, Resolución 202030400033625:2020, Resolución 762 de 2022, NTC 5365:2012, NTC 5375:2012, NTC 5385:2011 y demás requisitos legales, normativos y de acreditación.\n
+        \n
+        2. El tiempo estimado de prueba, el cual es de 40 minutos puede variar teniendo en cuenta el flujo vehicular, lo que ocasionará un tiempo adicional.  Recuerde que es obligatoria la presencia física del vehículo en el CDA, la documentación y vigencia de la misma.\n
+        \n
+        3. Se realizará a su vehículo las siguientes pruebas e inspecciones: para vehículos livianos: emisiones contaminantes, frenos, luces, inspección sensorial, medidor de desviación lateral, suspensión, presión sonora y prueba de taxímetro (cuando aplique), para vehículos motocarros: emisiones contaminantes, frenos, luces, inspección sensorial, medidor de desviación lateral y presión sonora, para motocicletas: inspección sensorial, frenos, luces, emisiones contaminantes y presión sonora. El certificado expedirá únicamente a los vehículos que cumplan con los requisitos establecidos por la resolución 3768 de 2013, la NTC 5375 y las demás que disponga la ley.\n
+        \n
+        4. Al realizar la revisión Tecnicomecánica y de emisiones contaminantes, su vehículo será sometido a pruebas con el grado de exigencia estipulado por el Ministerio de Transporte y el Ministerio de Ambiente, por lo tanto, el CDA, no se hace responsable por daños ocasionados en dicho proceso.\n
+        \n
+        5. El cliente no debe ingresar a las áreas de inspección: para su espera está dispuesta una sala que permite de forma directa evidenciar su vehículo en la línea de revisión. El CDA no permite la interacción directa con el personal de la línea de revisión. Le solicitamos abstenerse de cualquier conversación con los inspectores, si es necesario comuníquese con el Director Técnico (Ingeniero).\n
+        \n
+        6. Apreciado Usuario; El pago de la Revisión Técnico-Mecánica y de emisiones contaminantes no está sujeto a la entrega del CERTIFICADO “Si al verificar el resultado total de las pruebas, en las revisiones técnico-mecánica y de emisiones contaminantes, el vehículo automotor es reprobado de acuerdo con los criterios señalados para el efecto, el Centro de Diagnóstico Automotor o línea móvil, deberá entregar copia del Formato Uniforme de Resultados de las revisiones técnico-mecánica y de emisiones contaminantes al propietario, poseedor o tenedor del vehículo automotor, quien deberá efectuar las reparaciones pertinentes y subsanar los aspectos defectuosos dentro de los quince (15) días calendario contados a partir de la fecha en que fue reprobado. Una vez efectuadas las reparaciones el propietario, poseedor o tenedor del vehículo automotor podrá volver por una sola vez sin costo al mismo Centro de Diagnóstico Automotor o línea móvil, para someter el vehículo a la revisión de los aspectos reprobados en la visita inicial. En la segunda visita al Centro de Diagnóstico Automotor LA REVISIÓN S.A.S, el vehículo, en todos los casos, será objeto de una revisión sensorial completa para verificar que las condiciones generales del vehículo se mantienen, y se procederá a hacer una revisión gratuita de los aspectos reprobados en la visita inicial mediante revisión visual o revisión mecanizada, según corresponda”. Art 28 de la resolución 3768 de 2013, tenga en cuenta que el horario de atención del CDA es: lunes a sábado de 7:30 am a 6:00 pm; domingos y festivos de 8:00 am a 1:00 pm\n
+        \n
+        7. Señor usuario tenga en cuenta que para que el vehículo pueda ingresar al área de inspección debe someterse a una etapa de recepción la cual el vehículo debe cumplir como mínimo con estas condiciones de ingreso: (En buen estado de limpieza, Completamente descargado, Sin dejar dinero, radio u otros objetos extraíbles, Llanta de repuesto sin protector, Tapa de filtro del aire destornillado, Batería asequible Sin tapacubos o copas plásticas, Enciende alguna luz, Cinturones visibles, Alarma desactivada, Compuertas sin seguro y sin candado, adecuada presión de aire en las llantas, mirilla de líquido de frenos visible) en caso de que sea una motocicleta debe cumplir adicionalmente con: (motocicleta automática con soporte central, Presencia de la tapa de combustible).\n
+        \n
+        8. Una vez realizada la revisión técnico-mecánica y de emisiones contaminantes a su vehículo, el CDA NO REALIZARÁ DEVOLUCIONES DE DINERO.\n
+        \n
+        9. Por favor, absténgase de dar propinas, obsequios o cualquier tipo de remuneración por la certificación de su vehículo; el hacerlo pone en riesgo la estabilidad laboral del empleado, ya que el proceso de inspección debe ser imparcial.\n
+        \n
+        10. Los resultados de la inspección son confidenciales y están protegidos.\n
+        \n
+        11. El personal que participa en las actividades de inspección cuenta con el conocimiento y la competencia\n
+        \n
+        12. El CDA no responderá por objetos dejados en los vehículos, que no sean reportados en el control de entrada.\n
+        \n
+        13. Se solicita revisar dentro del CDA su vehículo, una vez le sea entregado, así como sus documentos. Después de retirado, el CDA no atenderá ninguna queja.\n
+        \n
+        14. Si su vehículo no cumple con la profundidad de labrado de las llantas en la primera inspección se rechazará por este ítem y se le realizará la prueba de eficacia de frenado, sin embargo, cuando ingrese por segunda vez se realizará nuevamente la prueba de eficacia de frenado, si no cumple usted será nuevamente rechazado y esto generara nuevo cobro en la inspección teniendo en cuenta lo definido en la NTC 5375:2012.\n
+        \n
+        15. El CDA cuenta con una póliza civil profesional la cual ampara la responsabilidad civil profesional resultante de la prestación deficiente del servicio por parte del CDA\n
+        \n
+        16. Recuerde que el CDA cuenta con un procedimiento de seguridad de la información que respalda la información resultante\n
+        \n
+        17. El CDA LA REVISIÓN SAS, contamos con acreditación ONAC, vigente a la fecha, con código de acreditación No 17-OIN-057, bajo la norma ISO/IEC 17020:2012; para vehículos livianos, motocarros diésel o gasolina y motocicletas 4t y 2t, otorgada el 2018-04-26, con vencimiento el 2026-04-25, esto puede ser confirmado en la página de ONAC www.onac.org.co.\n
+        \n
+        18. Si por ley se deba divulgar su información confidencial o cuando esté autorizado por compromisos contractuales usted será notificado salvo que lo prohíba la ley.\n
+        \n
+        19. La información obtenida por fuentes distintas al cliente será tratada de manera confidencial\n
+        \n
+        20. En el aviso de privacidad se da a conocer con antelación la información que el CDA tiene intensión hacer pública.\n
+        \n
+        21. El Certificado de RTMYEC es vigente por un (1) año, y podrá ser consultado por la pagina del RUNT, ciudadanos y descargado en el momento que usted lo requiera.\n
+        \n
+        22. Señor usuario recuerde que las revisiones preventivas ni la venta de soat favorecen, ni desfavorecen el resultado de la revisión técnico mecánica\n
+        \n
+        23. Señor usuario las tarifas del CDA se encuentran reguladas por la resolución 3318:2015 y 20213040063835 de 2021, la cual se modifica el artículo 1º de la Resolución 3318 de 2015, se encuentran publicadas en la recepción de su vehículo\n
+        \n
+        24. Declaro que conozco y cumplo todos los criterios de ingreso del vehículo, establecidos por el CDA LA REVISIÓN S.A.S para la prestación del servicio de revisión tecnicomecánica y de emisiones contaminantes.\n
+        \n
+        25. Para los vehículos accionados a Diesel, se informa que para garantizar la prueba de emisiones contaminantes NTC 4231:2012, este será acelerado a su velocidad gobernada en varias ocasiones, por ende, el CDA no se hará responsable de algún daño que se presente si su vehículo no se encuentra en un adecuado estado de mantenimiento.\n
+        \n
+        26. Señor usuario tenga en cuenta que si usted presenta alguna restricción en su licencia de conducción por condición de discapacidad auditiva; nombradas en la resolución 20223040030355 DE 2022 serán evaluados los aspectos nombrados en el artículo 2 y anexo técnico de la presente resolución.26. Señor usuario tenga en cuenta que si usted presenta alguna restricción en su licencia de conducción por condición de discapacidad auditiva; nombradas en la resolución 20223040030355 DE 2022 serán evaluados los aspectos nombrados en el artículo 2 y anexo técnico de la presente resolución.\n
+        \n
+        27. Señor usuario tenga en cuenta que en caso de que se presente una inconsistencia entre los datos registrados en la tarjeta de propiedad y los físicos del vehículo tales como (color, combustible, entre otros) el CDA le hará firmar un documento en el cual usted como usuario se compromete a realizar los cambios pertinentes ante la autoridad de tránsito y se procederá a certificar el vehículo en caso de que apruebe ante el RUNT como datos inconsistentes.\n
+    </string>
 </resources>

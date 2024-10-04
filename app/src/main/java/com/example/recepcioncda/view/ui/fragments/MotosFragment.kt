@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.recepcioncda.R
 import com.example.recepcioncda.view.ui.activities.LoginActivity
@@ -35,6 +36,8 @@ class MotosFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_motos, container, false)
+        nombreRecepcionista = view.findViewById(R.id.nombreRecepcionistaMotos)
+        nombreRecepcionista.text = Usuario.nombre?: "Usuario desconocido"
         presionAdelante = view.findViewById(R.id.delanteraEdit)
         presionAdelante.transformationMethod = null
         presionAtras = view.findViewById(R.id.traseraEdit)
@@ -84,6 +87,7 @@ class MotosFragment : Fragment() {
             if(presionAdelanteValue.isNotEmpty() && presionAtrasValue.isNotEmpty()) {
                 Formulario.presiondIz = presionAdelante.text.toString().toIntOrNull()
                 Formulario.presiontIz = presionAtras.text.toString().toIntOrNull()
+                findNavController().navigate(R.id.action_motosFragment_to_ingresoFragment)
             }
             else{ Toast.makeText(requireContext(), "Revise espacios en blanco", Toast.LENGTH_SHORT).show() }
         }

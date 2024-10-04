@@ -16,6 +16,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
         </include>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="Recepcionista: "
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_black"
+            android:layout_marginEnd="580dp">
+        </TextView>
+        <TextView
+            android:id="@+id/nombreRecepcionistaLiviano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="NOMBRE DEL RECEPCIONISTA"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_black"
+            android:layout_marginStart="210dp"
+            android:layout_marginEnd="100dp">
+        </TextView>
     </RelativeLayout>
     <!-- _____________________________________ -->
     <RelativeLayout
@@ -25,23 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/stylo_borde_formulario">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Recepcionista: "
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_marginEnd="580dp">
-        </TextView>
-        <TextView
-            android:id="@+id/nombreRecepcionistaLiviano"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_marginStart="210dp"
-            android:layout_marginEnd="300dp">
-        </TextView>
+
     </RelativeLayout>
     <!-- Layout para ingresar las presiones del vehículo liviano -->
     <RelativeLayout
@@ -102,6 +108,7 @@
             android:id="@+id/delanteraIzquierdaEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Psi"
             android:textSize="50dp"
             android:textAlignment="center"
@@ -114,6 +121,7 @@
             android:id="@+id/delanteraDerechaEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Psi"
             android:textSize="50dp"
             android:textAlignment="center"
@@ -166,6 +174,7 @@
             android:id="@+id/traseraDerechaEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Psi"
             android:textSize="50dp"
             android:textAlignment="center"
@@ -178,6 +187,7 @@
             android:id="@+id/traseraIzquierdaEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Psi"
             android:textSize="50dp"
             android:textAlignment="center"
@@ -216,6 +226,7 @@
             android:id="@+id/repuestoEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Psi"
             android:textSize="50dp"
             android:textAlignment="center"
@@ -242,6 +253,7 @@
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:id="@+id/nav_view"
         app:menu="@menu/menu_navigation_bar"
         android:layout_gravity="start"
         android:fitsSystemWindows="true">

@@ -18,33 +18,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
         </include>
-    </RelativeLayout>
-    <!-- _____________________________________ -->
-    <RelativeLayout
-        android:id="@+id/nombreRecepcionistaLayoutLiviano"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="1150dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/stylo_borde_formulario">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Recepcionista: "
+            android:layout_marginTop="80dp"
             android:textSize="30dp"
             android:textStyle="bold"
+            android:textColor="@color/color_black"
             android:layout_marginEnd="580dp">
         </TextView>
         <TextView
-            android:id="@+id/nombreRecepcionistaLiviano"
+            android:id="@+id/nombreRecepcionistaMotos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
             android:textSize="30dp"
             android:textStyle="bold"
+            android:text="NOMBRE DEL RECEPCIONISTA"
+            android:textColor="@color/color_black"
             android:layout_marginStart="210dp"
-            android:layout_marginEnd="300dp">
+            android:layout_marginEnd="100dp">
         </TextView>
     </RelativeLayout>
+    <!-- _____________________________________ -->
     <!-- Layout para ingresar las presiones de la moto -->
     <RelativeLayout
         android:layout_width="match_parent"

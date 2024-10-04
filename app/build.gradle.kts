@@ -1,5 +1,8 @@
 @file:Suppress("UNUSED_EXPRESSION")
 
+import java.util.regex.Pattern.compile
+
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -8,7 +11,6 @@ plugins {
 android {
     namespace = "com.example.recepcioncda"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "com.example.recepcioncda"
         minSdk = 26
@@ -42,7 +44,7 @@ android {
 }
 
 dependencies {
-
+    compile("com.kyanogen.signatureview:signature-view:1.2")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -53,9 +55,9 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.android.material:material:1.13.0-alpha01")
     implementation("mysql:mysql-connector-java:8.0.31")
-    //implementation("com.github.VishnuSivadasVS:Advanced-HttpURLConnection:1.2")
     implementation("com.android.volley:volley:1.2.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
 }
