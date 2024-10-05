@@ -3,7 +3,7 @@ package com.example.recepcioncda.view.ui.fragments
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.telecom.Call
+//import android.telecom.Call
 import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -18,7 +18,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.findNavController
-import com.android.volley.Response
+//import com.android.volley.Response
 import com.example.recepcioncda.R
 import com.example.recepcioncda.view.ui.activities.LoginActivity
 import com.example.recepcioncda.view.ui.models.Conductor
@@ -33,6 +33,9 @@ import kotlin.reflect.KMutableProperty0
 import okhttp3.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Response
 
 private lateinit var corregir: Button
 private lateinit var guardarDatos: Button
@@ -97,6 +100,12 @@ class FirmaFragment : Fragment() {
         guardarDatos.setOnClickListener{
             saveSignature(signatureView, Formulario::firmaUno)
             saveSignature(signatureView, Formulario::firmaDos)
+            enviarDatosAlServidor()
+            Usuario.nombre = null  // Se limpia la variable global del usuario
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            requireActivity().finish()
         }
         return view
     }
@@ -140,10 +149,10 @@ class FirmaFragment : Fragment() {
         // Crear el formulario con los datos
         val formBody = FormBody.Builder()
             .add("fecha", obtenerFechaActual() ?: "")
-            .add("entrada", Formulario.entrada ?: "") // Cambia esto por el valor real
+            .add("num_formato", Formulario.num_formato?.toString() ?: "0")
+            .add("entrada", Formulario.entrada ?: "")
             .add("hora_ent", obtenerHoraActual() ?: "")
-            .add("cedula_id", (Conductor.idDriver ?: "") as String) // Cambia esto por el valor real
-            .add("condicion_1", Formulario.cond1 ?: "") // Cambia por los valores reales
+            .add("condicion_1", Formulario.cond1 ?: "")
             .add("condicion_2", Formulario.cond2 ?: "")
             .add("condicion_3", Formulario.cond3 ?: "")
             .add("condicion_4", Formulario.cond4 ?: "")
@@ -160,19 +169,21 @@ class FirmaFragment : Fragment() {
             .add("condicion_15", Formulario.cond15 ?: "")
             .add("condicion_16", Formulario.cond16 ?: "")
             .add("condicion_17", Formulario.cond17 ?: "")
-            .add("presiond_de", (Formulario.presiondDe ?: "") as String)
-            .add("presiond_iz", (Formulario.presiondIz ?: "") as String)
-            .add("presiont_de", (Formulario.presiontDe ?: "") as String)
-            .add("presiont_iz", (Formulario.presiondIz ?: "") as String)
-            .add("repuesto", (Formulario.presionRep ?: "") as String)
-            // Agrega el resto de condiciones aquí
-            .add("firma_1cond", Formulario.firmaUno?.let { bitmapToBase64(it) } ?: "")
-            .add("firma_2cond", Formulario.firmaDos?.let { bitmapToBase64(it) } ?: "")
+            .add("presiond_de", Formulario.presiondDe?.toString() ?: "0")
+            .add("presiond_iz", Formulario.presiondIz?.toString() ?: "0")
+            .add("presiont_de", Formulario.presiontDe?.toString() ?: "0")
+            .add("presiont_iz", Formulario.presiontIz?.toString() ?: "0")
+            .add("repuesto", Formulario.presionRep?.toString() ?: "0")
+            .add("firma1_cond", Formulario.firmaUno?.let { bitmapToBase64(it) } ?: "")
+            .add("firma2_cond", Formulario.firmaDos?.let { bitmapToBase64(it) } ?: "")
+            .add("observaciones", Formulario.observ ?: "")
+            .add("hora_sal", obtenerHoraActual() ?: "")
             .build()
+        Log.d("Datos Enviados", formBody.toString())
 
         // Crear la solicitud POST
         val request = Request.Builder()
-            .url("http://tu-servidor.com/ruta/a/tu/script.php") // Cambia la URL por la de tu servidor
+            .url("http://192.168.0.115/recepcion/save.php") // URL del servidor
             .post(formBody)
             .build()
 
@@ -181,6 +192,7 @@ class FirmaFragment : Fragment() {
             override fun onFailure(call: Call, e: IOException) {
                 e.printStackTrace()
                 // Manejar error de red aquí
+                Log.e("Error de Red", e.message ?: "Error desconocido")
             }
 
             override fun onResponse(call: Call, response: Response) {
