@@ -27,6 +27,7 @@ object Formulario{
     var presiontIz: Int? = null
     var presiontDe: Int? = null
     var presionRep: Int? = null
+    var discapacidades: String? = null
     var observ: String? = null
     var firmaUno: Bitmap? = null
     var firmaDos: Bitmap? = null

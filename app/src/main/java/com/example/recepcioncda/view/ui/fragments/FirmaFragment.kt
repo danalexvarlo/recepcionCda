@@ -25,6 +25,7 @@ import com.example.recepcioncda.view.ui.models.Conductor
 import com.example.recepcioncda.view.ui.models.Formulario
 import com.example.recepcioncda.view.ui.models.SignatureView
 import com.example.recepcioncda.view.ui.models.Usuario
+import com.example.recepcioncda.view.ui.models.Vehiculo
 import com.google.android.material.navigation.NavigationView
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -36,6 +37,9 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 private lateinit var corregir: Button
 private lateinit var guardarDatos: Button
@@ -100,7 +104,9 @@ class FirmaFragment : Fragment() {
         guardarDatos.setOnClickListener{
             saveSignature(signatureView, Formulario::firmaUno)
             saveSignature(signatureView, Formulario::firmaDos)
-            enviarDatosAlServidor()
+            enviarDatosDelConductor()
+            enviarDatosDelVehiculo()
+            enviarDatosDelFormulario()
             Usuario.nombre = null  // Se limpia la variable global del usuario
             val intent = Intent(requireContext(), LoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -111,13 +117,13 @@ class FirmaFragment : Fragment() {
     }
 
     private fun obtenerFechaActual(): String {
-        val fechaFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
-        return fechaFormat.format(Date())
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        return LocalDate.now().format(formatter)
     }
 
     fun obtenerHoraActual(): String {
-        val horaFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
-        return horaFormat.format(Date())
+        val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
+        return LocalTime.now().format(formatter)
     }
 
     private fun cerrarSesion() { //Función para cerrar sesión y volver al login
@@ -141,14 +147,107 @@ class FirmaFragment : Fragment() {
             Toast.makeText(requireContext(), "No hay firma para guardar", Toast.LENGTH_SHORT).show()
         }
     }
-
-    private fun enviarDatosAlServidor() {
+    private fun enviarDatosDelConductor() {
         // Crear un cliente OkHttp
         val client = OkHttpClient()
-
         // Crear el formulario con los datos
         val formBody = FormBody.Builder()
-            .add("fecha", obtenerFechaActual() ?: "")
+            .add("tipo_d", Conductor.tipoDocumento ?: "CC")
+            .add("nombre_cond", Conductor.nombre ?: "")
+            .add("direccion", Conductor.adress ?: "")
+            .add("telefono", Conductor.phone ?: "")
+            .add("correo", Conductor.email ?: "")
+            .add("disc_licencia", Formulario.discapacidades ?: "")
+            .add("documento", Conductor.idDriver?.toString() ?: "0.0")
+            .build()
+        Log.d("Datos Enviados", formBody.toString())
+
+        // Crear la solicitud POST
+        val request = Request.Builder()
+            .url("http://192.168.0.115/recepcion/conductor.php") // URL del servidor
+            .post(formBody)
+            .build()
+
+        // Ejecutar la solicitud
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                e.printStackTrace()
+                // Manejar error de red aquí
+                Log.e("Error de Red", e.message ?: "Error desconocido")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
+                    // Manejar respuesta exitosa
+                    val respuesta = response.body?.string()
+                    Log.d("Respuesta", respuesta ?: "Sin respuesta")
+                } else {
+                    // Manejar error en la respuesta
+                    Log.e("Error", "Código de respuesta: ${response.code}")
+                }
+            }
+        })
+    }
+    private fun enviarDatosDelVehiculo() {
+        // Crear un cliente OkHttp
+        val client = OkHttpClient()
+        // Crear el vehiculo con los datos
+        val formBody = FormBody.Builder()
+            .add("placa", Vehiculo.placa ?: "")
+            .add("marca", Vehiculo.marca ?: "")
+            .add("modelo", Vehiculo.modelo?.toString() ?: "")
+            .add("color", Vehiculo.color ?: "")
+            .add("kilometraje", Vehiculo.kilometraje?.toString() ?: "")
+            .add("clase_veh", Vehiculo.clasVeh ?: "")
+            .add("tipo_motor", Vehiculo.tipoMotor ?: "No aplica")
+            .add("tipo_serv", Vehiculo.tipoServ ?: "")
+            .add("blindado", Vehiculo.blindado ?: "No")
+            .add("potencia", Vehiculo.potencia?.toString() ?: "")
+            .add("num_pasajeros", Vehiculo.numPasaj?.toString() ?: "")
+            .add("tarj_op", Vehiculo.tarjOp ?: "")
+            .add("lic_trans", Vehiculo.licTrans ?: "")
+            .add("veh_gas", Vehiculo.vehGas ?: "No aplica")
+            .add("soat", Vehiculo.soat ?: "")
+            .add("fecha_gas", Vehiculo.fechaGas ?: "2024-01-01")
+            .build()
+        Log.d("Datos Enviados", formBody.toString())
+
+        // Crear la solicitud POST
+        val request = Request.Builder()
+            .url("http://192.168.0.115/recepcion/vehiculo.php") // URL del servidor
+            .post(formBody)
+            .build()
+
+        // Ejecutar la solicitud
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                e.printStackTrace()
+                // Manejar error de red aquí
+                Log.e("Error de Red", e.message ?: "Error desconocido")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
+                    // Manejar respuesta exitosa
+                    val respuesta = response.body?.string()
+                    Log.d("Respuesta", respuesta ?: "Sin respuesta")
+                } else {
+                    // Manejar error en la respuesta
+                    Log.e("Error", "Código de respuesta: ${response.code}")
+                }
+            }
+        })
+    }
+    private fun enviarDatosDelFormulario() {
+        // Crear un cliente OkHttp
+        val client = OkHttpClient()
+        val fechaActual = obtenerFechaActual() ?: run {
+            Log.e("Error", "La fecha es inválida o nula.")
+            return // Detener la ejecución si la fecha es inválida
+        }
+        // Crear el formulario con los datos
+        val formBody = FormBody.Builder()
+            .add("fecha", fechaActual?: "")
             .add("num_formato", Formulario.num_formato?.toString() ?: "0")
             .add("entrada", Formulario.entrada ?: "")
             .add("hora_ent", obtenerHoraActual() ?: "")

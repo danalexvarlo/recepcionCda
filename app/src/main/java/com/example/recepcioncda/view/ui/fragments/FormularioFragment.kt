@@ -45,6 +45,8 @@ import org.json.JSONException
 import org.w3c.dom.Text
 import java.net.URLEncoder
 import java.text.Normalizer.Form
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 lateinit var nombreRecepcionista:TextView //Nombre del recepcionista
 
@@ -142,6 +144,8 @@ class FormularioFragment : Fragment() {
         //------ Se inicializan las variables para mostrar el nombre del recepcionista ------ //
         nombreRecepcionista = view.findViewById(R.id.nombreRecepcionista)
         nombreRecepcionista.text = Usuario.nombre ?: "Usuario desconocido"
+        //------ Se inicializan los radioButton para seleccionar si el conductor tiene discapacidades ------ //
+        radioGroupDiscapacidades = view.findViewById(R.id.radioGroupDiscapacidades)
         noDiscapacidad = view.findViewById(R.id.radioNoDiscapacidad)
         //------ Se implementa el navView para navegación del menú lateral ------ //
         val navView: NavigationView = view.findViewById(R.id.nav_view)
@@ -244,6 +248,14 @@ class FormularioFragment : Fragment() {
             when(checkedId){ // Verifica cuál RadioButton está seleccionado
                 R.id.primeraVez -> { Formulario.entrada = primeraVez.text.toString() }
                 R.id.segundaVez -> { Formulario.entrada = segundaVez.text.toString() }
+            }
+        }
+        radioGroupDiscapacidades.setOnCheckedChangeListener{group, checkedId ->
+            siDiscapacidad = view.findViewById(R.id.radioSiDiscapacidad)
+            noDiscapacidad = view.findViewById(R.id.radioNoDiscapacidad)
+            when(checkedId){ // Verifica cuál RadioButton está seleccionado
+                R.id.radioSiDiscapacidad -> { Formulario.discapacidades = siDiscapacidad.text.toString() }
+                R.id.radioNoDiscapacidad -> { Formulario.discapacidades = noDiscapacidad.text.toString() }
             }
         }
         // Se guarda si el vehículo es convertido a gas
@@ -398,17 +410,30 @@ class FormularioFragment : Fragment() {
         }
     }
 
-    private fun mostrarFechaSoat(){
+    private fun mostrarFechaSoat() {
         val calendario = Calendar.getInstance()
         val year = calendario.get(Calendar.YEAR)
         val mes = calendario.get(Calendar.MONTH)
         val dia = calendario.get(Calendar.DAY_OF_MONTH)
+
         val datePickerDialog = DatePickerDialog(requireContext(),
-            {_, selectedYear, selectedMonth, selectedDay ->
-                val fechaSeleccionada = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-                soat.setText(fechaSeleccionada)
+            { _, selectedYear, selectedMonth, selectedDay ->
+                // Crear un objeto Calendar con la fecha seleccionada
+                val fechaSeleccionada = Calendar.getInstance().apply {
+                    set(Calendar.YEAR, selectedYear)
+                    set(Calendar.MONTH, selectedMonth)
+                    set(Calendar.DAY_OF_MONTH, selectedDay)
+                }
+
+                // Formatear la fecha a "yyyy-MM-dd"
+                val formatoFecha = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val fechaFormateada = formatoFecha.format(fechaSeleccionada.time)
+
+                // Establecer la fecha formateada en el EditText
+                soat.setText(fechaFormateada)
             },
-            year, mes, dia)
+            year, mes, dia
+        )
         datePickerDialog.show()
     }
 
@@ -418,9 +443,20 @@ class FormularioFragment : Fragment() {
         val mes = calendario.get(Calendar.MONTH)
         val dia = calendario.get(Calendar.DAY_OF_MONTH)
         val datePickerDialog = DatePickerDialog(requireContext(),
-            {_, selectedYear, selectedMonth, selectedDay ->
-                val fechaSeleccionada = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-                vigenciaGas.setText(fechaSeleccionada)
+            { _, selectedYear, selectedMonth, selectedDay ->
+                // Crear un objeto Calendar con la fecha seleccionada
+                val fechaSeleccionada = Calendar.getInstance().apply {
+                    set(Calendar.YEAR, selectedYear)
+                    set(Calendar.MONTH, selectedMonth)
+                    set(Calendar.DAY_OF_MONTH, selectedDay)
+                }
+
+                // Formatear la fecha a "yyyy-MM-dd"
+                val formatoFecha = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val fechaFormateada = formatoFecha.format(fechaSeleccionada.time)
+
+                // Establecer la fecha formateada en el EditText
+                vigenciaGas.setText(fechaFormateada)
             },
             year, mes, dia)
         datePickerDialog.show()
