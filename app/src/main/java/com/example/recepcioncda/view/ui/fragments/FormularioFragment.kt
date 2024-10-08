@@ -42,6 +42,7 @@ import com.example.recepcioncda.view.ui.models.Vehiculo
 import com.example.recepcioncda.view.ui.models.Formulario
 import org.json.JSONArray
 import org.json.JSONException
+import org.json.JSONObject
 import org.w3c.dom.Text
 import java.net.URLEncoder
 import java.text.Normalizer.Form
@@ -52,6 +53,8 @@ lateinit var nombreRecepcionista:TextView //Nombre del recepcionista
 
 private val URL = "http://192.168.0.113/recepcion/fetch.php"
 private lateinit var requestQueue: RequestQueue
+//Se inicializan las variables para el número del formulario siguiente
+private lateinit var formularioSiguiente: TextView
 // RadioGroups para los RadioButton de entrada por primera o segunda vez
 private lateinit var radioGroupEntrada: RadioGroup
 private lateinit var primeraVez: RadioButton
@@ -87,9 +90,7 @@ private lateinit var vigencia: TextView
 private lateinit var licenciaTransito: RadioGroup
 private lateinit var licenciaSi: RadioButton
 private lateinit var licenciaNo: RadioButton
-
-private lateinit var texto: TextView
-
+// Se inicializan los radioGroup de las discapacidades
 private lateinit var radioGroupDiscapacidades: RadioGroup
 private lateinit var siDiscapacidad: RadioButton
 private lateinit var noDiscapacidad: RadioButton
@@ -104,7 +105,12 @@ class FormularioFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_formulario, container, false)
         requestQueue = Volley.newRequestQueue(requireContext())
-        texto = view.findViewById(R.id.pautaunoText)
+        // Agrego al fragmento el número del siguiente formato
+        formularioSiguiente = view.findViewById(R.id.numeroFormulario)
+        obtenerSiguienteFormato { siguienteFormato ->
+            formularioSiguiente.text = siguienteFormato.toString()
+        }
+        // ------ Se inicializa la fecha de vigencia del gas ------ //
         vigencia = view.findViewById(R.id.vigenciaText)
         //------ Se inicializan las variables de los datos del conductor ------ //
         nombre = view.findViewById(R.id.editNombreConductor)
@@ -189,7 +195,6 @@ class FormularioFragment : Fragment() {
         for (i in 1..17) {
             inicializarRadioGroup(view, i)
         }
-        texto.setOnClickListener{ Toast.makeText(requireContext(),Formulario.cond1, Toast.LENGTH_SHORT).show() }
         vigencia.setOnClickListener{ Toast.makeText(requireContext(),Vehiculo.fechaGas, Toast.LENGTH_SHORT).show() }
         val nextFormulario = view.findViewById<Button>(R.id.siguienteButton)
         nextFormulario.setOnClickListener() {
@@ -205,6 +210,7 @@ class FormularioFragment : Fragment() {
             Vehiculo.placa = placa.text.toString()
             Vehiculo.marca = marca.text.toString()
             Vehiculo.modelo = modeloVehiculo.text.toString().toIntOrNull()
+            Vehiculo.color = color.text.toString()
             Vehiculo.soat = soat.text.toString()
             Vehiculo.potencia = potencia.text.toString().toIntOrNull()
             Vehiculo.numPasaj = numPasajeros.text.toString().toIntOrNull()
@@ -309,7 +315,7 @@ class FormularioFragment : Fragment() {
         )
         setupSpinners(
             view, R.id.spinnerDiscapacidadAuditiva, arrayOf(
-                "Perdida auditiva leve PAL",
+                "No aplica", "Perdida auditiva leve PAL",
                 "Perdida auditiva moderada PAM", "Perdida auditiva moderadamente severa PAMS",
                 "Perdida auditiva grave PAG", "Perdida auditiva profunda PAP"
             )
@@ -460,5 +466,37 @@ class FormularioFragment : Fragment() {
             },
             year, mes, dia)
         datePickerDialog.show()
+    }
+
+    //Consulta el último formato hecho y le suma uno
+    private fun obtenerSiguienteFormato(callback: (Int) -> Unit) {
+        // Aquí harías la solicitud para obtener el siguiente formato
+        val urlUltimoFormato = "https://70a2-186-117-205-2.ngrok-free.app/recepcion/fetch.php" // Cambia esto a tu URL real
+
+        val stringRequest = StringRequest(
+            Request.Method.GET,
+            urlUltimoFormato,
+            Response.Listener<String> { response ->
+                try {
+                    val jsonResponse = JSONObject(response)
+                    val ultimoFormato = jsonResponse.getInt("ultimo_formato")
+                    // Almacena o utiliza el último formato más uno según sea necesario
+                    Formulario.num_formato = ultimoFormato.toString().toFloatOrNull() ?: 0f
+                    Log.d("UltimoFormato", "El siguiente formulario es: $ultimoFormato")
+
+                    // Llama al callback con el siguiente formato
+                    callback(ultimoFormato)
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                    Toast.makeText(requireContext(), "Error al procesar el último formato", Toast.LENGTH_SHORT).show()
+                }
+            },
+            Response.ErrorListener { error ->
+                Log.e("VolleyError", error.toString())
+                Toast.makeText(requireContext(), "Error al obtener el último formato: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        )
+
+        requestQueue.add(stringRequest)
     }
 }

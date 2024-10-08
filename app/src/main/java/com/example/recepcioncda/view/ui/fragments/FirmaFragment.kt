@@ -159,12 +159,13 @@ class FirmaFragment : Fragment() {
             .add("correo", Conductor.email ?: "")
             .add("disc_licencia", Formulario.discapacidades ?: "")
             .add("documento", Conductor.idDriver?.toString() ?: "0.0")
+            .add("tipo_disc", Conductor.disc_licencia ?: "")
             .build()
         Log.d("Datos Enviados", formBody.toString())
 
         // Crear la solicitud POST
         val request = Request.Builder()
-            .url("http://192.168.0.115/recepcion/conductor.php") // URL del servidor
+            .url("https://70a2-186-117-205-2.ngrok-free.app/recepcion/conductor.php") // URL del servidor
             .post(formBody)
             .build()
 
@@ -200,6 +201,7 @@ class FirmaFragment : Fragment() {
             .add("kilometraje", Vehiculo.kilometraje?.toString() ?: "")
             .add("clase_veh", Vehiculo.clasVeh ?: "")
             .add("tipo_motor", Vehiculo.tipoMotor ?: "No aplica")
+            .add("tipo_comb", Vehiculo.tipoComb ?: "")
             .add("tipo_serv", Vehiculo.tipoServ ?: "")
             .add("blindado", Vehiculo.blindado ?: "No")
             .add("potencia", Vehiculo.potencia?.toString() ?: "")
@@ -214,7 +216,7 @@ class FirmaFragment : Fragment() {
 
         // Crear la solicitud POST
         val request = Request.Builder()
-            .url("http://192.168.0.115/recepcion/vehiculo.php") // URL del servidor
+            .url("https://70a2-186-117-205-2.ngrok-free.app/recepcion/vehiculo.php") // URL del servidor
             .post(formBody)
             .build()
 
@@ -248,7 +250,7 @@ class FirmaFragment : Fragment() {
         // Crear el formulario con los datos
         val formBody = FormBody.Builder()
             .add("fecha", fechaActual?: "")
-            .add("num_formato", Formulario.num_formato?.toString() ?: "0")
+            .add("num_formato", Formulario.num_formato?.toString() ?: "1")
             .add("entrada", Formulario.entrada ?: "")
             .add("hora_ent", obtenerHoraActual() ?: "")
             .add("condicion_1", Formulario.cond1 ?: "")
@@ -282,7 +284,7 @@ class FirmaFragment : Fragment() {
 
         // Crear la solicitud POST
         val request = Request.Builder()
-            .url("http://192.168.0.115/recepcion/save.php") // URL del servidor
+            .url("https://70a2-186-117-205-2.ngrok-free.app/recepcion/save.php") // URL del servidor
             .post(formBody)
             .build()
 
