@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var usuario: EditText
     lateinit var contrasena: EditText
 
-    private val URL1 = "https://70a2-186-117-205-2.ngrok-free.app/recepcion/fetch.php"
+    private val URL1 = "http://192.168.0.115/recepcion/fetch.php"
     private lateinit var requestQueue: RequestQueue
 
     @SuppressLint("MissingInflatedId")
@@ -57,7 +57,11 @@ class LoginActivity : AppCompatActivity() {
 
                 // Validar campos vacíos
                 if (usuarioText.isEmpty() || contrasenaText.isEmpty()) {
-                    Toast.makeText(baseContext, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext,
+                        "Por favor, complete todos los campos",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 }
                 val urlWithParams = "$URL1?usuario=${URLEncoder.encode(usuarioText, "UTF-8")}"
@@ -69,37 +73,56 @@ class LoginActivity : AppCompatActivity() {
                         Log.d("RawResponse", response)
                         try {
                             val cleanedResponse = response.trim()
-                            val jsonResponse = JSONObject(cleanedResponse) // Ajustar según tu respuesta
-
-                            val password = jsonResponse.getString("contrasena")
-                            if (password == contrasenaText) {
-                                Usuario.nombre = jsonResponse.getString("nombre")
-                                Toast.makeText(baseContext, "INICIO DE SESIÓN EXITOSO", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, HomeActivity::class.java))
+                            val jsonArray = JSONArray(cleanedResponse) // Cambia a JSONArray
+                            if (jsonArray.length() > 0) {
+                                val jsonResponse =
+                                    jsonArray.getJSONObject(0) // Obtén el primer objeto del array
+                                val password = jsonResponse.getString("contrasena")
+                                if (password == contrasenaText) {
+                                    Usuario.nombre = jsonResponse.getString("nombre")
+                                    Toast.makeText(
+                                        baseContext,
+                                        "INICIO DE SESIÓN EXITOSO",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    startActivity(Intent(this, HomeActivity::class.java))
+                                } else {
+                                    Toast.makeText(
+                                        baseContext,
+                                        "USUARIO O CONTRASEÑA INCORRECTOS",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             } else {
-                                Toast.makeText(baseContext, "USUARIO O CONTRASEÑA INCORRECTOS", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    baseContext,
+                                    "USUARIO O CONTRASEÑA INCORRECTOS",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         } catch (e: JSONException) {
                             e.printStackTrace()
-                            Toast.makeText(baseContext, "Error al procesar la respuesta", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                baseContext,
+                                "Error al procesar la respuesta",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     },
                     Response.ErrorListener { error ->
                         Log.e("VolleyError", error.toString())
                         error.printStackTrace()
-                        Toast.makeText(baseContext, "Error de red: ${error.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            baseContext,
+                            "Error de red: ${error.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 )
-
-                stringRequest.retryPolicy = DefaultRetryPolicy(
-                    5000,
-                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
-                )
-
+                // Agrega la solicitud a la cola de Volley (asegúrate de tener tu RequestQueue inicializado)
                 requestQueue.add(stringRequest)
             } else {
-                Toast.makeText(baseContext, "No hay conexión a Internet", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "Sin conexión a Internet", Toast.LENGTH_SHORT).show()
             }
         }
     }

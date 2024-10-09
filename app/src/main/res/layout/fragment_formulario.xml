@@ -190,8 +190,8 @@
                                 android:layout_marginEnd="440dp"
                                 android:textColor="@color/color_black"
                                 android:layout_below="@+id/nombreConductorCard"></TextView>
-                            <EditText
-                                android:id="@+id/editTipodoctConductor"
+                            <Spinner
+                                android:id="@+id/spinnerTipodoctConductor"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="330dp"
@@ -199,7 +199,7 @@
                                 android:background="@drawable/stylo_borde_login"
                                 android:hint="Ingrese tipo documento"
                                 android:textAlignment="center"
-                                android:textColor="@color/color_black"></EditText>
+                                android:textColor="@color/color_black"></Spinner>
                             <!-- SE CREA UN EDIT TEXT PARA INGRESAR EL DOCUMENTO DEL CONDUCTOR -->
                             <TextView
                                 android:id="@+id/documentoConductor"

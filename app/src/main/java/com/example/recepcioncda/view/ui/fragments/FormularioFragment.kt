@@ -61,7 +61,7 @@ private lateinit var primeraVez: RadioButton
 private lateinit var segundaVez: RadioButton
 //DATOS DEL CONDUCTOR
 private lateinit var nombre: EditText
-private lateinit var tipoDocumento: EditText
+private lateinit var tipoDocumento: Spinner
 private lateinit var documento: EditText
 private lateinit var direccion: EditText
 private lateinit var telefono: EditText
@@ -114,7 +114,7 @@ class FormularioFragment : Fragment() {
         vigencia = view.findViewById(R.id.vigenciaText)
         //------ Se inicializan las variables de los datos del conductor ------ //
         nombre = view.findViewById(R.id.editNombreConductor)
-        tipoDocumento = view.findViewById(R.id.editTipodoctConductor)
+        tipoDocumento = view.findViewById(R.id.spinnerTipodoctConductor)
         documento = view.findViewById(R.id.editDocumentoConductor)
         documento.transformationMethod = null
         direccion = view.findViewById(R.id.editDireccionConductor)
@@ -200,7 +200,6 @@ class FormularioFragment : Fragment() {
         nextFormulario.setOnClickListener() {
             // Se guardan los datos del conductor en un modelo temporal
             Conductor.nombre = nombre.text.toString()
-            Conductor.tipoDocumento = tipoDocumento.text.toString()
             Conductor.idDriver = documento.text.toString().toFloatOrNull()
             Conductor.adress = direccion.text.toString()
             Conductor.phone = telefono.text.toString()
@@ -296,6 +295,11 @@ class FormularioFragment : Fragment() {
             }
         }
         setupSpinners(
+            view, R.id.spinnerTipodoctConductor, arrayOf(
+                "Cédula de ciudadanía", "Cédula de extranjería", "Otro"
+            )
+        )
+        setupSpinners(
             view, R.id.spinnerTipoCombustible, arrayOf(
                 "Gasolina", "Gas/Gasolina", "Diesel",
                 "Eléctrico", "Híbrido", "Otro"
@@ -388,6 +392,9 @@ class FormularioFragment : Fragment() {
             ) {
                 val selectedOption = parent.getItemAtPosition(position) as String
                 when (spinnerId) {
+                    R.id.spinnerTipodoctConductor -> {
+                        Conductor.tipoDocumento = selectedOption
+                    }
                     R.id.spinnerTipoCombustible -> {
                         Vehiculo.tipoComb = selectedOption
                     }
