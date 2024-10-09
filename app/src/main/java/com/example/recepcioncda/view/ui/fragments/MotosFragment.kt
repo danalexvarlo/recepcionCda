@@ -87,7 +87,7 @@ class MotosFragment : Fragment() {
             if(presionAdelanteValue.isNotEmpty() && presionAtrasValue.isNotEmpty()) {
                 Formulario.presiondIz = presionAdelante.text.toString().toIntOrNull()
                 Formulario.presiontIz = presionAtras.text.toString().toIntOrNull()
-                findNavController().navigate(R.id.action_motosFragment_to_ingresoFragment)
+                findNavController().navigate(R.id.action_motosFragment_to_observacionesFragment)
             }
             else{ Toast.makeText(requireContext(), "Revise espacios en blanco", Toast.LENGTH_SHORT).show() }
         }

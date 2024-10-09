@@ -20,12 +20,10 @@ import com.example.recepcioncda.view.ui.activities.LoginActivity
 import com.example.recepcioncda.view.ui.models.Formulario
 import com.example.recepcioncda.view.ui.models.Usuario
 import com.google.android.material.navigation.NavigationView
-private lateinit var ejeDelantero: EditText
-private lateinit var ejeTraseroDerecho: EditText
-private lateinit var ejeTraseroIzquierdo: EditText
-private lateinit var repuesto: EditText
+private lateinit var observaciones: EditText
+private lateinit var siguienteButton: Button
 
-class MotocarroFragment : Fragment() {
+class ObservacionesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     lateinit var toggle: ActionBarDrawerToggle
 
@@ -39,21 +37,18 @@ class MotocarroFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_motocarro, container, false)
-        nombreRecepcionista = view.findViewById(R.id.nombreRecepcionistaMotocarro)
+        val view = inflater.inflate(R.layout.fragment_observaciones, container, false)
+        // ------ Se crea la variable del nombre del recepcionista y se le asigna un valor
+        nombreRecepcionista = view.findViewById(R.id.nombreRecepcionistaObservaciones)
         nombreRecepcionista.text = Usuario.nombre?: "Usuario desconocido"
-        ejeDelantero = view.findViewById(R.id.ejeDelanteroMotocarroEdit)
-        ejeDelantero.transformationMethod = null
-        ejeTraseroIzquierdo = view.findViewById(R.id.traseraIzquierdaMotocarroEdit)
-        ejeTraseroIzquierdo.transformationMethod = null
-        ejeTraseroDerecho = view.findViewById(R.id.traseraDerechaMotocarroEdit)
-        ejeTraseroDerecho.transformationMethod = null
-        repuesto = view.findViewById(R.id.repuestoMotocarroEdit)
+        // ------ Se implementa el EditText y Button del fragmento ------ //
+        observaciones = view.findViewById(R.id.editObservaciones)
+        siguienteButton = view.findViewById(R.id.observacionesSiguienteButton)
         //------ Se implementa el navView para navegación del menú lateral ------ //
         val navView: NavigationView = view.findViewById(R.id.nav_view)
         //------ Se implementa el menú desplegable lateral ------ //
-        val toolbar: Toolbar = view.findViewById(R.id.toolbar_motocarro)
-        val drawerLayout: DrawerLayout = view.findViewById(R.id.motocarroFragment)
+        val toolbar: Toolbar = view.findViewById(R.id.toolbar_observaciones)
+        val drawerLayout: DrawerLayout = view.findViewById(R.id.drawerObservaciones)
         toggle = ActionBarDrawerToggle(
             this.requireContext() as AppCompatActivity,
             drawerLayout, toolbar, R.string.open, R.string.close
@@ -67,6 +62,7 @@ class MotocarroFragment : Fragment() {
                 drawerLayout.openDrawer(GravityCompat.START)
             }
         }
+
         navView.setNavigationItemSelectedListener() {
             when (it.itemId) {
                 R.id.homeBar -> { //Item para regresar al Home
@@ -81,28 +77,12 @@ class MotocarroFragment : Fragment() {
             }
             true
         }
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val buttonSiguiente = view.findViewById<Button>(R.id.siguientePresionesMotocarroButton)
-        buttonSiguiente.setOnClickListener{
-            val presionAdelanteValue = ejeDelantero.text.toString().trim()
-            val presionTraseroIzquierdoValue = ejeTraseroIzquierdo.text.toString().trim()
-            val presionTraseroDerechoValue = ejeTraseroDerecho.text.toString().trim()
-            val presionRepuestoValue = repuesto.text.toString().trim()
-            if(presionAdelanteValue.isNotEmpty() && presionTraseroIzquierdoValue.isNotEmpty()
-                && presionTraseroIzquierdoValue.isNotEmpty() && presionTraseroDerechoValue.isNotEmpty()
-                && presionRepuestoValue.isNotEmpty()) {
-                Formulario.presiondIz = ejeDelantero.text.toString().toIntOrNull()
-                Formulario.presiontIz = ejeTraseroIzquierdo.text.toString().toIntOrNull()
-                Formulario.presiontDe = ejeTraseroDerecho.text.toString().toIntOrNull()
-                Formulario.presionRep = repuesto.text.toString().toIntOrNull()
-                findNavController().navigate(R.id.action_motocarroFragment_to_fragment_observaciones)
-            }
-            else{ Toast.makeText(requireContext(), "Revise espacios en blanco", Toast.LENGTH_SHORT).show() }
+        // ------ Se agrega la funcionalidad del botón ------ //
+        siguienteButton.setOnClickListener{
+            Formulario.observ = observaciones.text.toString()
+            findNavController().navigate(R.id.action_fragment_observaciones_to_fragment_ingreso)
         }
+        return view
     }
 
     private fun cerrarSesion() { //Función para cerrar sesión y volver al login

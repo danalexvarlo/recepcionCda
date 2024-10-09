@@ -101,7 +101,7 @@ class LivianoFragment : Fragment() {
                 Formulario.presiontIz = ejeDosIzquierda.text.toString().toIntOrNull()
                 Formulario.presiontDe = ejeDosDerecha.text.toString().toIntOrNull()
                 Formulario.presionRep = repuestoLiviano.text.toString().toIntOrNull()
-                findNavController().navigate(R.id.action_livianoFragment_to_fragment_ingreso)
+                findNavController().navigate(R.id.action_livianoFragment_to_observacionesFragment)
             }
             else{ Toast.makeText(requireContext(), "Revise espacios en blanco", Toast.LENGTH_SHORT).show() }
         }

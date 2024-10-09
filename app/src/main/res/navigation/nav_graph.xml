@@ -36,8 +36,8 @@
         android:label="fragment_liviano"
         tools:layout="@layout/fragment_liviano" >
         <action
-            android:id="@+id/action_livianoFragment_to_fragment_ingreso"
-            app:destination="@id/fragment_ingreso" />
+            android:id="@+id/action_livianoFragment_to_observacionesFragment"
+            app:destination="@id/observacionesFragment" />
     </fragment>
     <fragment
         android:id="@+id/motosFragment"
@@ -45,8 +45,8 @@
         android:label="fragment_motos"
         tools:layout="@layout/fragment_motos">
         <action
-            android:id="@+id/action_motosFragment_to_ingresoFragment"
-            app:destination="@+id/fragment_ingreso"/>
+            android:id="@+id/action_motosFragment_to_observacionesFragment"
+            app:destination="@+id/observacionesFragment"/>
     </fragment>
     <fragment
         android:id="@+id/motocarroFragment"
@@ -54,8 +54,8 @@
         android:label="fragment_motocarro"
         tools:layout="@layout/fragment_motocarro">
         <action
-            android:id="@+id/action_motocarroFragment_to_fragment_ingreso"
-            app:destination="@id/fragment_ingreso" />
+            android:id="@+id/action_motocarroFragment_to_fragment_observaciones"
+            app:destination="@id/observacionesFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_ingreso"
@@ -71,6 +71,15 @@
         android:name="com.example.recepcioncda.view.ui.fragments.FirmaFragment"
         android:label="fragment_firma"
         tools:layout="@layout/fragment_firma">
+    </fragment>
+    <fragment
+        android:id="@+id/observacionesFragment"
+        android:name="com.example.recepcioncda.view.ui.fragments.ObservacionesFragment"
+        android:label="fragment_observaciones"
+        tools:layout="@layout/fragment_observaciones">
+        <action
+            android:id="@+id/action_fragment_observaciones_to_fragment_ingreso"
+            app:destination="@id/fragment_ingreso" />
     </fragment>
     <activity
         android:id="@+id/loginActivity"

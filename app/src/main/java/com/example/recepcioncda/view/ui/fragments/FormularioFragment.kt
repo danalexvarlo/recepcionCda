@@ -51,7 +51,7 @@ import java.util.Locale
 
 lateinit var nombreRecepcionista:TextView //Nombre del recepcionista
 
-private val URL = "http://192.168.0.113/recepcion/fetch.php"
+private val URL = "http://192.168.0.113/"
 private lateinit var requestQueue: RequestQueue
 //Se inicializan las variables para el número del formulario siguiente
 private lateinit var formularioSiguiente: TextView
@@ -110,6 +110,7 @@ class FormularioFragment : Fragment() {
         obtenerSiguienteFormato { siguienteFormato ->
             formularioSiguiente.text = siguienteFormato.toString()
         }
+        Formulario.num_formato = formularioSiguiente.text.toString().toFloatOrNull()
         // ------ Se inicializa la fecha de vigencia del gas ------ //
         vigencia = view.findViewById(R.id.vigenciaText)
         //------ Se inicializan las variables de los datos del conductor ------ //
@@ -192,6 +193,14 @@ class FormularioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        radioGroupEntrada.setOnCheckedChangeListener{group, checkedId ->
+            primeraVez = view.findViewById(R.id.primeraVez)
+            segundaVez = view.findViewById(R.id.segundaVez)
+            when(checkedId){ // Verifica cuál RadioButton está seleccionado
+                R.id.primeraVez -> { Formulario.entrada = primeraVez.text.toString() }
+                R.id.segundaVez -> { Formulario.entrada = segundaVez.text.toString() }
+            }
+        }
         for (i in 1..17) {
             inicializarRadioGroup(view, i)
         }
@@ -214,7 +223,6 @@ class FormularioFragment : Fragment() {
             Vehiculo.potencia = potencia.text.toString().toIntOrNull()
             Vehiculo.numPasaj = numPasajeros.text.toString().toIntOrNull()
             Vehiculo.fechaGas = vigenciaGas.text.toString()
-            Toast.makeText(requireContext(), Vehiculo.fechaGas, Toast.LENGTH_SHORT).show()
             Toast.makeText(requireContext(), Formulario.entrada, Toast.LENGTH_SHORT).show()
             Log.d("Formulario", "Datos Vehiculo: ${Vehiculo.fechaGas}")
             if(Vehiculo.clasVeh == "Motocarro"){
@@ -247,14 +255,6 @@ class FormularioFragment : Fragment() {
             }
         }
         // Se guarda el ingreso en una variable global
-        radioGroupEntrada.setOnCheckedChangeListener{group, checkedId ->
-            primeraVez = view.findViewById(R.id.primeraVez)
-            segundaVez = view.findViewById(R.id.segundaVez)
-            when(checkedId){ // Verifica cuál RadioButton está seleccionado
-                R.id.primeraVez -> { Formulario.entrada = primeraVez.text.toString() }
-                R.id.segundaVez -> { Formulario.entrada = segundaVez.text.toString() }
-            }
-        }
         radioGroupDiscapacidades.setOnCheckedChangeListener{group, checkedId ->
             siDiscapacidad = view.findViewById(R.id.radioSiDiscapacidad)
             noDiscapacidad = view.findViewById(R.id.radioNoDiscapacidad)
@@ -478,7 +478,7 @@ class FormularioFragment : Fragment() {
     //Consulta el último formato hecho y le suma uno
     private fun obtenerSiguienteFormato(callback: (Int) -> Unit) {
         // Aquí harías la solicitud para obtener el siguiente formato
-        val urlUltimoFormato = "https://70a2-186-117-205-2.ngrok-free.app/recepcion/fetch.php" // Cambia esto a tu URL real
+        val urlUltimoFormato = "http://192.168.0.115/recepcion/numeros_formatos.php" // Cambia esto a tu URL real
 
         val stringRequest = StringRequest(
             Request.Method.GET,
